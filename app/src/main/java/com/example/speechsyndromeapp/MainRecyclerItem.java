@@ -7,6 +7,11 @@ public abstract class MainRecyclerItem {
         mText = text;
     }
 
+
+    public void click(){
+        mText = "CLICKED";
+    }
+
     public String getmText() {
         return mText;
     }

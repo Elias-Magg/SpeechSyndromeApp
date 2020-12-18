@@ -1,13 +1,17 @@
 package com.example.speechsyndromeapp;
 
+import java.util.ArrayList;
+
 public class MainRecyclerButton extends MainRecyclerItem {
-    private String msomething;
-    public MainRecyclerButton(String text,String something) {
+    //keywords for search function
+    private ArrayList<String> mKeywords;
+    public MainRecyclerButton(String text,ArrayList<String> keywords) {
         super(text);
-        msomething=something;
+        mKeywords = keywords;
     }
 
-    public String getMsomething() {
-        return msomething;
+
+    public ArrayList<String> getKeywords() {
+        return mKeywords;
     }
 }
