@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private RecyclerView mRecyclerView;
     private MainRecyclerViewAdapter mAdapter;
     private RecyclerView.LayoutManager mLayouteManager;
-    private ArrayList<MainRecyclerItem> mExampleList;
+    private ArrayList<MainRecyclerItem> mCardList;
     private DrawerLayout drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
@@ -53,27 +54,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         ArrayList<String> tmp = new ArrayList<>();
 
-        mExampleList = new ArrayList<>();
-        mExampleList.add(new MainRecyclerButton("Line 1",tmp));
-        mExampleList.add(new MainRecyclerLettering("------------a-------------"));
-        mExampleList.add(new MainRecyclerButton("Line 1",tmp));
-        mExampleList.add(new MainRecyclerLettering("------------a-------------"));
-        mExampleList.add(new MainRecyclerButton("Line 1",tmp));
-        mExampleList.add(new MainRecyclerLettering("------------a-------------"));
-        mExampleList.add(new MainRecyclerButton("Line 1",tmp));
-        mExampleList.add(new MainRecyclerButton("Line 1",tmp));
-        mExampleList.add(new MainRecyclerButton("Line 1",tmp));
-        mExampleList.add(new MainRecyclerButton("Line 1",tmp));
-        mExampleList.add(new MainRecyclerButton("Line 1",tmp));
-        mExampleList.add(new MainRecyclerButton("Line 1",tmp));
-        mExampleList.add(new MainRecyclerButton("Line 1",tmp));
-        mExampleList.add(new MainRecyclerButton("Line 1",tmp));
-        mExampleList.add(new MainRecyclerButton("Line 1",tmp));
-        mExampleList.add(new MainRecyclerButton("Line 1",tmp));
-        mExampleList.add(new MainRecyclerButton("Line 1",tmp));
-        mExampleList.add(new MainRecyclerButton("Line 1",tmp));
-        mExampleList.add(new MainRecyclerButton("Line 1",tmp));
-        mExampleList.add(new MainRecyclerButton("Line 1",tmp));
+        mCardList = new ArrayList<>();
+        mCardList.add(new MainRecyclerButton("Line 1",tmp));
+        mCardList.add(new MainRecyclerLettering("------------a-------------"));
+        mCardList.add(new MainRecyclerButton("Line 1",tmp));
+        mCardList.add(new MainRecyclerLettering("------------a-------------"));
+        mCardList.add(new MainRecyclerButton("Line 1",tmp));
+        mCardList.add(new MainRecyclerLettering("------------a-------------"));
+        mCardList.add(new MainRecyclerButton("Line 1",tmp));
+        mCardList.add(new MainRecyclerButton("Line 1",tmp));
+        mCardList.add(new MainRecyclerButton("Line 1",tmp));
+        mCardList.add(new MainRecyclerButton("Line 1",tmp));
+        mCardList.add(new MainRecyclerButton("Line 1",tmp));
+        mCardList.add(new MainRecyclerButton("Line 1",tmp));
+        mCardList.add(new MainRecyclerButton("Line 1",tmp));
+        mCardList.add(new MainRecyclerButton("Line 1",tmp));
+        mCardList.add(new MainRecyclerButton("Line 1",tmp));
+        mCardList.add(new MainRecyclerButton("Line 1",tmp));
+        mCardList.add(new MainRecyclerButton("Line 1",tmp));
+        mCardList.add(new MainRecyclerButton("Line 1",tmp));
+        mCardList.add(new MainRecyclerButton("Line 1",tmp));
+        mCardList.add(new MainRecyclerButton("Line 1",tmp));
 
         buildRecyclerView();
 
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()== R.id.search_bar){
-            if(mExampleList.get(0) instanceof MainRecyclerSearch) removeItem(0);
+            if(mCardList.get(0) instanceof MainRecyclerSearch) removeItem(0);
             else insertItem(0, new MainRecyclerSearch("Write Something Here !"));
         }
 
@@ -105,8 +106,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(this,"Sources",Toast.LENGTH_LONG).show();
                 break;
             case R.id.AboutUs:
-                Toast.makeText(this,"AboutUs",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(this, AboutActivity.class);
+                startActivity(intent);
                 break;
+            default:
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -116,15 +119,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mRecyclerView = findViewById(R.id.main_recyclerview);
         mRecyclerView.setHasFixedSize(true);
         mLayouteManager = new LinearLayoutManager(this);
-        mAdapter = new MainRecyclerViewAdapter(mExampleList);
+        mAdapter = new MainRecyclerViewAdapter(mCardList);
 
         mRecyclerView.setLayoutManager(mLayouteManager);
         mRecyclerView.setAdapter(mAdapter);
-
         mAdapter.setOnItemClickListener(new MainRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                mExampleList.get(position).click();
+                mCardList.get(position).click();
                 mAdapter.notifyItemChanged(position);
             }
         });
@@ -132,14 +134,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void insertItem(int position, MainRecyclerItem item) {
-        mExampleList.add(position,item);
+        mCardList.add(position,item);
         //notifyDataChanged for no animation
         mAdapter.notifyItemInserted(position);
         mLayouteManager.scrollToPosition(0);
     }
 
     public void removeItem(int position) {
-        mExampleList.remove(position);
+        mCardList.remove(position);
         mAdapter.notifyItemRemoved(position);
     }
 
