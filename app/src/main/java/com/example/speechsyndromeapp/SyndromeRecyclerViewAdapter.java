@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.lang.annotation.Documented;
 import java.util.ArrayList;
 
 public class SyndromeRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -26,6 +27,32 @@ public class SyndromeRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
         }
 
         public void setTextData(SyndromeRecyclerText text){
+            mTextView.setText(text.getMtext());
+        }
+    }
+
+    public static class TitleViewHolder extends RecyclerView.ViewHolder{
+        private TextView mTextView;
+
+        public TitleViewHolder(@NonNull View itemView){
+            super(itemView);
+            mTextView = itemView.findViewById(R.id.syndrome_recycler_title);
+        }
+
+        public void setTextData(SyndromeRecyclerTitle text){
+            mTextView.setText(text.getMtext());
+        }
+    }
+
+    public static class CodeViewHolder extends RecyclerView.ViewHolder{
+        private TextView mTextView;
+
+        public CodeViewHolder(@NonNull View itemView){
+            super(itemView);
+            mTextView = itemView.findViewById(R.id.syndrome_recycler_code);
+        }
+
+        public void setTextData(SyndromeRecyclerCode text){
             mTextView.setText(text.getMtext());
         }
     }
@@ -65,10 +92,22 @@ public class SyndromeRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
                     )
             );
 
-        else
+        else if (viewType == 2)
             return new ImageViewHolder(
                     LayoutInflater.from(parent.getContext()).inflate(
                             R.layout.syndrome_recycler_images, parent, false
+                    )
+            );
+        else if(viewType == 3)
+            return new CodeViewHolder(
+                    LayoutInflater.from(parent.getContext()).inflate(
+                            R.layout.syndrome_recycler_code, parent, false
+                    )
+            );
+        else
+            return new TitleViewHolder(
+                    LayoutInflater.from(parent.getContext()).inflate(
+                            R.layout.syndrome_recycler_title, parent, false
                     )
             );
     }
@@ -83,6 +122,14 @@ public class SyndromeRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
             SyndromeRecyclerImages imgs = (SyndromeRecyclerImages) mCardList.get(position);
             ((ImageViewHolder) holder).setImageData(imgs);
         }
+        else if(getItemViewType(position)==3){
+            SyndromeRecyclerCode code = (SyndromeRecyclerCode) mCardList.get(position);
+            ((CodeViewHolder) holder).setTextData(code);
+        }
+        else if(getItemViewType(position)==4){
+            SyndromeRecyclerTitle title = (SyndromeRecyclerTitle) mCardList.get(position);
+            ((TitleViewHolder) holder).setTextData(title);
+        }
     }
 
     @Override
@@ -95,6 +142,9 @@ public class SyndromeRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerVi
     public int getItemViewType(int position) {
         if(mCardList.get(position) instanceof SyndromeRecyclerText) return 1;
         else if (mCardList.get(position) instanceof SyndromeRecyclerImages) return 2;
+        else if (mCardList.get(position) instanceof SyndromeRecyclerCode) return 3;
+        else if (mCardList.get(position) instanceof SyndromeRecyclerTitle) return 4;
         else return 0;
     }
+
 }

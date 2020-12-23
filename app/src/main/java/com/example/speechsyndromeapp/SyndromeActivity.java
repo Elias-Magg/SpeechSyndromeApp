@@ -32,12 +32,15 @@ public class SyndromeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         SyndromeData data = intent.getParcelableExtra(MainActivity.EXTRA_SYNDROME_DATA);
 
-        mCardList.add(new SyndromeRecyclerText(data.getTitle()));
-        mCardList.add(new SyndromeRecyclerText(data.getCode()));
+        mCardList = new ArrayList<>();
+
+        mCardList.add(new SyndromeRecyclerTitle(data.getTitle()));
+        mCardList.add(new SyndromeRecyclerCode(data.getCode()));
         ArrayList<Integer> images = data.getImages();
         for(int i = 0; i < images.size(); i = i + 2){
             if((i+2)>images.size()){
                 mCardList.add(new SyndromeRecyclerImages(images.get(i),R.drawable.ic_baseline_missing));
+                break;
             }
             mCardList.add(new SyndromeRecyclerImages(images.get(i),images.get(i+1)));
         }

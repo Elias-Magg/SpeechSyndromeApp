@@ -9,7 +9,6 @@ public abstract class MainRecyclerItem {
 
 
     public void click(){
-        mText = "CLICKED";
     }
 
     public String getmText() {

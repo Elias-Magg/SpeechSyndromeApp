@@ -27,6 +27,7 @@ public class SyndromeData implements Parcelable {
     }
 
     protected SyndromeData(Parcel in) {
+        images = in.readArrayList(Integer.class.getClassLoader());
         textFile = in.readInt();
         code = in.readString();
         title = in.readString();
@@ -92,9 +93,11 @@ public class SyndromeData implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeList(images);
         dest.writeInt(textFile);
         dest.writeString(code);
         dest.writeString(title);
         dest.writeString(source);
+
     }
 }
