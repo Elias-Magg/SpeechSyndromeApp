@@ -30,6 +30,9 @@ import java.util.Objects;
 import java.util.concurrent.RecursiveAction;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    public static final String EXTRA_SYNDROME_DATA = "com.example.speechsyndromeapp.EXTRA_SYNDROME_DATA";
+
+
     private RecyclerView mRecyclerView;
     private MainRecyclerViewAdapter mAdapter;
     private RecyclerView.LayoutManager mLayouteManager;
