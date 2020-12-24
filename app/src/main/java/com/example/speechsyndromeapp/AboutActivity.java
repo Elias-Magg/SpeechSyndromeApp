@@ -3,18 +3,20 @@ package com.example.speechsyndromeapp;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Objects;
 
 
 public class AboutActivity extends AppCompatActivity {
 
     private TextView aboutText;
-    private ImageView aboutLogo;
-    private ImageView aboutBranchLogo;
 
 
     @SuppressLint("SetTextI18n")
@@ -23,9 +25,9 @@ public class AboutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about_activity);
 
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+
         aboutText = findViewById(R.id.about_text_view);
-        aboutLogo = findViewById(R.id.about_image_view);
-        aboutBranchLogo = findViewById(R.id.about_branch_logo);
 
         aboutText.setText("Λίγα λόγια για την εφαρμογή μας...\n" +
                 "Η εφαρμογή αυτή δημιουργήθηκε στα πλαίσια της πτυχιακής εργασίας της φοιτήτριας Οκουμούση Χριστίνας του τμήματος Λογοθεραπείας του Πανεπιστημίου Πατρών, με υπεύθυνη καθηγήτρια την Δρ Αιμιλία Μίχου. Σκοπός της εφαρμογής είναι η συλλογή και η παρουσίαση επιστημονικά ορθών δεδομένων σχετικών με γενετικά σύνδρομα που αφορούν άμεσα με την επιστήμη της Λογοθεραπείας. Όλα τα δεδομένα προέρχονται από πρόσφατα δημοσιευμένες έρευνεςσε θέματα όπως στοματοπροσωπικές / ανατομικές ανωμαλίες, επιπτώσεις στην ακοή, στο λόγο, την ομιλία και την κατάποση. Σε κάθε σύνδρομο που αναλύεται υπάρχει βιβλιογραφική αναφορά, εικόνες και οι κωδικοί ICD-10 και ORPHA. \n" +
@@ -52,5 +54,14 @@ public class AboutActivity extends AppCompatActivity {
                 "\n" +
                 "\n" +
                 "Πηγή: http://logoth.upatras.gr/  \n");
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if(item.getItemId() == android.R.id.home) finish();
+
+
+
+        return true;
     }
 }

@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             else insertItem(0, new MainRecyclerSearch("Write Something Here !"));
         }
 
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 
     @Override
@@ -602,7 +602,44 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 kallmann_syndrome_img
         )));
 
+        //kabuki_syndrome
+
+        ArrayList<Integer> kabuki_syndrome_img = new ArrayList<>();
+        kabuki_syndrome_img.add(R.drawable.kabuki_syndrome_1);
+        kabuki_syndrome_img.add(R.drawable.kabuki_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Σύνδρομο Kabuki (Kabuki syndrome)",tmp,new SyndromeData(
+                "Σύνδρομο Kabuki (Kabuki syndrome)",
+                R.raw.kabuki_syndrome,"ICD-10: Q87.8\n" +
+                "ORPHA: 2322\n",
+                "Βιβλιογραφία (Σύνδρομο Kabuki)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/kabuki-syndrome/\n" +
+                        "2. Natália Silva-Andrade et al., \" Orofacial features and medical profile of eight individuals with Kabuki syndrome\" Med Oral Patol Oral Cir Bucal. 2019 Sep;\n" +
+                        "24(5): e630–e635",
+                kabuki_syndrome_img
+        )));
+
         mCardList.add(new MainRecyclerLettering("Λ"));
+
+        //miller_dieker_syndrome
+
+        ArrayList<Integer> miller_dieker_syndrome_img = new ArrayList<>();
+        miller_dieker_syndrome_img.add(R.drawable.miller_dieker_syndrome1);
+        miller_dieker_syndrome_img.add(R.drawable.miller_dieker_syndrome2);
+        mCardList.add(new MainRecyclerButton("Σύνδρομο Miller Dieker - Λυσεγκεφαλία (Miller Dieker syndrome - Lissencephaly)",tmp,new SyndromeData(
+                "Σύνδρομο Miller Dieker - Λυσεγκεφαλία (Miller Dieker syndrome - Lissencephaly)",
+                R.raw.miller_dieker_syndrome,"ICD-10: Q04.3\n" +
+                "ORPHA:531\n",
+                "Βιβλιογραφία (Σύνδρομο Miller Dieker)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/lissencefali/\n" +
+                        "2. Young Jin Kim et al. \" Miller-Dieker Syndrome with der(17)t(12;17)(q24.33;p13.3)pat Presenting with a Potential Risk of Mis-identification as a de\n" +
+                        "novo Submicroscopic Deletion of 17p13.3\" Korean J Lab Med. 2011 Jan; 31(1): 49–53.\n" +
+                        "3. Linda Mahgoub et al. \" Miller–Dieker Syndrome Associated with Congenital Lobar Emphysema\" AJP Rep. 2014 May; 4(1): 13–16.\n" +
+                        "4. Valeria Capra et al. \" Identification of a rare 17p13.3 duplication including the BHLHA9 and YWHAE genes in a family with developmental delay and\n" +
+                        "behavioural problems\" BMC Med Genet. 2012; 13: 93.",
+                miller_dieker_syndrome_img
+        )));
+
+
 
         mCardList.add(new MainRecyclerLettering("Μ"));
 
@@ -647,6 +684,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         "Hendriksz, Maurizio Scarpa, MPS Consensus Programme Steering Committee, and MPS Consensus Programme Co-Chairs, \" Recommendations for the\n" +
                         "management of MPS VI: systematic evidence- and consensus-based guidance\" , Orphanet J Rare Dis. 2019",
                 maroteaux_lamy_syndrome_img
+
+        )));
+
+
+        //marker_chromosome_15_syndrome_1
+
+        ArrayList<Integer> marker_chromosome_15_syndrome_img = new ArrayList<>();
+        marker_chromosome_15_syndrome_img.add(R.drawable.marker_chromosome_15_syndrome_1);
+        mCardList.add(new MainRecyclerButton("Σύνδρομο χρωμοσωμικού δείκτη 15 (Marker chromosome 15 syndrome)",tmp,new SyndromeData(
+                "Σύνδρομο χρωμοσωμικού δείκτη 15 (Marker chromosome 15 syndrome)",
+                R.raw.marker_chromosome_15_syndrome,"ICD-10: Q99.8\n" +
+                "ORPHA: 3306\n",
+                "Βιβλιογραφία (Σύνδρομο χρωμοσωμικού δείκτη 15)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/marker-chromosome-15-syndrome/\n" +
+                        "2. Altuğ Koç et al. \" Supernumerary marker chromosome 15 in a male with azoospermia and open bite deformity\" Asian J Androl. 2009 Sep; 11(5): 617–622.",
+                marker_chromosome_15_syndrome_img
+
+        )));
+
+        //mobius_syndrome
+
+        ArrayList<Integer> mobius_syndrome_img = new ArrayList<>();
+        mobius_syndrome_img.add(R.drawable.mobius_syndrome_1);
+        mobius_syndrome_img.add(R.drawable.mobius_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Σύνδρομο Möbius (Möbius syndrome)",tmp,new SyndromeData(
+                "Σύνδρομο Möbius (Möbius syndrome)",
+                R.raw.mobius_syndrome,"ICD-10: Q87.0W\n" +
+                "ORPHA: 570\n",
+                "Βιβλιογραφία (Σύνδρομο Möbius)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/mobius-syndrome/\n" +
+                        "2. Zelita Caldeira Ferreira Guedes \" Möbius Syndrome: Misoprostol Use and Speech and Language Characteristics\" Int Arch Otorhinolaryngol. 2014 Jul; 18(3):\n" +
+                        "239–243.\n" +
+                        "3. Ann W. Kummer \"Cleft Palate and Cranioofacial Anomalies: Effects on Speech and Resonanace\", Second Edition, Delmar Cengage Learning 2008,5:138-139",
+                mobius_syndrome_img
 
         )));
 
@@ -778,6 +849,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         mCardList.add(new MainRecyclerLettering("Ρ"));
 
+        //rett_syndrome
+
+        ArrayList<Integer> rett_syndrome_img = new ArrayList<>();
+        rett_syndrome_img.add(R.drawable.rett_syndrome_1);
+        rett_syndrome_img.add(R.drawable.rett_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Σύνδρομο Rett (Rett syndrome)",tmp,new SyndromeData(
+                "Σύνδρομο Rett (Rett syndrome)",
+                R.raw.rett_syndrome,"ICD-10: F84.2\n" +
+                "ORPHA: 778\n",
+                "Βιβλιογραφία (Σύνδρομο Rett)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/rett-syndrome/\n" +
+                        "2. Cary Fu et al., \"Consensus guidelines on managing Rett syndrome across the lifespan\", BMJ Paediatr Open. 2020; 4(1): e000717.\n" +
+                        "3. Helen Leonard et al., \" Assessment and management of nutrition and growth in Rett syndrome\" J Pediatr Gastroenterol Nutr. Author manuscript; available\n" +
+                        "in PMC 2014 Oct 1.",
+                rett_syndrome_img
+
+        )));
+
         mCardList.add(new MainRecyclerLettering("Σ"));
 
         //cmt_disease
@@ -880,6 +969,59 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         )));
 
+        //joubert_syndrome
+
+        ArrayList<Integer> joubert_syndrome_img = new ArrayList<>();
+        joubert_syndrome_img.add(R.drawable.joubert_syndrome_1);
+        joubert_syndrome_img.add(R.drawable.joubert_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Σύνδρομο Joubert (Joubert syndrome)",tmp,new SyndromeData(
+                "Σύνδρομο Joubert (Joubert syndrome)",
+                R.raw.joubert_syndrome,"ICD-10: G71.2\n" +
+                "ORPHA: 607\n",
+                "Βιβλιογραφία (Σύνδρομο Joubert)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/joubert-syndrome/\n" +
+                        "2. Melissa A. Parisi \" Clinical and molecular features of Joubert syndrome and related disorders\" Am J Med Genet C Semin Med Genet. 2009 Nov 15; 151C(4):\n" +
+                        "326–340.\n" +
+                        "3. Ahmed Farag Elhassanien and Hesham Abdel-Aziz Alghaiaty \" Joubert syndrome: Clinical and radiological characteristics of nine patients\" Ann Indian Acad\n" +
+                        "Neurol. 2013 Apr-Jun; 16(2): 239–244.",
+                joubert_syndrome_img
+
+        )));
+
+        //jacobsen_syndrome
+
+        ArrayList<Integer> jacobsen_syndrome_img = new ArrayList<>();
+        jacobsen_syndrome_img.add(R.drawable.jacobsen_syndrome_1);
+        jacobsen_syndrome_img.add(R.drawable.jacobsen_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Σύνδρομο Jacobsen (Jacobsen syndrome)",tmp,new SyndromeData(
+                "Σύνδρομο Jacobsen (Jacobsen syndrome)",
+                R.raw.jacobsen_syndrome,"ICD-10: Q93.5\n" +
+                "ORPHA:2308\n",
+                "Βιβλιογραφία (Σύνδρομο Jacobsen)\n" +
+                        "1. Teresa Mattina et al., \" Jacobsen syndrome\" Orphanet J Rare Dis. 2009; 4: 9.\n" +
+                        "2. https://rarediseases.info.nih.gov/diseases/307/jacobsen-syndrome",
+                jacobsen_syndrome_img
+
+        )));
+
+        //treacher_collins_syndrome
+
+        ArrayList<Integer> treacher_collins_syndrome_img = new ArrayList<>();
+        treacher_collins_syndrome_img.add(R.drawable.treacher_collins_syndrome_1);
+        treacher_collins_syndrome_img.add(R.drawable.treacher_collins_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Σύνδρομο Treacher Collins (Treacher Collins syndrome)",tmp,new SyndromeData(
+                "Σύνδρομο Treacher Collins (Treacher Collins syndrome)",
+                R.raw.treacher_collins_syndrome,"ICD-10: Q75.4\n" +
+                "ORPHA: 86\n",
+                "Βιβλιογραφία (Σύνδρομο Treacher Collins)\n" +
+                        "1. Pamela Åsten et al., \" Associations between speech features and phenotypic severity in Treacher Collins syndrome\" BMC Med Genet. 2014; 15: 47.\n" +
+                        "2. Karla Terrazas et al., \" Rare syndromes of the head and face: mandibulofacial and acrofacial dysostoses\" Wiley Interdiscip Rev Dev Biol. Author manuscript;\n" +
+                        "available in PMC 2018 May 1.\n" +
+                        "3. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/treacher-collins-syndrome/",
+                treacher_collins_syndrome_img
+
+        )));
+
 
         mCardList.add(new MainRecyclerLettering("Υ"));
 
@@ -936,21 +1078,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 "ORPHA: 580\n",
                 "Βιβλιογραφία (Σύνδρομο Hunter)",
                 hunter_syndrome_img
-
-        )));
-
-        //hunter_syndrome
-
-        ArrayList<Integer> marker_chromosome_15_syndrome_img = new ArrayList<>();
-        marker_chromosome_15_syndrome_img.add(R.drawable.marker_chromosome_15_syndrome_1);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο χρωμοσωμικού δείκτη 15 (Marker chromosome 15 syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο χρωμοσωμικού δείκτη 15 (Marker chromosome 15 syndrome)",
-                R.raw.marker_chromosome_15_syndrome,"ICD-10: Q99.8\n" +
-                "ORPHA: 3306\n",
-                "Βιβλιογραφία (Σύνδρομο χρωμοσωμικού δείκτη 15)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/marker-chromosome-15-syndrome/\n" +
-                        "2. Altuğ Koç et al. \" Supernumerary marker chromosome 15 in a male with azoospermia and open bite deformity\" Asian J Androl. 2009 Sep; 11(5): 617–622.",
-                marker_chromosome_15_syndrome_img
 
         )));
 
