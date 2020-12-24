@@ -4,6 +4,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,10 +14,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
+public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements Filterable {
 
     private ArrayList<MainRecyclerItem> mCardList;
+    private ArrayList<MainRecyclerItem> mCardListFull;
     private OnItemClickListener mListener;
 
 
@@ -82,6 +86,7 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     public MainRecyclerViewAdapter(ArrayList<MainRecyclerItem> cardList) {
         mCardList = cardList;
+        mCardListFull = new ArrayList<>(cardList);
     }
 
     @NonNull
@@ -138,4 +143,44 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         else if (mCardList.get(position) instanceof MainRecyclerSearch) return 3;
         else return 0;
     }
+
+    @Override
+    public Filter getFilter() {
+        return mainRecyclerFilter;
+    }
+
+    private Filter mainRecyclerFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<MainRecyclerItem> filteredList = new ArrayList<>();
+
+            if(constraint == null || constraint.length() == 0){
+                filteredList.addAll(mCardListFull);
+            }else{
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for (MainRecyclerItem item : mCardListFull){
+                    if(item instanceof MainRecyclerLettering) continue;
+                    for (String keyword : item.getKeywords()){
+                        if(keyword.toLowerCase().contains(filterPattern)){
+                            filteredList.add(item);
+
+                        }
+                    }
+                }
+
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            mCardList.clear();
+            mCardList.addAll((List)results.values);
+            notifyDataSetChanged();
+        }
+    };
+
 }

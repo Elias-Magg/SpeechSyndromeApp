@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.ActionMenuView;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -68,18 +69,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         inflater.inflate(R.menu.search_bar,menu);
 
+        MenuItem searchItem = menu.findItem(R.id.search_bar);
+        androidx.appcompat.widget.SearchView searchView = (androidx.appcompat.widget.SearchView) searchItem.getActionView();
+
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener(){
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                mAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
+
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId()== R.id.search_bar){
-            if(mCardList.get(0) instanceof MainRecyclerSearch) removeItem(0);
-            else insertItem(0, new MainRecyclerSearch("Write Something Here !"));
-        }
-
-        return true;
-    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -117,20 +126,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
 
-    public void insertItem(int position, MainRecyclerItem item) {
-        mCardList.add(position,item);
-        //notifyDataChanged for no animation
-        mAdapter.notifyItemInserted(position);
-        mLayouteManager.scrollToPosition(0);
-    }
-
-    public void removeItem(int position) {
-        mCardList.remove(position);
-        mAdapter.notifyItemRemoved(position);
+    @Override
+    public void onBackPressed() {
+        if(drawer.isDrawerOpen(GravityCompat.START))drawer.closeDrawer(GravityCompat.START);
+        else {
+            super.onBackPressed();
+        }
     }
 
     public void setData(){
         ArrayList<String> tmp = new ArrayList<>();
+        tmp.add("test");
 
         mCardList.add(new MainRecyclerLettering("A"));
 

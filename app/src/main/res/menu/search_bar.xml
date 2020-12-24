@@ -6,7 +6,8 @@
         android:title="@string/search"
         android:id="@+id/search_bar"
         android:icon="@drawable/ic_baseline_search_24"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"/>
 
 
 
