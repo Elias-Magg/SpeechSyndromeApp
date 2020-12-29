@@ -142,7 +142,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //achondroplasia
 
-        List<String> achondroplasia_keywords_tmp = Arrays.asList("Αχονδροπλασία ", "Q77.4", "15", "Μυϊκή αδυναμία", "υποπλασία", "ωτίτιδα ", "βαρηκοΐα ", "αναπνοή", "Καθυστέρηση ομιλίας ", "παλινδρόμηση");
+        List<String> achondroplasia_keywords_tmp = Arrays.asList("achondroplasia", "Αχονδροπλασία ", "Q77.4", "15", "Μυϊκή αδυναμία", "υποπλασία", "ωτίτιδα ",
+                "βαρηκοΐα ", "αναπνοή", "Καθυστέρηση ομιλίας ", "παλινδρόμηση");
         ArrayList<String> achondroplasia_keywords = new ArrayList<>(achondroplasia_keywords_tmp);
 
         ArrayList<Integer> achondroplasia_img = new ArrayList<>();
@@ -351,7 +352,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<Integer> incontinentia_pigmenti_bloch_sulzberger_syndrome_img = new ArrayList<>();
         incontinentia_pigmenti_bloch_sulzberger_syndrome_img.add(R.drawable.incontinentia_pigmenti_bloch_sulzberger_syndrome_1);
         incontinentia_pigmenti_bloch_sulzberger_syndrome_img.add(R.drawable.incontinentia_pigmenti_bloch_sulzberger_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Bloch-Sulzberger Syndrome",incontinentia_pigmenti_bloch_sulzberger_syndrome_keywords,new SyndromeData(
+        mCardList.add(new MainRecyclerButton("Bloch-Sulzberger syndrome",incontinentia_pigmenti_bloch_sulzberger_syndrome_keywords,new SyndromeData(
                 "Ακράτεια χρωστικής-Σύνδρομο Bloch-Sulzberger\n" +
                         "(Incontinentia pigmenti-Bloch-Sulzberger Syndrome)",
                 R.raw.incontinentia_pigmenti_bloch_sulzberger_syndrome,"ICD-10: Q82.3\n" +
@@ -587,7 +588,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<Integer> down_syndrome_img = new ArrayList<>();
         down_syndrome_img.add(R.drawable.down_syndrome_1);
         down_syndrome_img.add(R.drawable.down_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Down Syndrome",down_syndrome_keywords,new SyndromeData(
+        mCardList.add(new MainRecyclerButton("Down syndrome",down_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Down (Down Syndrome)",
                 R.raw.down_syndrome,"ICD-10: Q90.0 Q90.1 Q90.2 Q90.9\n" +
                 "ORPHA:870\n",
@@ -683,7 +684,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<Integer> gaucher_disease_img = new ArrayList<>();
         gaucher_disease_img.add(R.drawable.gaucher_disease_1);
         gaucher_disease_img.add(R.drawable.gaucher_disease_2);
-        mCardList.add(new MainRecyclerButton("Gaucher Disease",gaucher_disease_keywords,new SyndromeData(
+        mCardList.add(new MainRecyclerButton("Gaucher disease",gaucher_disease_keywords,new SyndromeData(
                 "Ασθένεια Gaucher (Gaucher Disease)",
                 R.raw.gaucher_disease,"CD-10: E75.2A\nORPHA: 355\n",
                 "Βιβλιογραφία (Ασθένεια Gaucher)\n" +
@@ -1185,7 +1186,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<Integer> pierre_robin_sequence_img = new ArrayList<>();
         pierre_robin_sequence_img.add(R.drawable.pierre_robin_sequence_1);
         pierre_robin_sequence_img.add(R.drawable.pierre_robin_sequence_2);
-        mCardList.add(new MainRecyclerButton("Pierre Robin Sequence",pierre_robin_sequence_keywords,new SyndromeData(
+        mCardList.add(new MainRecyclerButton("Pierre Robin sequence",pierre_robin_sequence_keywords,new SyndromeData(
                 "Ακολουθία Pierre Robin (Pierre Robin Sequence)",
                 R.raw.pierre_robin_sequence,"ICD-10: Q87.0\nORPHA:718\n",
                 "Βιβλιογραφία (Ακολουθία Pierre Robin)\n" +
@@ -1466,7 +1467,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<Integer> wilson_disease_img = new ArrayList<>();
         wilson_disease_img.add(R.drawable.wilson_disease_1);
         wilson_disease_img.add(R.drawable.wilson_disease_2);
-        mCardList.add(new MainRecyclerButton("Wilson Disease",wilson_disease_keywords,new SyndromeData(
+        mCardList.add(new MainRecyclerButton("Wilson disease",wilson_disease_keywords,new SyndromeData(
                 "Ασθένεια Wilson (Wilson Disease)",
                 R.raw.wilson_disease,"ICD-10: E83.0B\n" +
                 "ORPHA: 905\n",

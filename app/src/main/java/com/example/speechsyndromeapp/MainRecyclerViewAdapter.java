@@ -159,15 +159,15 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
                 filteredList.addAll(mCardListFull);
             }else{
                 String filterPattern = constraint.toString().toLowerCase().trim();
-                filterPattern = Normalizer.normalize(filterPattern, Normalizer.Form.NFD);
-                filterPattern = filterPattern.replaceAll("[^\\p{ASCII}]", "");
+                String filterPatternStripped = Normalizer.normalize(filterPattern, Normalizer.Form.NFD);
+                filterPatternStripped = filterPatternStripped.replaceAll("[^\\p{ASCII}]", "");
 
                 for (MainRecyclerItem item : mCardListFull){
                     if(item instanceof MainRecyclerLettering) continue;
                     for (String keyword : item.getKeywords()){
-                        String strippedKeyword = Normalizer.normalize(keyword, Normalizer.Form.NFD);
+                        String strippedKeyword = Normalizer.normalize(keyword.toLowerCase().trim(), Normalizer.Form.NFD);
                         strippedKeyword = strippedKeyword.replaceAll("[^\\p{ASCII}]", "");
-                        if(strippedKeyword.toLowerCase().trim().contains(filterPattern)){
+                        if(strippedKeyword.contains(filterPatternStripped) && !filteredList.contains(item)){
                             filteredList.add(item);
 
                         }
