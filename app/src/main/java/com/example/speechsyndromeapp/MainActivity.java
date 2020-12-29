@@ -27,6 +27,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.RecursiveAction;
 
@@ -135,127 +137,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void setData(){
-        ArrayList<String> tmp = new ArrayList<>();
-        tmp.add("test");
 
-        mCardList.add(new MainRecyclerLettering("A"));
-
-        //spinal_muscular_atrophy
-
-        ArrayList<Integer> spinal_muscular_atrophy_img = new ArrayList<>();
-        spinal_muscular_atrophy_img.add(R.drawable.spinal_muscular_atrophy_1);
-        spinal_muscular_atrophy_img.add(R.drawable.spinal_muscular_atrophy_2);
-        mCardList.add(new MainRecyclerButton("Ατροφία Νωτιαίου μυελού (Spinal muscular atrophy)-(SMA)",tmp,new SyndromeData(
-                "Ατροφία Νωτιαίου μυελού (Spinal muscular atrophy)-(SMA)",
-                R.raw.spinal_muscular_atrophy,"ICD-10: G12.0\nORPHA: 70\n",
-                "Βιβλιογραφία (SMA)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/spinal-muscular-atrophy/\n" +
-                        "2. Andrew P. Tosolini and James N. Sleigh,\" Motor Neuron Gene Therapy: Lessons from Spinal Muscular Atrophy for Amyotrophic Lateral Sclerosis\", Front Mol\n" +
-                        "Neurosci. 2017",
-                spinal_muscular_atrophy_img
-
-        )));
-
-        //incontinentia_pigmenti_bloch_sulzberger_syndrome
-
-        ArrayList<Integer> incontinentia_pigmenti_bloch_sulzberger_syndrome_img = new ArrayList<>();
-        incontinentia_pigmenti_bloch_sulzberger_syndrome_img.add(R.drawable.incontinentia_pigmenti_bloch_sulzberger_syndrome_1);
-        incontinentia_pigmenti_bloch_sulzberger_syndrome_img.add(R.drawable.incontinentia_pigmenti_bloch_sulzberger_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Ακράτεια χρωστικής-Σύνδρομο Bloch-Sulzberger\n" +
-                "(Incontinentia pigmenti-Bloch-Sulzberger Syndrome)",tmp,new SyndromeData(
-                "Ακράτεια χρωστικής-Σύνδρομο Bloch-Sulzberger\n" +
-                        "(Incontinentia pigmenti-Bloch-Sulzberger Syndrome)",
-                R.raw.incontinentia_pigmenti_bloch_sulzberger_syndrome,"ICD-10: Q82.3\n" +
-                "ORPHA:464\n",
-                "Βιβλιογραφία (Incontinentia pigmenti\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/incontinentia-pigmenti/\n" +
-                        "2. Cláudia Schermann Poziomczyk et al., \"Incontinentia pigmenti\", An Bras Dermatol., 2014.",
-                incontinentia_pigmenti_bloch_sulzberger_syndrome_img
-
-        )));
-
-        //aspartylglucosaminuria
-
-        ArrayList<Integer> aspartylglucosaminuria_img = new ArrayList<>();
-        aspartylglucosaminuria_img.add(R.drawable.aspartylglucosaminuria_1);
-        aspartylglucosaminuria_img.add(R.drawable.aspartylglucosaminuria_2);
-        mCardList.add(new MainRecyclerButton("Ακράτεια χρωστικής-Σύνδρομο Bloch-Sulzberger\n" +
-                "(Incontinentia pigmenti-Bloch-Sulzberger Syndrome)",tmp,new SyndromeData(
-                "Ακράτεια χρωστικής-Σύνδρομο Bloch-Sulzberger\n" +
-                        "(Incontinentia pigmenti-Bloch-Sulzberger Syndrome)",
-                R.raw.aspartylglucosaminuria,"ICD-10: E77.1\n" +
-                "ORPHA: 93\n",
-                "Βιβλιογραφία (AGU)\n" +
-                        "1. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.\n" +
-                        "2. https://www.genlab.gr/oloprosegkefalia/\n" +
-                        "3. https://emvriomitriki.gr/egkymosynh/evryikes-anwmalies/kentriko-neyriko-systhma/oloprosegkefalia\n" +
-                        "4. Manu S Raam et al., \"Holoprosencephaly: A Guide to Diagnosis and Clinical Management\", Indian Pediatr. 2011\n" +
-                        "5. Paul Kruszka and Maximilian Muenke ,\"Syndromes Associated with Holoprosencephaly\", Am J Med Genet C Semin Med Genet. 2018",
-                aspartylglucosaminuria_img
-
-        )));
-
-        //lchad_deficiency
-
-        ArrayList<Integer> lchad_deficiency_img = new ArrayList<>();
-        mCardList.add(new MainRecyclerButton("Ανεπάρκεια LCHAD (LCHAD deficiency)",tmp,new SyndromeData(
-                "Ανεπάρκεια LCHAD (LCHAD deficiency)",
-                R.raw.lchad_deficiency,"ICD-10: E71.3\n" +
-                "ORPHA: 5\n",
-                "Βιβλιογραφία (Ανεπάρκεια LCHAD)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/lchad-deficiency/",
-                lchad_deficiency_img
-
-        )));
-
-        //glut1_deficiency_syndrome
-
-        ArrayList<Integer> glut1_deficiency_syndrome_img = new ArrayList<>();
-        mCardList.add(new MainRecyclerButton("Ανεπάρκεια πρωτεΐνης μεταφορέα γλυκόζης τύπου 1\n" +
-                "(Glucose transporter protein type 1-deficiency- GLUT 1-deficiency syndrome)",tmp,new SyndromeData(
-                "Ανεπάρκεια πρωτεΐνης μεταφορέα γλυκόζης τύπου 1\n" +
-                        "(Glucose transporter protein type 1-deficiency- GLUT 1-deficiency syndrome)",
-                R.raw.glut1_deficiency_syndrome,"ICD-10: G93.4\n" +
-                "ORPHA: 71277\n",
-                "Βιβλιογραφία (Ανεπάρκεια GLUT1)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/huntingtons-disease/\n" +
-                        "2. N. E. Carlozzi et al.,\"HDQLIFE: The development of two new computer adaptive tests for use in Huntington disease, Speech Difficulties and Swallowing\",\n" +
-                        "Qual Life Res. 2016\n" +
-                        "3. Lena Hartelius et al., \" Speech disorders in mild and moderate Huntington disease: results of dysarthria assessments of 19 individuals\", Delmar Learning,\n" +
-                        "2003\n" +
-                        "4. Heemskerk AW, Roos RA., \"Dysphagia in Huntington's disease: a review.\", Epub 2010\n" +
-                        "5. Jan Rusz et al.,\" Phonatory Dysfunction as a Preclinical Symptom of Huntington Disease\", PLoS One. 2014",
-                glut1_deficiency_syndrome_img
-
-        )));
-
-
-        //osteogenesis_imperfecta_brittle_bone_disease
-
-        ArrayList<Integer> osteogenesis_imperfecta_brittle_bone_disease_img = new ArrayList<>();
-        osteogenesis_imperfecta_brittle_bone_disease_img.add(R.drawable.osteogenesis_imperfecta_brittle_bone_disease_1);
-        osteogenesis_imperfecta_brittle_bone_disease_img.add(R.drawable.osteogenesis_imperfecta_brittle_bone_disease_2);
-        mCardList.add(new MainRecyclerButton("Ατελής Οστεογένεση (Osteogenesis Imperfecta-Brittle bone disease)",tmp,new SyndromeData(
-                "Ατελής Οστεογένεση (Osteogenesis Imperfecta-Brittle bone disease)",
-                R.raw.osteogenesis_imperfecta_brittle_bone_disease,"ICD-10: Q78.0\n" +
-                "ORPHA:666\n",
-                "Βιβλιογραφία (Ατελής Οστεογέννεση)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/osteogenesis-imperfecta/\n" +
-                        "2. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.\n" +
-                        "3. Caroline Marr, Alison Seasman,and Nick Bishop, \"Managing the patient with osteogenesis imperfecta: a multidisciplinary approach\", J Multidiscip Healthc.\n" +
-                        "2017\n" +
-                        "4. Joseph P. Pillion, David Vernick, and Jay Shapiro,\" Hearing Loss in Osteogenesis Imperfecta: Characteristics and Treatment Considerations\", Genet Res Int.\n" +
-                        "2011",
-                osteogenesis_imperfecta_brittle_bone_disease_img
-
-        )));
+        mCardList.add(new MainRecyclerLettering("Α"));
 
         //achondroplasia
+
+        List<String> achondroplasia_keywords_tmp = Arrays.asList("Αχονδροπλασία ", "Q77.4", "15", "Μυϊκή αδυναμία", "υποπλασία", "ωτίτιδα ", "βαρηκοΐα ", "αναπνοή", "Καθυστέρηση ομιλίας ", "παλινδρόμηση");
+        ArrayList<String> achondroplasia_keywords = new ArrayList<>(achondroplasia_keywords_tmp);
 
         ArrayList<Integer> achondroplasia_img = new ArrayList<>();
         achondroplasia_img.add(R.drawable.achondroplasia_1);
         achondroplasia_img.add(R.drawable.achondroplasia_2);
-        mCardList.add(new MainRecyclerButton("Αχονδροπλασία (Achondroplasia)",tmp,new SyndromeData(
+        mCardList.add(new MainRecyclerButton("Achondroplasia",achondroplasia_keywords,new SyndromeData(
                 "Αχονδροπλασία (Achondroplasia)",
                 R.raw.achondroplasia,"ICD-10: Q77.4\n" +
                 "ORPHA: 15\n",
@@ -269,13 +162,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         )));
 
-
         //aicardi_syndrome
+
+        List<String> aicardi_syndrome_keywords_tmp = Arrays.asList(
+                "Aicardi", "Q04.0", "50", "παρεγκεφαλίδα", "Πλαγιοκεφαλία", "Ασυμμετρία προσώπου",
+                "Χειλεοσχιστία", "Υπερωιοσχιστία", "Νοητική υστέρηση", "Καθυστέρηση ομιλίας", "Σιελόρροια ", "παλινδρόμηση"
+
+        );
+        ArrayList<String> aicardi_syndrome_keywords = new ArrayList<>(aicardi_syndrome_keywords_tmp);
 
         ArrayList<Integer> aicardi_syndrome_img = new ArrayList<>();
         aicardi_syndrome_img.add(R.drawable.aicardi_syndrome_1);
         aicardi_syndrome_img.add(R.drawable.aicardi_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Aicardi (Aicardi syndrome)",tmp,new SyndromeData(
+        mCardList.add(new MainRecyclerButton("Aicardi syndrome",aicardi_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Aicardi (Aicardi syndrome)",
                 R.raw.aicardi_syndrome,"ICD-10: Q04.0\n" +
                 "ORPHA: 50\n",
@@ -289,46 +188,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         )));
 
-        //alport_syndrome
-
-        ArrayList<Integer> alport_syndrome_img = new ArrayList<>();
-        alport_syndrome_img.add(R.drawable.alport_syndrome_1);
-        alport_syndrome_img.add(R.drawable.alport_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Alport (Alport syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο Alport (Alport syndrome)",
-                R.raw.alport_syndrome,"ICD-10: Q87.8\n" +
-                "ORPHA:63\n",
-                "Βιβλιογραφία (Σύνδρομο Alport)\n" +
-                        "1. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.\n" +
-                        "2. Ramesh Kaipa and Hannah Tether, \" Speech, language, and hearing function in twins with Alport syndrome: A seven-year retrospective case report\", J Otol. 2017",
-                alport_syndrome_img
-
-        )));
-
-        //alstrom_syndrome
-
-        ArrayList<Integer> alstrom_syndrome_img = new ArrayList<>();
-        alstrom_syndrome_img.add(R.drawable.alstrom_syndrome_1);
-        alstrom_syndrome_img.add(R.drawable.alstrom_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Alstrom (Alstrom syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο Alstrom (Alstrom syndrome)",
-                R.raw.alstrom_syndrome,"ICD-10: E34.8\n" +
-                "ORPHA:64\n",
-                "Βιβλιογραφία (Σύνδρομο Alstrom)\n" +
-                        "1. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.\n" +
-                        "2. Hans-Erik Frölander et al.,\" Theory-of-mind in individuals with Alström syndrome is related to executive functions, and verbal ability\" , Front Psychol. 2015\n" +
-                        "3. Spencer Lindsey et al., \" Auditory and Otologic Profile of Alström Syndrome: Comprehensive Single Center Data on 38 Patients\", Am J Med Genet A. 2017",
-                alstrom_syndrome_img
-
-        )));
-
-
         //angeman_syndrome
+
+        List<String> angeman_syndrome_keywords_tmp = Arrays.asList(
+                "Angeman ", "Q93.5", "72", "Νοητική υστέρηση", "Αταξία ", "Επιληψία", "ΔΕΠΥ",
+                "Μικροκεφαλία", "παραγωγή λόγου", "εκφραστικό λεξιλόγιο", "υποτονία", "απομύζηση ", "δυσφαγία"
+
+        );
+        ArrayList<String> angeman_syndrome_keywords = new ArrayList<>(angeman_syndrome_keywords_tmp);
 
         ArrayList<Integer> angeman_syndrome_img = new ArrayList<>();
         angeman_syndrome_img.add(R.drawable.angeman_syndrome_1);
         angeman_syndrome_img.add(R.drawable.angeman_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Angelman (Angeman syndrome)",tmp,new SyndromeData(
+        mCardList.add(new MainRecyclerButton("Angeman syndrome",angeman_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Angelman (Angeman syndrome)",
                 R.raw.angeman_syndrome,"ICD-10: Q93.5\n" +
                 "ORPHA: 72\n",
@@ -340,68 +212,122 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         )));
 
+        //alstrom_syndrome
 
+        List<String> alstrom_syndrome_keywords_tmp = Arrays.asList(
+                "Alstrom ", "E34.8", "64", "βαρηκοΐα", "ωτίτιδα", "Εμβοές", "Καθυστέρηση ομιλία ", "αυτισμός", "ρυθμός ομιλίας", "Γνωστικά ελλείμματα"
+
+        );
+        ArrayList<String> alstrom_syndrome_keywords = new ArrayList<>(alstrom_syndrome_keywords_tmp);
+
+        ArrayList<Integer> alstrom_syndrome_img = new ArrayList<>();
+        alstrom_syndrome_img.add(R.drawable.alstrom_syndrome_1);
+        alstrom_syndrome_img.add(R.drawable.alstrom_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Alstrom syndrome",alstrom_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Alstrom (Alstrom syndrome)",
+                R.raw.alstrom_syndrome,"ICD-10: E34.8\n" +
+                "ORPHA:64\n",
+                "Βιβλιογραφία (Σύνδρομο Alstrom)\n" +
+                        "1. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.\n" +
+                        "2. Hans-Erik Frölander et al.,\" Theory-of-mind in individuals with Alström syndrome is related to executive functions, and verbal ability\" , Front Psychol. 2015\n" +
+                        "3. Spencer Lindsey et al., \" Auditory and Otologic Profile of Alström Syndrome: Comprehensive Single Center Data on 38 Patients\", Am J Med Genet A. 2017",
+                alstrom_syndrome_img
+
+        )));
+
+        //alport_syndrome
+
+        List<String> alport_syndrome_keywords_tmp = Arrays.asList(
+                "Alport ", "Q87.8", "63", "κώφωση", "βαρηκοΐα", "Καθυστέρηση ομιλίας",
+                "κατανόηση", "σύνταξη", " πραγματολογία", "Μαθησιακές δυσκολίες", "Γνωστικά προβλήματα",
+                "Χειλεοσχιστία", "Υπερωιοσχιστία ", "αυτισμός"
+
+        );
+        ArrayList<String> alport_syndrome_keywords = new ArrayList<>(alport_syndrome_keywords_tmp);
+
+        ArrayList<Integer> alport_syndrome_img = new ArrayList<>();
+        alport_syndrome_img.add(R.drawable.alport_syndrome_1);
+        alport_syndrome_img.add(R.drawable.alport_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Alport syndrome",alport_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Alport (Alport syndrome)",
+                R.raw.alport_syndrome,"ICD-10: Q87.8\n" +
+                "ORPHA:63\n",
+                "Βιβλιογραφία (Σύνδρομο Alport)\n" +
+                        "1. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.\n" +
+                        "2. Ramesh Kaipa and Hannah Tether, \" Speech, language, and hearing function in twins with Alport syndrome: A seven-year retrospective case report\", J Otol. 2017",
+                alport_syndrome_img
+
+        )));
+
+        //apert_syndrome
+
+        List<String> apert_syndrome_keywords_tmp = Arrays.asList(
+                "Apert ", "Q87.0B", "87", "αναπνοή", "Νοητική υστέρηση", "Κρανιοσυνοστέωση",
+                "Χειλεοσχιστία", "Υπερωιοσχιστία", "Δισχιδής σταφυλή", "Υδροκεφαλία", "Καθυστέρηση ομιλίας",
+                "Μαθησιακές δυσκολίες", "άρθρωση", "φάρυγγας"
+
+        );
+        ArrayList<String> apert_syndrome_keywords = new ArrayList<>(apert_syndrome_keywords_tmp);
+
+        ArrayList<Integer> apert_syndrome_img = new ArrayList<>();
+        apert_syndrome_img.add(R.drawable.apert_syndrome_1);
+        apert_syndrome_img.add(R.drawable.apert_syndrome_2);
+        apert_syndrome_img.add(R.drawable.apert_syndrome_3);
+        mCardList.add(new MainRecyclerButton("Apert syndrome",apert_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Apert (Apert syndrome)",
+                R.raw.apert_syndrome,"ICD-10: Q87.0B\n" +
+                "ORPHA: 87\n",
+                "Βιβλιογραφία (Σύνδρομο Apert)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/apert-syndrome/\n" +
+                        "2. Ariane Hohoff et al., \" The spectrum of Apert syndrome: phenotype, particularities in orthodontic treatment, and characteristics of orthognathic surgery\",\n" +
+                        "Head Face Med. 2007\n" +
+                        "3. Andrea-Stacy López-Estudillo et al., \" Dental approach for Apert syndrome in children: a systematic review\", Med Oral Patol Oral Cir Bucal. 2017",
+                apert_syndrome_img
+
+        )));
+
+        //aspartylglucosaminuria
+
+        List<String> aspartylglucosaminuria_keywords_tmp = Arrays.asList(
+                "E77.1", "93", "AGU", "αναπνοή", "επιληψία", "στοματοκινητικές δυσκολίες", "λοιμώξεις  ", "απώλεια ακοής", "ΔΕΠΥ", "φωνή", "βραχνή ", "έκφραση ", "λεξιλόγιο", "μαθησιακές δυσκολίες"
+
+
+        );
+        ArrayList<String> aspartylglucosaminuria_keywords = new ArrayList<>(aspartylglucosaminuria_keywords_tmp);
+
+        ArrayList<Integer> aspartylglucosaminuria_img = new ArrayList<>();
+        aspartylglucosaminuria_img.add(R.drawable.aspartylglucosaminuria_1);
+        aspartylglucosaminuria_img.add(R.drawable.aspartylglucosaminuria_2);
+        mCardList.add(new MainRecyclerButton("Aspartylglucosaminuria",aspartylglucosaminuria_keywords,new SyndromeData(
+                "Ανασυνδυασμένη ανθρώπινη ασπαρτυλγλυκοσαμινιδάση\n" +
+                        "(Aspartylglucosaminuria-AGU)",
+                R.raw.aspartylglucosaminuria,"ICD-10: E77.1\n" +
+                "ORPHA: 93\n",
+                "Βιβλιογραφία (AGU)\n" +
+                        "1. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.\n" +
+                        "2. https://www.genlab.gr/oloprosegkefalia/\n" +
+                        "3. https://emvriomitriki.gr/egkymosynh/evryikes-anwmalies/kentriko-neyriko-systhma/oloprosegkefalia\n" +
+                        "4. Manu S Raam et al., \"Holoprosencephaly: A Guide to Diagnosis and Clinical Management\", Indian Pediatr. 2011\n" +
+                        "5. Paul Kruszka and Maximilian Muenke ,\"Syndromes Associated with Holoprosencephaly\", Am J Med Genet C Semin Med Genet. 2018",
+                aspartylglucosaminuria_img
+
+        )));
 
 
         mCardList.add(new MainRecyclerLettering("Β"));
 
-
-        //branchiootorenal_syndrome
-
-        ArrayList<Integer> branchiootorenal_syndrome_img = new ArrayList<>();
-        branchiootorenal_syndrome_img.add(R.drawable.branchiootorenal_syndrome_1);
-        branchiootorenal_syndrome_img.add(R.drawable.branchiootorenal_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο BOR (Branchiootorenal syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο BOR (Branchiootorenal syndrome)",
-                R.raw.branchiootorenal_syndrome,"ICD-10: Q87.8\nORPHA:107\n",
-                "Βιβλιογραφία (Σύνδρομο BOR)\n" +
-                        "1. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.\n" +
-                        "2. Tâmara Andrade Lindau et al., \"Anatomical Changes and Audiological Profile in Branchio-oto-renal Syndrome: A Literature Review\", Int Arch\n" +
-                        "Otorhinolaryngol., 2014",
-                branchiootorenal_syndrome_img
-
-        )));
-
-        mCardList.add(new MainRecyclerLettering("Γ"));
-
-        //gaucher_disease
-
-        ArrayList<Integer> gaucher_disease_img = new ArrayList<>();
-        gaucher_disease_img.add(R.drawable.gaucher_disease_1);
-        gaucher_disease_img.add(R.drawable.gaucher_disease_2);
-        mCardList.add(new MainRecyclerButton("Ασθένεια Gaucher (Gaucher Disease)",tmp,new SyndromeData(
-                "Ασθένεια Gaucher (Gaucher Disease)",
-                R.raw.gaucher_disease,"CD-10: E75.2A\nORPHA: 355\n",
-                "Βιβλιογραφία (Ασθένεια Gaucher)\n" +
-                        "1. Karin Weiss et al., \"The Clinical Management of Type 2 Gaucher Disease.\", 2014\n" +
-                        "2. Jérôme Stirnemann et al., \"A Review of Gaucher Disease Pathophysiology, Clinical Presentation and Treatments\", Int J Mol Sci., 2017\n" +
-                        "3. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/gaucher-disease/",
-                gaucher_disease_img
-
-        )));
-
-        //wilson_disease
-
-        ArrayList<Integer> wilson_disease_img = new ArrayList<>();
-        wilson_disease_img.add(R.drawable.wilson_disease_1);
-        wilson_disease_img.add(R.drawable.wilson_disease_2);
-        mCardList.add(new MainRecyclerButton("Ασθένεια Wilson (Wilson Disease)",tmp,new SyndromeData(
-                "Ασθένεια Wilson (Wilson Disease)",
-                R.raw.wilson_disease,"ICD-10: E83.0B\n" +
-                "ORPHA: 905\n",
-                "Βιβλιογραφία (Ασθένεια Wilson)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/wilsons-sjukdom/\n" +
-                        "2. Samuel Shribman et al., \"Clinical presentations of Wilson disease\", Ann Transl Med. 2019",
-                wilson_disease_img
-
-        )));
-
         //beckwith_wiedemann_syndrome
+
+        List<String> beckwith_wiedemann_syndrome_keywords_tmp = Arrays.asList(
+                "Beckwith-Wiedemann ", "Q87.3", "116", "Μακρογλωσσία", "αναπνοή", "άρθρωση", "σιελόρροια", "σίτιση"
+
+        );
+        ArrayList<String> beckwith_wiedemann_syndrome_keywords = new ArrayList<>(beckwith_wiedemann_syndrome_keywords_tmp);
 
         ArrayList<Integer> beckwith_wiedemann_syndrome_img = new ArrayList<>();
         beckwith_wiedemann_syndrome_img.add(R.drawable.beckwith_wiedemann_syndrome_1);
         beckwith_wiedemann_syndrome_img.add(R.drawable.beckwith_wiedemann_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Beckwith-Wiedemann (Beckwith-Wiedemann syndrome)",tmp,new SyndromeData(
+        mCardList.add(new MainRecyclerButton("Beckwith-Wiedemann syndrome",beckwith_wiedemann_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Beckwith-Wiedemann (Beckwith-Wiedemann syndrome)",
                 R.raw.beckwith_wiedemann_syndrome,"ICD-10: Q87.3\n" +
                 "ORPHA: 116\n",
@@ -413,16 +339,288 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         )));
 
-        mCardList.add(new MainRecyclerLettering("Δ"));
+        //bloch_sulzberger_syndrome
 
-        mCardList.add(new MainRecyclerLettering("Ε"));
+        List<String> incontinentia_pigmenti_bloch_sulzberger_syndrome_keywords_tmp = Arrays.asList(
+                "Q82.3", "464", "ακράτεια χρωστικής", " Bloch-Sulzberger", "εγκεφαλικό ", "βασικά γάγγλια", "ασυμμετρία προσώπου", "υποπλασία μαλακής υπερώας", "χειλεοσχιστία",
+                "υπερωιοσχιστία", "βαρηκοΐα", "μαθησιακές δυσκολίες", "γνωστικά ελλείμματα"
+
+        );
+        ArrayList<String> incontinentia_pigmenti_bloch_sulzberger_syndrome_keywords = new ArrayList<>(incontinentia_pigmenti_bloch_sulzberger_syndrome_keywords_tmp);
+
+        ArrayList<Integer> incontinentia_pigmenti_bloch_sulzberger_syndrome_img = new ArrayList<>();
+        incontinentia_pigmenti_bloch_sulzberger_syndrome_img.add(R.drawable.incontinentia_pigmenti_bloch_sulzberger_syndrome_1);
+        incontinentia_pigmenti_bloch_sulzberger_syndrome_img.add(R.drawable.incontinentia_pigmenti_bloch_sulzberger_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Bloch-Sulzberger Syndrome",incontinentia_pigmenti_bloch_sulzberger_syndrome_keywords,new SyndromeData(
+                "Ακράτεια χρωστικής-Σύνδρομο Bloch-Sulzberger\n" +
+                        "(Incontinentia pigmenti-Bloch-Sulzberger Syndrome)",
+                R.raw.incontinentia_pigmenti_bloch_sulzberger_syndrome,"ICD-10: Q82.3\n" +
+                "ORPHA:464\n",
+                "Βιβλιογραφία (Incontinentia pigmenti\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/incontinentia-pigmenti/\n" +
+                        "2. Cláudia Schermann Poziomczyk et al., \"Incontinentia pigmenti\", An Bras Dermatol., 2014.",
+                incontinentia_pigmenti_bloch_sulzberger_syndrome_img
+
+        )));
+
+
+
+        //branchiootorenal_syndrome
+
+        List<String> branchiootorenal_syndrome_keywords_tmp = Arrays.asList(
+                "BOR", "Q87.8", "107", "ασυμμετρία προσώπου", "μικρωτία", "κοντή υπερώα", "υπερωιοσχιστία ", "μικρογναθία", "βαρηκοΐα", "κώφωση", "ωτίτιδα", "προσωπικό κρανιακό νεύρο ", "κρανιακά νεύρα", "φωνητικές χορδές"
+        );
+        ArrayList<String> branchiootorenal_syndrome_keywords = new ArrayList<>(branchiootorenal_syndrome_keywords_tmp);
+
+        ArrayList<Integer> branchiootorenal_syndrome_img = new ArrayList<>();
+        branchiootorenal_syndrome_img.add(R.drawable.branchiootorenal_syndrome_1);
+        branchiootorenal_syndrome_img.add(R.drawable.branchiootorenal_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Branchiootorenal syndrome",branchiootorenal_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο BOR (Branchiootorenal syndrome)",
+                R.raw.branchiootorenal_syndrome,"ICD-10: Q87.8\nORPHA:107\n",
+                "Βιβλιογραφία (Σύνδρομο BOR)\n" +
+                        "1. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.\n" +
+                        "2. Tâmara Andrade Lindau et al., \"Anatomical Changes and Audiological Profile in Branchio-oto-renal Syndrome: A Literature Review\", Int Arch\n" +
+                        "Otorhinolaryngol., 2014",
+                branchiootorenal_syndrome_img
+
+        )));
+
+
+        mCardList.add(new MainRecyclerLettering("C"));
+
+        //carpenter_syndrome
+
+        List<String> carpenter_syndrome_keywords_tmp = Arrays.asList(
+                "Carpenter ", "Q87.0", "65759", "Κρανιοσυνοστέωση", "Νοητική υστέρηση ", "ασυμμετρία", "Βαρηκοΐα", "Καθυστέρηση ομιλίας"
+
+        );
+        ArrayList<String> carpenter_syndrome_keywords = new ArrayList<>(carpenter_syndrome_keywords_tmp);
+
+        ArrayList<Integer> carpenter_syndrome_img = new ArrayList<>();
+        carpenter_syndrome_img.add(R.drawable.carpenter_syndrome_1);
+        carpenter_syndrome_img.add(R.drawable.carpenter_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Carpenter syndrome",carpenter_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Carpenter (Carpenter syndrome)",
+                R.raw.carpenter_syndrome,"ICD-10: Q87.0\n" +
+                "ORPHA: 65759\n",
+                "Βιβλιογραφία (Σύνδρομο Carpenter)\n" +
+                        "1. https://rarediseases.org/rare-diseases/carpenter-syndrome/\n" +
+                        "2. https://childrensnational.org/visit/conditions-and-treatments/genetic-disorders-and-birth-defects/carpenter-syndrome",
+                carpenter_syndrome_img
+
+        )));
+
+        //cmt_disease
+
+        List<String> cmt_disease_keywords_tmp = Arrays.asList(
+                "CMT", "Charcot Marie Tooth", "G60.0", "μυϊκή αδυναμία ", "αναπνοή", "ασάφεια", "ατροφία φωνητικών χορδών", "εισρόφηση"
+        );
+        ArrayList<String> cmt_disease_keywords = new ArrayList<>(cmt_disease_keywords_tmp);
+
+        ArrayList<Integer> cmt_disease_img = new ArrayList<>();
+        cmt_disease_img.add(R.drawable.cmt_disease_1);
+        cmt_disease_img.add(R.drawable.cmt_disease_2);
+        mCardList.add(new MainRecyclerButton("Charcot-Marie-Tooth disease",cmt_disease_keywords,new SyndromeData(
+                "Ασθένεια Charcot-Marie-Tooth (CMT Disease)",
+                R.raw.cmt_disease,"ICD-10: G60.0\n",
+                "Βιβλιογραφία (Ασθένεια CMT)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/charcot-marie-tooth-disease/,\n" +
+                        "2. Donald McCorquodale et al.,\"Management of Charcot–Marie–Tooth disease: improving long-term care with a multidisciplinary approach\", J Multidiscip\n" +
+                        "Healthc. 2016",
+                cmt_disease_img
+
+        )));
+
+        //charge_syndrome
+
+        List<String> charge_syndrome_keywords_tmp = Arrays.asList(
+                "CHARGE", "Q87.8", "134", "ρινοφάρυγγα", "ατρησία", "νοητική υστέρηση", "βαρηκοΐα",
+                "κρανιακάνεύρα", "Χειλεοσχιστία", "υπερωιοσχιστία", "Παράλυση ", "Καθυστέρηση ομιλίας ",
+                "Μαθησιακές δυσκολίες ", "δυσφαγία", "Σιελόρροια", "απομύζηση", "προσωπικό κρανιακό νεύρο",
+                "Υποτονία", "παλινδρόμηση"
+
+        );
+        ArrayList<String> charge_syndrome_keywords = new ArrayList<>(charge_syndrome_keywords_tmp);
+
+        ArrayList<Integer> charge_syndrome_img = new ArrayList<>();
+        charge_syndrome_img.add(R.drawable.charge_syndrome_1);
+        charge_syndrome_img.add(R.drawable.charge_syndrome_2);
+        mCardList.add(new MainRecyclerButton("CHARGE syndrome",charge_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο CHARGE (CHARGE syndrome)",
+                R.raw.charge_syndrome,"ICD-10: Q87.8\n" +
+                "ORPHA: 134\n",
+                "Βιβλιογραφία (Σύνδρομο CHARGE)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/charge-syndrome/\n" +
+                        "2. Christa M. de Geus et al., \" Guidelines in CHARGE syndrome and the missing link: Cranial imaging\", Am J Med Genet C Semin Med Genet. 2017\n" +
+                        "3. Dieuwerke R Dijk et al., \" Growth in CHARGE syndrome: optimizing care with a multidisciplinary approach\", J Multidiscip Healthc. 2019\n" +
+                        "4. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.",
+                charge_syndrome_img
+
+        )));
+
+        //congenital_disorder_of_glycosylation
+
+        List<String> congenital_disorder_of_glycosylation_keywords_tmp = Arrays.asList(
+                "CDG", "E77.8", "137", "Νοητική υστέρηση", "Επιληψία", "Αταξία", "Εγκεφαλική ατροφία", "Μικροκεφαλία",
+                "υποπλασία", "μυϊκός τόνος", "αντανακλαστικά", "Δυσαρθρία", "Σιελόρροια", "παλινδρόμηση"
+
+        );
+        ArrayList<String> congenital_disorder_of_glycosylation_keywords = new ArrayList<>(congenital_disorder_of_glycosylation_keywords_tmp);
+
+        ArrayList<Integer> congenital_disorder_of_glycosylation_img = new ArrayList<>();
+        congenital_disorder_of_glycosylation_img.add(R.drawable.congenital_disorder_of_glycosylation_1);
+        congenital_disorder_of_glycosylation_img.add(R.drawable.congenital_disorder_of_glycosylation_2);
+        mCardList.add(new MainRecyclerButton("Congenital Disorder of Glycosylation",congenital_disorder_of_glycosylation_keywords,new SyndromeData(
+                "Σύνδρομο CDG (CDG syndrome - Congenital Disorder of Glycosylation)",
+                R.raw.congenital_disorder_of_glycosylation,"ICD-10: E77.8\n" +
+                "ORPHA: 137\n",
+                "Βιβλιογραφία (Σύνδρομο CDG)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/cdg-syndrome/\n" +
+                        "2. Laurien Vaes et al., \" PMM2‐CDG caused by uniparental disomy: Case report and literature review\", JIMD Rep. 2020",
+                congenital_disorder_of_glycosylation_img
+
+        )));
+
+        //cornelia_delange_syndrome
+
+        List<String> cornelia_delange_syndrome_keywords_tmp = Arrays.asList(
+                "Cornelia de Lange", "Q87.1C", "199", "νοητική υστέρηση ", "αυτισμός",
+                "Επιληψία", "Μικροκεφαλία", "Χειλεοσχιστία", "υπερωιοσχιστία", "βαρηκοΐα",
+                "αναπνοή", "έκφραση", "Μυϊκή αδυναμία ", "Γνωστικά ελλείμματα", "φώνηση",
+                "φωνή", "Μονότονη", "Βραχνή", "μορφολογία", "σύνταξη", "αλαλία", "δυσφαγία",
+                "παλινδρόμηση", "Σιελόρροια"
+
+        );
+        ArrayList<String> cornelia_delange_syndrome_keywords = new ArrayList<>(cornelia_delange_syndrome_keywords_tmp);
+
+        ArrayList<Integer> cornelia_delange_syndrome_img = new ArrayList<>();
+        cornelia_delange_syndrome_img.add(R.drawable.cornelia_delange_syndrome_1);
+        cornelia_delange_syndrome_img.add(R.drawable.cornelia_delange_syndrome_2);
+        cornelia_delange_syndrome_img.add(R.drawable.cornelia_delange_syndrome_3);
+        mCardList.add(new MainRecyclerButton("Cornelia de Lange syndrome",cornelia_delange_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Cornelia de Lange (Cornelia de Lange syndrome)",
+                R.raw.cornelia_delange_syndrome,"ICD-10: Q87.1C\n" +
+                "ORPHA: 199\n",
+                "Βιβλιογραφία (Σύνδρομο Cornelia de Lange)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/cornelia-de-lange-syndrome/\n" +
+                        "2. Antonie D. Kline et al., \" Diagnosis and management of Cornelia de Lange syndrome: first international consensus statement\", Nat Rev Genet. 2018\n" +
+                        "3. Lisa Nelson et al., \" An experimental study of executive function and social impairment in Cornelia de Lange syndrome\", J Neurodev Disord. 2017\n" +
+                        "4. George Psillas et al., \" Cornelia De Lange Syndrome and Cochlear Implantation\", Iran J Otorhinolaryngol. 2018",
+                cornelia_delange_syndrome_img
+
+        )));
+
+        //cri_du_chat_syndrome
+
+        List<String> cri_du_chat_syndrome_keywords_tmp = Arrays.asList(
+                "Cri du Chat ", "Q93.4", "281", "κλάμα ", "Νοητική υστέρηση ",
+                "Υπερτονία", "υποτονία", "ΔΕΠΥ", "Μαθησιακές δυσκολίες",
+                "καθυστέρηση ομιλίας", "ηχολαλία", "έκφραση", "λεξιλόγιο",
+                "άρθρωση", "Υπερρινικότητα ", "διαδοχοκίνηση", "δυσφαγία",
+                "Σιελόρροια"
+
+        );
+        ArrayList<String> cri_du_chat_syndrome_keywords = new ArrayList<>(cri_du_chat_syndrome_keywords_tmp);
+
+        ArrayList<Integer> cri_du_chat_syndrome_img = new ArrayList<>();
+        cri_du_chat_syndrome_img.add(R.drawable.cri_du_chat_syndrome_1);
+        cri_du_chat_syndrome_img.add(R.drawable.cri_du_chat_syndrome_2);
+        cri_du_chat_syndrome_img.add(R.drawable.cri_du_chat_syndrome_3);
+        mCardList.add(new MainRecyclerButton("Cri du Chat syndrome",cri_du_chat_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Cri du Chat (Cri du Chat syndrome)",
+                R.raw.cri_du_chat_syndrome,"ICD-10: Q93.4\n" +
+                "ORPHA: 281\n",
+                "Βιβλιογραφία (Σύνδρομο Cri du Chat)\n" +
+                        "1. https://drustapbio.fandom.com/wiki/Cri_du_Chat\n" +
+                        "2. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/cri-du-chat-syndrome/\n" +
+                        "3. Kristoffersen, K. E. (2008), \"Speech and language development in cri du chat syndrome: A critical review\", Clinical Linguistics & Phonetics, 22(6), 443–457.\n" +
+                        "4. Mi Kyung Kim et al, \"Effects of Oral Stimulation Intervention in Newborn Babies with Cri du Chat Syndrome: Single-Subject Research Design\", Occup Ther\n" +
+                        "Int. 2018; 2018: 6573508.\n" +
+                        "5. Maria Elena Liverani et al., \" Children and adults affected by Cri du Chat syndrome: Care's recommendations\", Pediatr Rep. 2019 Feb 26; 11(1): 7839.",
+                cri_du_chat_syndrome_img
+
+        )));
+
+
+        //crouzon_syndrome
+
+        List<String> crouzon_syndrome_keywords_tmp = Arrays.asList(
+                "Crouzon", "Q75.1", "207", "Κρανιοσυνοστέωση", "βραχυκεφαλία",
+                "Γνωστικά ελλείμματα", "Υποπλασία ", "μαλακή υπερώα", "Χειλεοσχιστία",
+                "υπερωιοσχιστία ", "βαρηκοΐα", "Καθυστέρηση ομιλίας", "αναπνοή", "άρθρωση",
+                "Υπερρινικότητα"
+
+        );
+        ArrayList<String> crouzon_syndrome_keywords = new ArrayList<>(crouzon_syndrome_keywords_tmp);
+
+        ArrayList<Integer> crouzon_syndrome_img = new ArrayList<>();
+        crouzon_syndrome_img.add(R.drawable.crouzon_syndrome_1);
+        crouzon_syndrome_img.add(R.drawable.crouzon_syndrome_2);
+        crouzon_syndrome_img.add(R.drawable.crouzon_syndrome_3);
+        mCardList.add(new MainRecyclerButton("Crouzon syndrome",crouzon_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Crouzon (Crouzon syndrome)",
+                R.raw.crouzon_syndrome,"ICD-10: Q75.1\n" +
+                "ORPHA: 207\n",
+                "Βιβλιογραφία (Σύνδρομο Crouzon)\n" +
+                        "1. Farnoosh Mohammadi et al., \"Patient with Crouzon Syndrome Treated with Modified Le Fort III Osteotomy without Previous Orthodontic Treatment: Case\n" +
+                        "Report and a Review of the Literature\", Case Rep Dent. 2020; 2020: 6248971\n" +
+                        "2. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/crouzon-syndrome/\n" +
+                        "3. Cleft palate Foundation, \" Information about Crouzon Syndrome (Craniofacial Dysostosis)\"\n" +
+                        "4. https://craniofacial.org/el/content/%CF%83%CF%8D%CE%BD%CE%B4%CF%81%CE%BF%CE%BC%CE%BF-crouzon",
+                crouzon_syndrome_img
+        )));
+
+        mCardList.add(new MainRecyclerLettering("D"));
+
+        //down_syndrome
+
+        List<String> down_syndrome_keywords_tmp = Arrays.asList(
+                "down", "Q90.0  ", "Q90.1  ", "Q90.2  ", "Q90.9", "870",
+                "νοητική υστέρηση", "υποτονία", "βραχυκεφαλία", "μακρογλωσσία", "υπερώα",
+                "μικρωτία", "κώφωση ", "υπογλωττίδα", "υπερώα", "τραυλισμός", "δυσφαγία",
+                "αδυναμία", "κόπωση", "υπολείμματα", "εισρόφηση", "διείσδυση "
+
+        );
+        ArrayList<String> down_syndrome_keywords = new ArrayList<>(down_syndrome_keywords_tmp);
+
+        ArrayList<Integer> down_syndrome_img = new ArrayList<>();
+        down_syndrome_img.add(R.drawable.down_syndrome_1);
+        down_syndrome_img.add(R.drawable.down_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Down Syndrome",down_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Down (Down Syndrome)",
+                R.raw.down_syndrome,"ICD-10: Q90.0 Q90.1 Q90.2 Q90.9\n" +
+                "ORPHA:870\n",
+                "Βιβλιογραφία (Σύνδρομο Down)\n" +
+                        "1. Βιολογία Κατεύθυνσης, Υπουργείο Εθνικής Παιδείας και Θρησκευμάτων, 1999.\n" +
+                        "2. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.\n" +
+                        "3. Arwen Jackson et al., \"Clinical Characteristics of Dysphagia in Children with Down Syndrome\", Springer Science+Business Media New York 2016\n" +
+                        "4. John E. Riski, \"Cleft lip and palate and other craniofacial anomalies\", p. 21, (Lauridsen et al., 2001)\n" +
+                        "5. Kathleen Scaler Scot, \"Stuttering and cluttering\".\n" +
+                        "6. Linda Cooper-Brown et al., \" FEEDING AND SWALLOWING DYSFUNCTION IN GENETIC SYNDROMES\", Developmental Disabilities Research Reviews 14:147 –\n" +
+                        "157 (2008).",
+                down_syndrome_img
+
+        )));
+
+        mCardList.add(new MainRecyclerLettering("E"));
 
         //edwards_syndrome_trisomy_18
+
+        List<String> edwards_syndrome_trisomy_18_keywords_tmp = Arrays.asList(
+                "Τρισωμία 18 ", "Edwards ", "Q91.0  ", "Q91.1  ", "Q91.2 ",
+                " Q91.3", "3380", "Γνωστικά ελλείμματα", "Νοητική υστέρηση", "Επιληψία",
+                "Υποπλασία ", "παρεγκεφαλίδα", "Υποτονία ", "υπερτονία ", "Μικροκεφαλία",
+                "Χειλεοσχιστία", "υπερωιοσχιστία", "Υδροκεφαλία", "ατρησία ", "μικρωτία", "βαρηκοΐα", "Αναπνοή",
+                "έκφραση", "λεξιλόγιο", "σίτιση", "γαστροστομία", "απομύζηση", "παλινδρόμηση ", "δυσφαγία"
+
+        );
+        ArrayList<String> edwards_syndrome_trisomy_18_keywords = new ArrayList<>(edwards_syndrome_trisomy_18_keywords_tmp);
 
         ArrayList<Integer> edwards_syndrome_trisomy_18_img = new ArrayList<>();
         edwards_syndrome_trisomy_18_img.add(R.drawable.edwards_syndrome_trisomy_18_1);
         edwards_syndrome_trisomy_18_img.add(R.drawable.edwards_syndrome_trisomy_18_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Edwards-Τρισωμία 18 (Edwards syndrome-Trisomy 18)",tmp,new SyndromeData(
+        mCardList.add(new MainRecyclerButton("Edwards syndrome",edwards_syndrome_trisomy_18_keywords,new SyndromeData(
                 "Σύνδρομο Edwards-Τρισωμία 18 (Edwards syndrome-Trisomy 18)",
                 R.raw.edwards_syndrome_trisomy_18,"ICD-10: Q91.0 Q91.1 Q91.2 Q91.3\n" +
                 "ORPHA:3380\n",
@@ -435,12 +633,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         )));
 
 
+
+
+        mCardList.add(new MainRecyclerLettering("F"));
+
         //fragile_x_syndrome
+
+        List<String> fragile_x_syndrome_keywords_tmp = Arrays.asList(
+                "εύθραυστο Χ χρωμόσωμα", "Fragile X ", "Q99.2", "908",
+                "Νοητική υστέρηση ", "ΔΕΠΥ", "Αυτισμός ", "Επιληψία",
+                "Υποτονία ", "σπαστικότητα", "Χειλεοσχιστία", "Κώφωση",
+                "λοιμώξεις αυτιού", "ρυθμός", "φωνολογία", "απλοποίηση",
+                "επιτονισμός", "φωνή", "τραυλισμός", "ταχυλαλία", "μορφολογία",
+                "σύνταξη", "πραγματολογία", "αφήγηση"
+
+        );
+        ArrayList<String> fragile_x_syndrome_keywords = new ArrayList<>(fragile_x_syndrome_keywords_tmp);
 
         ArrayList<Integer> fragile_x_syndrome_img = new ArrayList<>();
         fragile_x_syndrome_img.add(R.drawable.fragile_x_syndrome_1);
         fragile_x_syndrome_img.add(R.drawable.fragile_x_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο εύθραυστου Χ χρωμοσώματος (Fragile X syndrome)",tmp,new SyndromeData(
+        mCardList.add(new MainRecyclerButton("Fragile X syndrome",fragile_x_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο εύθραυστου Χ χρωμοσώματος (Fragile X syndrome)",
                 R.raw.fragile_x_syndrome,"ICD-10: Q99.2\n" +
                 "ORPHA: 908\n",
@@ -457,16 +670,71 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         )));
 
-        mCardList.add(new MainRecyclerLettering("Ζ"));
+        mCardList.add(new MainRecyclerLettering("G"));
 
-        mCardList.add(new MainRecyclerLettering("Η"));
+        //gaucher_disease
+
+        List<String> gaucher_disease_keywords_tmp = Arrays.asList(
+                "E75.2A", "355", "Gaucher", "κόπωση", "επιληψία", "άνοια ", "μικροκεφαλία ", "Parkinson", "αταξία", "δυσφαγία ", "εισρόφηση", " πνευμονία", "απομύζηση"
+
+        );
+        ArrayList<String> gaucher_disease_keywords = new ArrayList<>(gaucher_disease_keywords_tmp);
+
+        ArrayList<Integer> gaucher_disease_img = new ArrayList<>();
+        gaucher_disease_img.add(R.drawable.gaucher_disease_1);
+        gaucher_disease_img.add(R.drawable.gaucher_disease_2);
+        mCardList.add(new MainRecyclerButton("Gaucher Disease",gaucher_disease_keywords,new SyndromeData(
+                "Ασθένεια Gaucher (Gaucher Disease)",
+                R.raw.gaucher_disease,"CD-10: E75.2A\nORPHA: 355\n",
+                "Βιβλιογραφία (Ασθένεια Gaucher)\n" +
+                        "1. Karin Weiss et al., \"The Clinical Management of Type 2 Gaucher Disease.\", 2014\n" +
+                        "2. Jérôme Stirnemann et al., \"A Review of Gaucher Disease Pathophysiology, Clinical Presentation and Treatments\", Int J Mol Sci., 2017\n" +
+                        "3. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/gaucher-disease/",
+                gaucher_disease_img
+
+        )));
+
+        //glut1_deficiency_syndrome
+
+        List<String> glut1_deficiency_syndrome_keywords_tmp = Arrays.asList(
+
+                "G93.4", "71277", "GLUT 1", "Μικροκεφαλία", "Επιληψία", "αστάθεια", "χορεία", "μυϊκή ένταση ", "Δυσαρθρία", "Αταξία", "σπαστικότητα", "Νοητική έκπτωση", "προσωδία", "Παλινδρόμηση "
+
+        );
+        ArrayList<String> glut1_deficiency_syndrome_keywords = new ArrayList<>(glut1_deficiency_syndrome_keywords_tmp);
+
+        ArrayList<Integer> glut1_deficiency_syndrome_img = new ArrayList<>();
+        mCardList.add(new MainRecyclerButton("GLUT 1-deficiency syndrome",glut1_deficiency_syndrome_keywords,new SyndromeData(
+                "Ανεπάρκεια πρωτεΐνης μεταφορέα γλυκόζης τύπου 1\n" +
+                        "(Glucose transporter protein type 1-deficiency- GLUT 1-deficiency syndrome)",
+                R.raw.glut1_deficiency_syndrome,"ICD-10: G93.4\n" +
+                "ORPHA: 71277\n",
+                "Βιβλιογραφία (Ανεπάρκεια GLUT1)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/huntingtons-disease/\n" +
+                        "2. N. E. Carlozzi et al.,\"HDQLIFE: The development of two new computer adaptive tests for use in Huntington disease, Speech Difficulties and Swallowing\",\n" +
+                        "Qual Life Res. 2016\n" +
+                        "3. Lena Hartelius et al., \" Speech disorders in mild and moderate Huntington disease: results of dysarthria assessments of 19 individuals\", Delmar Learning,\n" +
+                        "2003\n" +
+                        "4. Heemskerk AW, Roos RA., \"Dysphagia in Huntington's disease: a review.\", Epub 2010\n" +
+                        "5. Jan Rusz et al.,\" Phonatory Dysfunction as a Preclinical Symptom of Huntington Disease\", PLoS One. 2014",
+                glut1_deficiency_syndrome_img
+
+        )));
 
         //goldenhar_syndrome_hemifacial_microsomia
+
+        List<String> goldenhar_syndrome_hemifacial_microsomia_keywords_tmp = Arrays.asList(
+                "Goldenhar", "Ημιπροσωπική μικροσωμία ", "Q87.0D", "374", "Υποπλασία",
+                "Ασυμμετρία προσώπου", "Χειλεοσχιστία", "υπερωιοσχιστία", "βαρηκοΐα", "Μικρωτία",
+                "Ανωτία", "αναπνοή", "μαλακή υπερώα", "σίτιση", "απομύζηση", "δυσφαγία"
+
+        );
+        ArrayList<String> goldenhar_syndrome_hemifacial_microsomia_keywords = new ArrayList<>(goldenhar_syndrome_hemifacial_microsomia_keywords_tmp);
 
         ArrayList<Integer> goldenhar_syndrome_hemifacial_microsomia_img = new ArrayList<>();
         goldenhar_syndrome_hemifacial_microsomia_img.add(R.drawable.goldenhar_syndrome_hemifacial_microsomia_1);
         goldenhar_syndrome_hemifacial_microsomia_img.add(R.drawable.goldenhar_syndrome_hemifacial_microsomia_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Goldenhar-Ημιπροσωπική μικροσωμία (Goldenhar syndrome- hemifacial microsomia)",tmp,new SyndromeData(
+        mCardList.add(new MainRecyclerButton("Goldenhar syndrome",goldenhar_syndrome_hemifacial_microsomia_keywords,new SyndromeData(
                 "Σύνδρομο Goldenhar-Ημιπροσωπική μικροσωμία (Goldenhar syndrome- hemifacial microsomia)",
                 R.raw.goldenhar_syndrome_hemifacial_microsomia,"ICD-10: Q87.0D\n" +
                 "ORPHA: 374\n",
@@ -480,288 +748,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         )));
 
-        mCardList.add(new MainRecyclerLettering("Θ"));
-
-        mCardList.add(new MainRecyclerLettering("Ι"));
-
-        mCardList.add(new MainRecyclerLettering("Κ"));
-
-        //krabbe_disease
-
-        ArrayList<Integer> krabbe_disease_img = new ArrayList<>();
-        krabbe_disease_img.add(R.drawable.krabbe_disease_1);
-        krabbe_disease_img.add(R.drawable.krabbe_disease_2);
-        mCardList.add(new MainRecyclerButton("Ασθένεια Krabbe (Krabbe disease)",tmp,new SyndromeData(
-                "Ασθένεια Krabbe (Krabbe disease)",
-                R.raw.krabbe_disease,"ICD-10: E75.2\n" +
-                "ORPHA: 487\n",
-                "Βιβλιογραφία (Ασθένεια Krabbe)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/krabbe-disease/\n" +
-                        "2. Evangelia Dimitriou et al., \"The Spectrum of Krabbe Disease in Greece: Biochemical and Molecular Findings\", JIMD Rep. 2016\n" +
-                        "3. Maria L. Beltran-Quintero et al., \"Early progression of Krabbe disease in patients with symptom onset between 0 and 5 months.\", Orphanet J Rare Dis. 2019",
-                krabbe_disease_img
-
-        )));
-
-        //carpenter_syndrome
-
-        ArrayList<Integer> carpenter_syndrome_img = new ArrayList<>();
-        carpenter_syndrome_img.add(R.drawable.carpenter_syndrome_1);
-        carpenter_syndrome_img.add(R.drawable.carpenter_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Carpenter (Carpenter syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο Carpenter (Carpenter syndrome)",
-                R.raw.carpenter_syndrome,"ICD-10: Q87.0\n" +
-                "ORPHA: 65759\n",
-                "Βιβλιογραφία (Σύνδρομο Carpenter)\n" +
-                        "1. https://rarediseases.org/rare-diseases/carpenter-syndrome/\n" +
-                        "2. https://childrensnational.org/visit/conditions-and-treatments/genetic-disorders-and-birth-defects/carpenter-syndrome",
-                carpenter_syndrome_img
-
-        )));
-
-        //congenital_disorder_of_glycosylation
-
-        ArrayList<Integer> congenital_disorder_of_glycosylation_img = new ArrayList<>();
-        congenital_disorder_of_glycosylation_img.add(R.drawable.congenital_disorder_of_glycosylation_1);
-        congenital_disorder_of_glycosylation_img.add(R.drawable.congenital_disorder_of_glycosylation_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο CDG (CDG syndrome - Congenital Disorder of Glycosylation)",tmp,new SyndromeData(
-                "Σύνδρομο CDG (CDG syndrome - Congenital Disorder of Glycosylation)",
-                R.raw.congenital_disorder_of_glycosylation,"ICD-10: E77.8\n" +
-                "ORPHA: 137\n",
-                "Βιβλιογραφία (Σύνδρομο CDG)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/cdg-syndrome/\n" +
-                        "2. Laurien Vaes et al., \" PMM2‐CDG caused by uniparental disomy: Case report and literature review\", JIMD Rep. 2020",
-                congenital_disorder_of_glycosylation_img
-
-        )));
-
-        //cornelia_delange_syndrome
-
-        ArrayList<Integer> cornelia_delange_syndrome_img = new ArrayList<>();
-        cornelia_delange_syndrome_img.add(R.drawable.cornelia_delange_syndrome_1);
-        cornelia_delange_syndrome_img.add(R.drawable.cornelia_delange_syndrome_2);
-        cornelia_delange_syndrome_img.add(R.drawable.cornelia_delange_syndrome_3);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Cornelia de Lange (Cornelia de Lange syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο Cornelia de Lange (Cornelia de Lange syndrome)",
-                R.raw.cornelia_delange_syndrome,"ICD-10: Q87.1C\n" +
-                "ORPHA: 199\n",
-                "Βιβλιογραφία (Σύνδρομο Cornelia de Lange)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/cornelia-de-lange-syndrome/\n" +
-                        "2. Antonie D. Kline et al., \" Diagnosis and management of Cornelia de Lange syndrome: first international consensus statement\", Nat Rev Genet. 2018\n" +
-                        "3. Lisa Nelson et al., \" An experimental study of executive function and social impairment in Cornelia de Lange syndrome\", J Neurodev Disord. 2017\n" +
-                        "4. George Psillas et al., \" Cornelia De Lange Syndrome and Cochlear Implantation\", Iran J Otorhinolaryngol. 2018",
-                cornelia_delange_syndrome_img
-
-        )));
-
-        //cri_du_chat_syndrome
-
-        ArrayList<Integer> cri_du_chat_syndrome_img = new ArrayList<>();
-        cri_du_chat_syndrome_img.add(R.drawable.cri_du_chat_syndrome_1);
-        cri_du_chat_syndrome_img.add(R.drawable.cri_du_chat_syndrome_2);
-        cri_du_chat_syndrome_img.add(R.drawable.cri_du_chat_syndrome_3);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Cri du Chat (Cri du Chat syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο Cri du Chat (Cri du Chat syndrome)",
-                R.raw.cri_du_chat_syndrome,"ICD-10: Q93.4\n" +
-                "ORPHA: 281\n",
-                "Βιβλιογραφία (Σύνδρομο Cri du Chat)\n" +
-                        "1. https://drustapbio.fandom.com/wiki/Cri_du_Chat\n" +
-                        "2. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/cri-du-chat-syndrome/\n" +
-                        "3. Kristoffersen, K. E. (2008), \"Speech and language development in cri du chat syndrome: A critical review\", Clinical Linguistics & Phonetics, 22(6), 443–457.\n" +
-                        "4. Mi Kyung Kim et al, \"Effects of Oral Stimulation Intervention in Newborn Babies with Cri du Chat Syndrome: Single-Subject Research Design\", Occup Ther\n" +
-                        "Int. 2018; 2018: 6573508.\n" +
-                        "5. Maria Elena Liverani et al., \" Children and adults affected by Cri du Chat syndrome: Care's recommendations\", Pediatr Rep. 2019 Feb 26; 11(1): 7839.",
-                cri_du_chat_syndrome_img
-
-        )));
-
-
-        //cri_du_chat_syndrome
-
-        ArrayList<Integer> crouzon_syndrome_img = new ArrayList<>();
-        crouzon_syndrome_img.add(R.drawable.crouzon_syndrome_1);
-        crouzon_syndrome_img.add(R.drawable.crouzon_syndrome_2);
-        crouzon_syndrome_img.add(R.drawable.crouzon_syndrome_3);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Crouzon (Crouzon syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο Crouzon (Crouzon syndrome)",
-                R.raw.crouzon_syndrome,"ICD-10: Q75.1\n" +
-                "ORPHA: 207\n",
-                "Βιβλιογραφία (Σύνδρομο Crouzon)\n" +
-                        "1. Farnoosh Mohammadi et al., \"Patient with Crouzon Syndrome Treated with Modified Le Fort III Osteotomy without Previous Orthodontic Treatment: Case\n" +
-                        "Report and a Review of the Literature\", Case Rep Dent. 2020; 2020: 6248971\n" +
-                        "2. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/crouzon-syndrome/\n" +
-                        "3. Cleft palate Foundation, \" Information about Crouzon Syndrome (Craniofacial Dysostosis)\"\n" +
-                        "4. https://craniofacial.org/el/content/%CF%83%CF%8D%CE%BD%CE%B4%CF%81%CE%BF%CE%BC%CE%BF-crouzon",
-                crouzon_syndrome_img
-        )));
-
-        //kallmann_syndrome
-
-        ArrayList<Integer> kallmann_syndrome_img = new ArrayList<>();
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Kallmann (Kallmann syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο Kallmann (Kallmann syndrome)",
-                R.raw.kallmann_syndrome,"ICD-10: E23.0\n" +
-                "ORPHA:478\n",
-                "Βιβλιογραφία (Σύνδρομο Kallmann)\n" +
-                        "1. Maria I. Stamou and Neoklis A. Georgopoulos \" Kallmann syndrome: phenotype and genotype of hypogonadotropic hypogonadism\" Metabolism. Author\n" +
-                        "manuscript; available in PMC 2018 Sep 1.",
-                kallmann_syndrome_img
-        )));
-
-        //kabuki_syndrome
-
-        ArrayList<Integer> kabuki_syndrome_img = new ArrayList<>();
-        kabuki_syndrome_img.add(R.drawable.kabuki_syndrome_1);
-        kabuki_syndrome_img.add(R.drawable.kabuki_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Kabuki (Kabuki syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο Kabuki (Kabuki syndrome)",
-                R.raw.kabuki_syndrome,"ICD-10: Q87.8\n" +
-                "ORPHA: 2322\n",
-                "Βιβλιογραφία (Σύνδρομο Kabuki)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/kabuki-syndrome/\n" +
-                        "2. Natália Silva-Andrade et al., \" Orofacial features and medical profile of eight individuals with Kabuki syndrome\" Med Oral Patol Oral Cir Bucal. 2019 Sep;\n" +
-                        "24(5): e630–e635",
-                kabuki_syndrome_img
-        )));
-
-        mCardList.add(new MainRecyclerLettering("Λ"));
-
-        //miller_dieker_syndrome
-
-        ArrayList<Integer> miller_dieker_syndrome_img = new ArrayList<>();
-        miller_dieker_syndrome_img.add(R.drawable.miller_dieker_syndrome1);
-        miller_dieker_syndrome_img.add(R.drawable.miller_dieker_syndrome2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Miller Dieker - Λυσεγκεφαλία (Miller Dieker syndrome - Lissencephaly)",tmp,new SyndromeData(
-                "Σύνδρομο Miller Dieker - Λυσεγκεφαλία (Miller Dieker syndrome - Lissencephaly)",
-                R.raw.miller_dieker_syndrome,"ICD-10: Q04.3\n" +
-                "ORPHA:531\n",
-                "Βιβλιογραφία (Σύνδρομο Miller Dieker)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/lissencefali/\n" +
-                        "2. Young Jin Kim et al. \" Miller-Dieker Syndrome with der(17)t(12;17)(q24.33;p13.3)pat Presenting with a Potential Risk of Mis-identification as a de\n" +
-                        "novo Submicroscopic Deletion of 17p13.3\" Korean J Lab Med. 2011 Jan; 31(1): 49–53.\n" +
-                        "3. Linda Mahgoub et al. \" Miller–Dieker Syndrome Associated with Congenital Lobar Emphysema\" AJP Rep. 2014 May; 4(1): 13–16.\n" +
-                        "4. Valeria Capra et al. \" Identification of a rare 17p13.3 duplication including the BHLHA9 and YWHAE genes in a family with developmental delay and\n" +
-                        "behavioural problems\" BMC Med Genet. 2012; 13: 93.",
-                miller_dieker_syndrome_img
-        )));
-
-
-
-        mCardList.add(new MainRecyclerLettering("Μ"));
-
-        //morquio_syndrome
-
-        ArrayList<Integer> morquio_syndrome_img = new ArrayList<>();
-        morquio_syndrome_img.add(R.drawable.morquio_syndrome_1);
-        morquio_syndrome_img.add(R.drawable.morquio_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Morquio (Morquio syndrome)-\n" +
-                "Mucopolysaccharidosis IV (MPS IV)",tmp,new SyndromeData(
-                "Σύνδρομο Morquio (Morquio syndrome)-\n" +
-                        "Mucopolysaccharidosis IV (MPS IV)",
-                R.raw.morquio_syndrome,"ICD-10: E76.2\n" +
-                "ORPHA:582\n",
-                "Βιβλιογραφία (Σύνδρομο Morquio)\n" +
-                        "1. Kazuki Sawamoto, José Víctor Álvarez González, Matthew Piechnik, Francisco J. Otero, Maria L. Couce, Yasuyuki Suzuki, and Shunji Tomatsu, \"\n" +
-                        "Mucopolysaccharidosis IVA: Diagnosis, Treatment, and Management\", Int J Mol Sci. 2020\n" +
-                        "2. Kyoko Nagao, Thierry Morlet, Elizabeth Haley, Jennifer Padilla, Julianne Nemith, Robert W. Mason, and Shunji Tomatsu, \" Neurophysiology of Hearing in Patients\n" +
-                        "with Mucopolysaccharidosis type IV\", Mol Genet Metab. 2018\n" +
-                        "3. Krzysztof Szklanny, Ryszard Gubrynowicz, and Anna Tylki-Szymańska, \" Voice alterations in patients with Morquio A syndrome\", J Appl Genet. 2018",
-                morquio_syndrome_img
-
-        )));
-
-        //maroteaux_lamy_syndrome
-
-        ArrayList<Integer> maroteaux_lamy_syndrome_img = new ArrayList<>();
-        maroteaux_lamy_syndrome_img.add(R.drawable.maroteaux_lamy_syndrome_1);
-        maroteaux_lamy_syndrome_img.add(R.drawable.maroteaux_lamy_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Maroteaux Lamy (Maroteaux Lamy syndrome)-\n" +
-                "Mucopolysaccharidosis VI (MPS VI)",tmp,new SyndromeData(
-                "Σύνδρομο Maroteaux Lamy (Maroteaux Lamy syndrome)-\n" +
-                        "Mucopolysaccharidosis VI (MPS VI)",
-                R.raw.maroteaux_lamy_syndrome,"ICD-10: E76.2\n" +
-                "ORPHA:583\n",
-                "Βιβλιογραφία (Σύνδρομο Maroteaux Lamy)\n" +
-                        "1. Hansjörg Dilger, Linn Leissner, Lenka Bosanska, Christina Lampe, and Ursula Plöckinger , \" Illness Perception and Clinical Treatment Experiences in Patients with\n" +
-                        "M. Maroteaux-Lamy (Mucopolysaccharidosis Type VI) and a Turkish Migration Background in Germany\" , PLoS One. 2013\n" +
-                        "2. Mehmet Umut Akyol, Tord D. Alden, Hernan Amartino, Jane Ashworth, Kumar Belani, Kenneth I. Berger, Andrea Borgo, Elizabeth Braunlin, Yoshikatsu Eto, Jeffrey I.\n" +
-                        "Gold, Andrea Jester, Simon A. Jones, Cengiz Karsli, William Mackenzie, Diane Ruschel Marinho, Andrew McFadyen, Jim McGill, John J. Mitchell, Joseph\n" +
-                        "Muenzer, Torayuki Okuyama, Paul J. Orchard, Bob Stevens, Sophie Thomas, Robert Walker, Robert Wynn, Roberto Giugliani, Paul Harmatz,Christian\n" +
-                        "Hendriksz, Maurizio Scarpa, MPS Consensus Programme Steering Committee, and MPS Consensus Programme Co-Chairs, \" Recommendations for the\n" +
-                        "management of MPS VI: systematic evidence- and consensus-based guidance\" , Orphanet J Rare Dis. 2019",
-                maroteaux_lamy_syndrome_img
-
-        )));
-
-
-        //marker_chromosome_15_syndrome_1
-
-        ArrayList<Integer> marker_chromosome_15_syndrome_img = new ArrayList<>();
-        marker_chromosome_15_syndrome_img.add(R.drawable.marker_chromosome_15_syndrome_1);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο χρωμοσωμικού δείκτη 15 (Marker chromosome 15 syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο χρωμοσωμικού δείκτη 15 (Marker chromosome 15 syndrome)",
-                R.raw.marker_chromosome_15_syndrome,"ICD-10: Q99.8\n" +
-                "ORPHA: 3306\n",
-                "Βιβλιογραφία (Σύνδρομο χρωμοσωμικού δείκτη 15)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/marker-chromosome-15-syndrome/\n" +
-                        "2. Altuğ Koç et al. \" Supernumerary marker chromosome 15 in a male with azoospermia and open bite deformity\" Asian J Androl. 2009 Sep; 11(5): 617–622.",
-                marker_chromosome_15_syndrome_img
-
-        )));
-
-        //mobius_syndrome
-
-        ArrayList<Integer> mobius_syndrome_img = new ArrayList<>();
-        mobius_syndrome_img.add(R.drawable.mobius_syndrome_1);
-        mobius_syndrome_img.add(R.drawable.mobius_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Möbius (Möbius syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο Möbius (Möbius syndrome)",
-                R.raw.mobius_syndrome,"ICD-10: Q87.0W\n" +
-                "ORPHA: 570\n",
-                "Βιβλιογραφία (Σύνδρομο Möbius)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/mobius-syndrome/\n" +
-                        "2. Zelita Caldeira Ferreira Guedes \" Möbius Syndrome: Misoprostol Use and Speech and Language Characteristics\" Int Arch Otorhinolaryngol. 2014 Jul; 18(3):\n" +
-                        "239–243.\n" +
-                        "3. Ann W. Kummer \"Cleft Palate and Cranioofacial Anomalies: Effects on Speech and Resonanace\", Second Edition, Delmar Cengage Learning 2008,5:138-139",
-                mobius_syndrome_img
-
-        )));
-
-
-
-        mCardList.add(new MainRecyclerLettering("Ν"));
-
-        //down_syndrome
-
-        ArrayList<Integer> down_syndrome_img = new ArrayList<>();
-        down_syndrome_img.add(R.drawable.down_syndrome_1);
-        down_syndrome_img.add(R.drawable.down_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Down (Down Syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο Down (Down Syndrome)",
-                R.raw.down_syndrome,"ICD-10: Q90.0 Q90.1 Q90.2 Q90.9\n" +
-                "ORPHA:870\n",
-                "Βιβλιογραφία (Σύνδρομο Down)\n" +
-                        "1. Βιολογία Κατεύθυνσης, Υπουργείο Εθνικής Παιδείας και Θρησκευμάτων, 1999.\n" +
-                        "2. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.\n" +
-                        "3. Arwen Jackson et al., \"Clinical Characteristics of Dysphagia in Children with Down Syndrome\", Springer Science+Business Media New York 2016\n" +
-                        "4. John E. Riski, \"Cleft lip and palate and other craniofacial anomalies\", p. 21, (Lauridsen et al., 2001)\n" +
-                        "5. Kathleen Scaler Scot, \"Stuttering and cluttering\".\n" +
-                        "6. Linda Cooper-Brown et al., \" FEEDING AND SWALLOWING DYSFUNCTION IN GENETIC SYNDROMES\", Developmental Disabilities Research Reviews 14:147 –\n" +
-                        "157 (2008).",
-                down_syndrome_img
-
-        )));
-
-        mCardList.add(new MainRecyclerLettering("Ξ"));
-
-        mCardList.add(new MainRecyclerLettering("Ο"));
+        mCardList.add(new MainRecyclerLettering("H"));
 
         //holoprosencephaly
+
+        List<String> holoprosencephaly_keywords_tmp = Arrays.asList(
+                "Q04.2", "2162", "ολοπροσεγκεφαλία", "Holoprosencephaly", "νοητική υστέρηση", "μικροκεφαλία", "χειλεοσχιστία", "ημιπροσωπική υποπλασία", "υπερωιοσχιστία"
+
+
+        );
+        ArrayList<String> holoprosencephaly_keywords = new ArrayList<>(holoprosencephaly_keywords_tmp);
 
         ArrayList<Integer> holoprosencephaly_img = new ArrayList<>();
         holoprosencephaly_img.add(R.drawable.holoprosencephaly_1);
         holoprosencephaly_img.add(R.drawable.holoprosencephaly_2);
-        mCardList.add(new MainRecyclerButton("Ολοπροσεγκεφαλία (Holoprosencephaly)",tmp,new SyndromeData(
+        mCardList.add(new MainRecyclerButton("Holoprosencephaly",holoprosencephaly_keywords,new SyndromeData(
                 "Ολοπροσεγκεφαλία (Holoprosencephaly)",
                 R.raw.holoprosencephaly,"ICD-10: Q04.2\nORPHA: 2162\n",
                 "Βιβλιογραφία (Ολοπροσεγκεφαλία)\n" +
@@ -774,274 +775,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         )));
 
-        mCardList.add(new MainRecyclerLettering("Π"));
+        //hunter_syndrome
 
-        //pierre_robin_sequence
+        List<String> hunter_syndrome_keywords_tmp = Arrays.asList(
+                "Hunter ", "MPS II", "E76.1", "580", "Υδροκεφαλία", "Γνωστικά ελλείμματα",
+                "Καθυστερημένη νοητική ανάπτυξη", "Μεγάλη γλώσσα", "Απώλεια ακοής", "βαρηκοΐα", "Άρθρωση ", "ρινοφάρυγγας"
 
-        ArrayList<Integer> pierre_robin_sequence_img = new ArrayList<>();
-        pierre_robin_sequence_img.add(R.drawable.pierre_robin_sequence_1);
-        pierre_robin_sequence_img.add(R.drawable.pierre_robin_sequence_2);
-        mCardList.add(new MainRecyclerButton("Ακολουθία Pierre Robin (Pierre Robin Sequence)",tmp,new SyndromeData(
-                "Ακολουθία Pierre Robin (Pierre Robin Sequence)",
-                R.raw.pierre_robin_sequence,"ICD-10: Q87.0\nORPHA:718\n",
-                "Βιβλιογραφία (Ακολουθία Pierre Robin)\n" +
-                        "1. https://en.wikipedia.org/wiki/Pierre_Robin_sequence#cite_note-Jakobsen2006-6\n" +
-                        "2. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.\n" +
-                        "3. Anne Morice et al., \" Severity of Retrognathia and Glossoptosis Does Not Predict Respiratory and Feeding Disorders in Pierre Robin Sequence\", Front\n" +
-                        "Pediatr., 2018.\n" +
-                        "4. Noopur Gangopadhyay et al., \"Pierre Robin Sequence\", Semin Plast Surg., 2012",
-                pierre_robin_sequence_img
+        );
+        ArrayList<String> hunter_syndrome_keywords = new ArrayList<>(hunter_syndrome_keywords_tmp);
 
-        )));
-
-        //potocki_lupski_syndrome
-
-        ArrayList<Integer> potocki_lupski_syndrome_img = new ArrayList<>();
-        potocki_lupski_syndrome_img.add(R.drawable.potocki_lupski_syndrome_1);
-        potocki_lupski_syndrome_img.add(R.drawable.potocki_lupski_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Potocki-Lupski (Potocki-Lupski syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο Potocki-Lupski (Potocki-Lupski syndrome)",
-                R.raw.potocki_lupski_syndrome,"ICD-10: Q99.8\n" +
-                "ORPHA: 1713\n",
-                "Βιβλιογραφία (Σύνδρομο Potocki-Lupski)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/potocki-lupski-syndrome/\n" +
-                        "2. Claudia Soler-Alfonso et al. \" Potocki-Lupski Syndrome: A Microduplication Syndrome Associated with Oropharyngeal Dysphagia and Failure to Thrive\" J\n" +
-                        "Pediatr. 2011 Apr; 158(4): 655–659.e2.\n" +
-                        "3. A. Gulhan Ercan-Sencicek et al. \" Searching for Potocki-Lupski syndrome Phenotype: A Patient with Language Impairment and no Autism\" Brain Dev. 2012\n" +
-                        "Sep; 34(8): 700–703.",
-                potocki_lupski_syndrome_img
+        ArrayList<Integer> hunter_syndrome_img = new ArrayList<>();
+        hunter_syndrome_img.add(R.drawable.hunter_syndrome_1);
+        hunter_syndrome_img.add(R.drawable.hunter_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Hunter syndrome",hunter_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Hunter (Hunter syndrome) - Mucopolysaccharidosis II (MPS II)",
+                R.raw.hunter_syndrome,"ICD-10: E76.1\n" +
+                "ORPHA: 580\n",
+                "Βιβλιογραφία (Σύνδρομο Hunter)",
+                hunter_syndrome_img
 
         )));
-
-        //pitt_hopkins_syndrome
-
-        ArrayList<Integer> pitt_hopkins_syndrome_img = new ArrayList<>();
-        pitt_hopkins_syndrome_img.add(R.drawable.pitt_hopkins_syndrome_1);
-        pitt_hopkins_syndrome_img.add(R.drawable.pitt_hopkins_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Pitt-Hopkins (Pitt-Hopkins syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο Pitt-Hopkins (Pitt-Hopkins syndrome)",
-                R.raw.pitt_hopkins_syndrome,"ICD-10: Q87.0\n" +
-                "ORPHA: 2896\n",
-                "Βιβλιογραφία (Σύνδρομο Pitt-Hopkins)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/pit-hopkins-syndrome/\n" +
-                        "2. Jorge Arturo Avina Fierroa, and Daniel Alejandro Hernandez Avina \" Pitt-Hopkins syndrome: Mental retardation, psychomotor and developmental delays\n" +
-                        "with facial dysmorphism\" Journal of Pediatric Genetics 3 (2014) 141–145.\n" +
-                        "3. Alice Watkins et al. \" Behavioural and psychological characteristics in Pitt-Hopkins syndrome: a comparison with Angelman and Cornelia de Lange\n" +
-                        "syndromes\" J Neurodev Disord. 2019; 11: 24.",
-                pitt_hopkins_syndrome_img
-
-        )));
-
-        //prader_willi_syndrome
-
-        ArrayList<Integer> prader_willi_syndrome_img = new ArrayList<>();
-        prader_willi_syndrome_img.add(R.drawable.prader_willi_syndrome_1);
-        prader_willi_syndrome_img.add(R.drawable.prader_willi_syndrome_2);
-        prader_willi_syndrome_img.add(R.drawable.prader_willi_syndrome_3);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Prader-Willi (Prader-Willi syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο Prader-Willi (Prader-Willi syndrome)",
-                R.raw.prader_willi_syndrome,"ICD-10: Q87.1F\n" +
-                "ORPHA: 739\n",
-                "Βιβλιογραφία (Σύνδρομο Prader-Willi)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/prader-willi-syndrome/\n" +
-                        "2. Kuzma Strenilkov et al. \"A study of voice and non-voice processing in Prader-Willi syndrome\" Orphanet J Rare Dis. 2020; 15: 22.\n" +
-                        "3. Merlin G. Butler et al. \"Prader-Willi Syndrome - Clinical Genetics, Diagnosis and Treatment Approaches: An Update\" Curr Pediatr Rev. 2019 Nov; 15(4):\n" +
-                        "207–244.\n" +
-                        "4. Linda Cooper-Brown et al. \" FEEDING AND SWALLOWING DYSFUNCTION IN GENETIC SYNDROMES\" DEVELOPMENTAL DISABILITIES RESEARCH REVIEWS 14:\n" +
-                        "147 – 157 (2008)",
-                prader_willi_syndrome_img
-
-        )));
-
-        mCardList.add(new MainRecyclerLettering("Ρ"));
-
-        //rett_syndrome
-
-        ArrayList<Integer> rett_syndrome_img = new ArrayList<>();
-        rett_syndrome_img.add(R.drawable.rett_syndrome_1);
-        rett_syndrome_img.add(R.drawable.rett_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Rett (Rett syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο Rett (Rett syndrome)",
-                R.raw.rett_syndrome,"ICD-10: F84.2\n" +
-                "ORPHA: 778\n",
-                "Βιβλιογραφία (Σύνδρομο Rett)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/rett-syndrome/\n" +
-                        "2. Cary Fu et al., \"Consensus guidelines on managing Rett syndrome across the lifespan\", BMJ Paediatr Open. 2020; 4(1): e000717.\n" +
-                        "3. Helen Leonard et al., \" Assessment and management of nutrition and growth in Rett syndrome\" J Pediatr Gastroenterol Nutr. Author manuscript; available\n" +
-                        "in PMC 2014 Oct 1.",
-                rett_syndrome_img
-
-        )));
-
-        mCardList.add(new MainRecyclerLettering("Σ"));
-
-        //cmt_disease
-
-        ArrayList<Integer> cmt_disease_img = new ArrayList<>();
-        cmt_disease_img.add(R.drawable.cmt_disease_1);
-        cmt_disease_img.add(R.drawable.cmt_disease_2);
-        mCardList.add(new MainRecyclerButton("Ασθένεια Charcot-Marie-Tooth (CMT Disease)",tmp,new SyndromeData(
-                "Ασθένεια Charcot-Marie-Tooth (CMT Disease)",
-                R.raw.cmt_disease,"ICD-10: G60.0\n",
-                "Βιβλιογραφία (Ασθένεια CMT)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/charcot-marie-tooth-disease/,\n" +
-                        "2. Donald McCorquodale et al.,\"Management of Charcot–Marie–Tooth disease: improving long-term care with a multidisciplinary approach\", J Multidiscip\n" +
-                        "Healthc. 2016",
-                cmt_disease_img
-
-        )));
-
-        //spielmeyer_vogt_disease
-
-        ArrayList<Integer> spielmeyer_vogt_disease_img = new ArrayList<>();
-        spielmeyer_vogt_disease_img.add(R.drawable.spielmeyer_vogt_disease_1);
-        spielmeyer_vogt_disease_img.add(R.drawable.spielmeyer_vogt_disease_2);
-        mCardList.add(new MainRecyclerButton("Ασθένεια Spielmeyer-Vogt / Ασθένεια Batten -\n" +
-                "(Spielmeyer-Vogt disease / Batten disease)",tmp,new SyndromeData(
-                "Ασθένεια Spielmeyer-Vogt / Ασθένεια Batten -\n" +
-                        "(Spielmeyer-Vogt disease / Batten disease)",
-                R.raw.spielmeyer_vogt_disease,"ICD-10: E75.4\n" +
-                "ORPHA: 79264\n",
-                "Βιβλιογραφία (Ασθένεια Spielmeyer-Vogt)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/spielmeyer-vogt-disease/\n" +
-                        "2. Sarah-Bianca Dolisca et al., \"Batten Disease: Clinical Aspects, Molecular Mechanisms, Translational Science, and Future Directions\", J Child Neurol. 2013\n" +
-                        "3. Tyler B. Johnson et al., \" Therapeutic landscape for Batten disease: current treatments and future prospects\", Nat Rev Neurol. 2019",
-                spielmeyer_vogt_disease_img
-
-        )));
-
-        //sanfilippo_syndrome
-
-        ArrayList<Integer> sanfilippo_syndrome_img = new ArrayList<>();
-        sanfilippo_syndrome_img.add(R.drawable.sanfilippo_syndrome_1);
-        sanfilippo_syndrome_img.add(R.drawable.sanfilippo_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Sanfilippo (Sanfilippo syndrome)-\n" +
-                "Mucopolysaccharidosis III (MPS III)",tmp,new SyndromeData(
-                "Σύνδρομο Sanfilippo (Sanfilippo syndrome)-\n" +
-                        "Mucopolysaccharidosis III (MPS III)",
-                R.raw.sanfilippo_syndrome,"ICD-10: E76.2E\n" +
-                "ORPHA: 581\n",
-                "Βιβλιογραφία (Σύνδρομο Sanfilippo)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/sanfilippo-syndrome/\n" +
-                        "2. Tamás Zelei, Kata Csetneki, Zoltán Vokó, and Csaba Siffel, \"Epidemiology of Sanfilippo syndrome: results of a systematic literature review\", Orphanet J Rare Dis.\n" +
-                        "2018\n" +
-                        "3. Frits A Wijburg, Grzegorz Węgrzyn, Barbara K Burton, and Anna Tylki-Szymańska, \" Mucopolysaccharidosis type III (Sanfilippo syndrome) and misdiagnosis of\n" +
-                        "idiopathic developmental delay, attention deficit/hyperactivity disorder or autism spectrum disorder\", Acta Paediatr. 2013\n" +
-                        "4. Marlies J Valstar, Jan Pieter Marchal, Martha Grootenhuis, Vivian Colland, and Frits A Wijburg,\" Cognitive development in patients with Mucopolysaccharidosis\n" +
-                        "type III (Sanfilippo syndrome)\", Orphanet J Rare Dis. 2011\n" +
-                        "5. Xiaohua Li, MM, Rui Xiao, PhD, Baiyu Chen, MM, Guanglu Yang, MD, Xiaomeng Zhang, MM, Zhuo Fu, MM, Junxian Fu, MM, Mengli Zhuang, MM, and Yinglong\n" +
-                        "Huang, MD, PhD, \" A novel mutation of SGSH and clinical features analysis of mucopolysaccharidosis type IIIA\", Medicine (Baltimore). 2018",
-                sanfilippo_syndrome_img
-
-        )));
-
-        //sanfilippo_syndrome
-
-        ArrayList<Integer> sly_syndrome_img = new ArrayList<>();
-        sly_syndrome_img.add(R.drawable.sly_syndrome_1);
-        sly_syndrome_img.add(R.drawable.sly_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Sly (Sly syndrome) - Mucopolysaccharidosis VΙI (MPS VII)",tmp,new SyndromeData(
-                "Σύνδρομο Sly (Sly syndrome) - Mucopolysaccharidosis VΙI (MPS VII)",
-                R.raw.sly_syndrome,"ICD-10: E76.2\n" +
-                "ORPHA:584\n",
-                "Βιβλιογραφία (Σύνδρομο Sly)\n" +
-                        "1. Nathalie Guffon, Roseline Froissart, and Alain Fouilhoux , \" A rare late progression form of Sly syndrome mucopolysaccharidosis\" , JIMD Rep. 2019\n" +
-                        "2. Alexandra Morrison, Esmee Oussoren, Tabea Friedel, Jordi Cruz, and Nalan Yilmaz, \" Pathway to diagnosis and burden of illness in mucopolysaccharidosis type VII –\n" +
-                        "a European caregiver survey\", Orphanet J Rare Dis. 2019",
-                sly_syndrome_img
-
-        )));
-
-
-
-
-        mCardList.add(new MainRecyclerLettering("Τ"));
-
-        //charge_syndrome
-
-        ArrayList<Integer> charge_syndrome_img = new ArrayList<>();
-        charge_syndrome_img.add(R.drawable.charge_syndrome_1);
-        charge_syndrome_img.add(R.drawable.charge_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο CHARGE (CHARGE syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο CHARGE (CHARGE syndrome)",
-                R.raw.charge_syndrome,"ICD-10: Q87.8\n" +
-                "ORPHA: 134\n",
-                "Βιβλιογραφία (Σύνδρομο CHARGE)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/charge-syndrome/\n" +
-                        "2. Christa M. de Geus et al., \" Guidelines in CHARGE syndrome and the missing link: Cranial imaging\", Am J Med Genet C Semin Med Genet. 2017\n" +
-                        "3. Dieuwerke R Dijk et al., \" Growth in CHARGE syndrome: optimizing care with a multidisciplinary approach\", J Multidiscip Healthc. 2019\n" +
-                        "4. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.",
-                charge_syndrome_img
-
-        )));
-
-        //joubert_syndrome
-
-        ArrayList<Integer> joubert_syndrome_img = new ArrayList<>();
-        joubert_syndrome_img.add(R.drawable.joubert_syndrome_1);
-        joubert_syndrome_img.add(R.drawable.joubert_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Joubert (Joubert syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο Joubert (Joubert syndrome)",
-                R.raw.joubert_syndrome,"ICD-10: G71.2\n" +
-                "ORPHA: 607\n",
-                "Βιβλιογραφία (Σύνδρομο Joubert)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/joubert-syndrome/\n" +
-                        "2. Melissa A. Parisi \" Clinical and molecular features of Joubert syndrome and related disorders\" Am J Med Genet C Semin Med Genet. 2009 Nov 15; 151C(4):\n" +
-                        "326–340.\n" +
-                        "3. Ahmed Farag Elhassanien and Hesham Abdel-Aziz Alghaiaty \" Joubert syndrome: Clinical and radiological characteristics of nine patients\" Ann Indian Acad\n" +
-                        "Neurol. 2013 Apr-Jun; 16(2): 239–244.",
-                joubert_syndrome_img
-
-        )));
-
-        //jacobsen_syndrome
-
-        ArrayList<Integer> jacobsen_syndrome_img = new ArrayList<>();
-        jacobsen_syndrome_img.add(R.drawable.jacobsen_syndrome_1);
-        jacobsen_syndrome_img.add(R.drawable.jacobsen_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Jacobsen (Jacobsen syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο Jacobsen (Jacobsen syndrome)",
-                R.raw.jacobsen_syndrome,"ICD-10: Q93.5\n" +
-                "ORPHA:2308\n",
-                "Βιβλιογραφία (Σύνδρομο Jacobsen)\n" +
-                        "1. Teresa Mattina et al., \" Jacobsen syndrome\" Orphanet J Rare Dis. 2009; 4: 9.\n" +
-                        "2. https://rarediseases.info.nih.gov/diseases/307/jacobsen-syndrome",
-                jacobsen_syndrome_img
-
-        )));
-
-        //treacher_collins_syndrome
-
-        ArrayList<Integer> treacher_collins_syndrome_img = new ArrayList<>();
-        treacher_collins_syndrome_img.add(R.drawable.treacher_collins_syndrome_1);
-        treacher_collins_syndrome_img.add(R.drawable.treacher_collins_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Treacher Collins (Treacher Collins syndrome)",tmp,new SyndromeData(
-                "Σύνδρομο Treacher Collins (Treacher Collins syndrome)",
-                R.raw.treacher_collins_syndrome,"ICD-10: Q75.4\n" +
-                "ORPHA: 86\n",
-                "Βιβλιογραφία (Σύνδρομο Treacher Collins)\n" +
-                        "1. Pamela Åsten et al., \" Associations between speech features and phenotypic severity in Treacher Collins syndrome\" BMC Med Genet. 2014; 15: 47.\n" +
-                        "2. Karla Terrazas et al., \" Rare syndromes of the head and face: mandibulofacial and acrofacial dysostoses\" Wiley Interdiscip Rev Dev Biol. Author manuscript;\n" +
-                        "available in PMC 2018 May 1.\n" +
-                        "3. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/treacher-collins-syndrome/",
-                treacher_collins_syndrome_img
-
-        )));
-
-
-        mCardList.add(new MainRecyclerLettering("Υ"));
-
-        mCardList.add(new MainRecyclerLettering("Φ"));
-
-        mCardList.add(new MainRecyclerLettering("Χ"));
 
         //huntington_disease_huntington_chorea
+
+        List<String> huntington_disease_huntington_chorea_keywords_tmp = Arrays.asList(
+                "Huntington", "G10", "399", "ισορροπία", "αναπνοή", "Γνωστικά ελλείμματα", "έκφραση", "Υπερκινητική δυσαρθρία ", "διαδοχοκίνηση", "Προσωδία ",
+                "Μονοτονία", "Φώνηση", "φωνή", "ρυθμός", "ασάφεια", "άρθρωση", "δυσφαγία", "χορεία"
+
+
+        );
+        ArrayList<String> huntington_disease_huntington_chorea_keywords = new ArrayList<>(huntington_disease_huntington_chorea_keywords_tmp);
 
         ArrayList<Integer> huntington_disease_huntington_chorea_img = new ArrayList<>();
         huntington_disease_huntington_chorea_img.add(R.drawable.huntington_disease_huntington_chorea_1);
         huntington_disease_huntington_chorea_img.add(R.drawable.huntington_disease_huntington_chorea_2);
-        mCardList.add(new MainRecyclerButton("Ασθένεια Huntington-Χορεία Huntington\n" +
-                "(Huntington disease-Huntington chorea)",tmp,new SyndromeData(
+        mCardList.add(new MainRecyclerButton("Huntington disease",huntington_disease_huntington_chorea_keywords,new SyndromeData(
                 "Ασθένεια Huntington-Χορεία Huntington\n" +
                         "(Huntington disease-Huntington chorea)",
                 R.raw.huntington_disease_huntington_chorea,"ICD-10: G10\n" +
@@ -1060,10 +828,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //hurler_syndrome
 
+        List<String> hurler_syndrome_keywords_tmp = Arrays.asList(
+                "Hurler ", "MPS I", "E76.0", "93473", "Γνωστική έκπτωση", "Αναπνοή", "Μακρογλωσσία", "Υδροκεφαλία",
+                "Εγκεφαλική ατροφία", "καθυστέρηση ομιλίας", "ωτίτιδα ", "βαρηκοΐα ", "δυσφαγία", "παλινδρόμηση", "Εισρόφηση"
+        );
+        ArrayList<String> hurler_syndrome_keywords = new ArrayList<>(hurler_syndrome_keywords_tmp);
+
         ArrayList<Integer> hurler_syndrome_img = new ArrayList<>();
         hurler_syndrome_img.add(R.drawable.hurler_syndrome_1);
         hurler_syndrome_img.add(R.drawable.hurler_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Hurler (Hurler syndrome) - Mucopolysaccharidosis I (MPS I)",tmp,new SyndromeData(
+        mCardList.add(new MainRecyclerButton("Hurler syndrome",hurler_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Hurler (Hurler syndrome) - Mucopolysaccharidosis I (MPS I)",
                 R.raw.hurler_syndrome,"ICD-10: E76.0\n" +
                 "ORPHA: 93473\n",
@@ -1073,23 +847,639 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         )));
 
-        //hunter_syndrome
+        mCardList.add(new MainRecyclerLettering("I"));
 
-        ArrayList<Integer> hunter_syndrome_img = new ArrayList<>();
-        hunter_syndrome_img.add(R.drawable.hunter_syndrome_1);
-        hunter_syndrome_img.add(R.drawable.hunter_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Σύνδρομο Hunter (Hunter syndrome) - Mucopolysaccharidosis II (MPS II)",tmp,new SyndromeData(
-                "Σύνδρομο Hunter (Hunter syndrome) - Mucopolysaccharidosis II (MPS II)",
-                R.raw.hunter_syndrome,"ICD-10: E76.1\n" +
-                "ORPHA: 580\n",
-                "Βιβλιογραφία (Σύνδρομο Hunter)",
-                hunter_syndrome_img
+        mCardList.add(new MainRecyclerLettering("J"));
+
+        //jacobsen_syndrome
+
+        List<String> jacobsen_syndrome_keywords_tmp = Arrays.asList(
+                "Jacobsen ", "Q93.5", "2308", "Νοητική υστέρηση ", "ΔΕΠΥ", "μικροκεφαλία",
+                "Ασυμμετρία προσώπου", "μαλακή υπερώα", "Βαρηκοΐα", "Καθυστέρηση ομιλίας",
+                "Γνωστικά ελλείμματα", "Μαθησιακές δυσκολίες"
+
+        );
+        ArrayList<String> jacobsen_syndrome_keywords = new ArrayList<>(jacobsen_syndrome_keywords_tmp);
+
+        ArrayList<Integer> jacobsen_syndrome_img = new ArrayList<>();
+        jacobsen_syndrome_img.add(R.drawable.jacobsen_syndrome_1);
+        jacobsen_syndrome_img.add(R.drawable.jacobsen_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Jacobsen syndrome",jacobsen_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Jacobsen (Jacobsen syndrome)",
+                R.raw.jacobsen_syndrome,"ICD-10: Q93.5\n" +
+                "ORPHA:2308\n",
+                "Βιβλιογραφία (Σύνδρομο Jacobsen)\n" +
+                        "1. Teresa Mattina et al., \" Jacobsen syndrome\" Orphanet J Rare Dis. 2009; 4: 9.\n" +
+                        "2. https://rarediseases.info.nih.gov/diseases/307/jacobsen-syndrome",
+                jacobsen_syndrome_img
 
         )));
 
-        mCardList.add(new MainRecyclerLettering("Ψ"));
 
-        mCardList.add(new MainRecyclerLettering("Ω"));
+        //joubert_syndrome
+
+        List<String> joubert_syndrome_keywords_tmp = Arrays.asList(
+
+                "Joubert ", "G71.2", "607", "Γνωστική έκπτωση", "Αταξία", "Νοητική υστέρηση ",
+                "Υποτονία", "αναπνοή", "Επιληψία", "δυσπραξία", "απραξία", "ασάφεια", "απομύζηση",
+                "Σιελόρροια", "γαστροστομία", "δυσφαγία"
+
+        );
+        ArrayList<String> joubert_syndrome_keywords = new ArrayList<>(joubert_syndrome_keywords_tmp);
+
+        ArrayList<Integer> joubert_syndrome_img = new ArrayList<>();
+        joubert_syndrome_img.add(R.drawable.joubert_syndrome_1);
+        joubert_syndrome_img.add(R.drawable.joubert_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Joubert syndrome",joubert_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Joubert (Joubert syndrome)",
+                R.raw.joubert_syndrome,"ICD-10: G71.2\n" +
+                "ORPHA: 607\n",
+                "Βιβλιογραφία (Σύνδρομο Joubert)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/joubert-syndrome/\n" +
+                        "2. Melissa A. Parisi \" Clinical and molecular features of Joubert syndrome and related disorders\" Am J Med Genet C Semin Med Genet. 2009 Nov 15; 151C(4):\n" +
+                        "326–340.\n" +
+                        "3. Ahmed Farag Elhassanien and Hesham Abdel-Aziz Alghaiaty \" Joubert syndrome: Clinical and radiological characteristics of nine patients\" Ann Indian Acad\n" +
+                        "Neurol. 2013 Apr-Jun; 16(2): 239–244.",
+                joubert_syndrome_img
+
+        )));
+
+
+        mCardList.add(new MainRecyclerLettering("K"));
+
+        //kabuki_syndrome
+
+        List<String> kabuki_syndrome_keywords_tmp = Arrays.asList(
+
+                "Kabuki ", "Q87.8", "2322", "Νοητική υστέρηση ", "Αναπνοή",
+                "αυτισμός", "Pierre Robin", "Επιληψία", "μαλακή υπερώα", "Χειλεοσχιστία",
+                "υπερωιοσχιστία", "Δισχιδής γλώσσα", "Μικρογναθία", "Μικροκεφαλία", "βαρηκοΐα", "ωτίτιδα",
+                "Καθυστέρηση ομιλίας", "κατανόηση", "παραγωγή", "Σύνταξη", "Ασάφεια", "παλινδρόμηση", "γαστροστομία ",
+                "δυσφαγία"
+
+        );
+        ArrayList<String> kabuki_syndrome_keywords = new ArrayList<>(kabuki_syndrome_keywords_tmp);
+
+        ArrayList<Integer> kabuki_syndrome_img = new ArrayList<>();
+        kabuki_syndrome_img.add(R.drawable.kabuki_syndrome_1);
+        kabuki_syndrome_img.add(R.drawable.kabuki_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Kabuki syndrome",kabuki_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Kabuki (Kabuki syndrome)",
+                R.raw.kabuki_syndrome,"ICD-10: Q87.8\n" +
+                "ORPHA: 2322\n",
+                "Βιβλιογραφία (Σύνδρομο Kabuki)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/kabuki-syndrome/\n" +
+                        "2. Natália Silva-Andrade et al., \" Orofacial features and medical profile of eight individuals with Kabuki syndrome\" Med Oral Patol Oral Cir Bucal. 2019 Sep;\n" +
+                        "24(5): e630–e635",
+                kabuki_syndrome_img
+        )));
+
+        //kallmann_syndrome
+
+        List<String> kallmann_syndrome_keywords_tmp = Arrays.asList(
+                "Kallmann ", "E23.0", "478", "Νοητική υστέρηση", "υποτονία", "αυτισμός",
+                "Επιληψία", "Βραχυκεφαλία", "μαλακή υπερώα", "Υποπλασία", "Μικρογναθία",
+                "άρθρωση", "δυσφαγία", "απομύζηση "
+
+        );
+        ArrayList<String> kallmann_syndrome_keywords = new ArrayList<>(kallmann_syndrome_keywords_tmp);
+
+        ArrayList<Integer> kallmann_syndrome_img = new ArrayList<>();
+        mCardList.add(new MainRecyclerButton("Kallmann syndrome",kallmann_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Kallmann (Kallmann syndrome)",
+                R.raw.kallmann_syndrome,"ICD-10: E23.0\n" +
+                "ORPHA:478\n",
+                "Βιβλιογραφία (Σύνδρομο Kallmann)\n" +
+                        "1. Maria I. Stamou and Neoklis A. Georgopoulos \" Kallmann syndrome: phenotype and genotype of hypogonadotropic hypogonadism\" Metabolism. Author\n" +
+                        "manuscript; available in PMC 2018 Sep 1.",
+                kallmann_syndrome_img
+        )));
+
+        //krabbe_disease
+
+        List<String> krabbe_disease_keywords_tmp = Arrays.asList(
+                "E75.2", "487", "Krabbe", "σπαστικότητα", "υποτονία", "απώλεια ακοής", "αναπνοή", "Επιληψία", "Πρόωρος θάνατος", "Παλινδρόμηση ", "εισρόφηση", "γαστροστομία ", "δυσφαγία"
+
+        );
+        ArrayList<String> krabbe_disease_keywords = new ArrayList<>(krabbe_disease_keywords_tmp);
+
+        ArrayList<Integer> krabbe_disease_img = new ArrayList<>();
+        krabbe_disease_img.add(R.drawable.krabbe_disease_1);
+        krabbe_disease_img.add(R.drawable.krabbe_disease_2);
+        mCardList.add(new MainRecyclerButton("Krabbe disease",krabbe_disease_keywords,new SyndromeData(
+                "Ασθένεια Krabbe (Krabbe disease)",
+                R.raw.krabbe_disease,"ICD-10: E75.2\n" +
+                "ORPHA: 487\n",
+                "Βιβλιογραφία (Ασθένεια Krabbe)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/krabbe-disease/\n" +
+                        "2. Evangelia Dimitriou et al., \"The Spectrum of Krabbe Disease in Greece: Biochemical and Molecular Findings\", JIMD Rep. 2016\n" +
+                        "3. Maria L. Beltran-Quintero et al., \"Early progression of Krabbe disease in patients with symptom onset between 0 and 5 months.\", Orphanet J Rare Dis. 2019",
+                krabbe_disease_img
+
+        )));
+
+
+        mCardList.add(new MainRecyclerLettering("L"));
+
+        //lchad_deficiency
+
+        List<String> lchad_deficiency_keywords_tmp = Arrays.asList(
+                "E71.3", "5", "LCHAD", "Υποτονία", "Γαστροστομία", "καθυστέρηση ομιλίας", "αντανακλαστικό εξ εμέσεως"
+
+
+        );
+        ArrayList<String> lchad_deficiency_keywords = new ArrayList<>(lchad_deficiency_keywords_tmp);
+
+        ArrayList<Integer> lchad_deficiency_img = new ArrayList<>();
+        mCardList.add(new MainRecyclerButton("LCHAD deficiency",lchad_deficiency_keywords,new SyndromeData(
+                "Ανεπάρκεια LCHAD (LCHAD deficiency)",
+                R.raw.lchad_deficiency,"ICD-10: E71.3\n" +
+                "ORPHA: 5\n",
+                "Βιβλιογραφία (Ανεπάρκεια LCHAD)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/lchad-deficiency/",
+                lchad_deficiency_img
+
+        )));
+
+
+
+        mCardList.add(new MainRecyclerLettering("M"));
+
+        //marker_chromosome_15_syndrome
+
+        List<String> marker_chromosome_15_syndrome_keywords_tmp = Arrays.asList(
+                "Σύνδρομο χρωμοσωμικού δείκτη 15", "Marker chromosome 15", "Q99.8",
+                "3306", "Νοητική υστέρηση", "υποτονία", "αυτισμός", "Επιληψία", "Βραχυκεφαλία",
+                "μαλακή υπερώα", "Μικρογναθία", "άρθρωση", "απομύζηση", "δυσφαγία"
+
+        );
+        ArrayList<String> marker_chromosome_15_syndrome_keywords = new ArrayList<>(marker_chromosome_15_syndrome_keywords_tmp);
+
+        ArrayList<Integer> marker_chromosome_15_syndrome_img = new ArrayList<>();
+        marker_chromosome_15_syndrome_img.add(R.drawable.marker_chromosome_15_syndrome_1);
+        mCardList.add(new MainRecyclerButton("Marker chromosome 15 syndrome",marker_chromosome_15_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο χρωμοσωμικού δείκτη 15 (Marker chromosome 15 syndrome)",
+                R.raw.marker_chromosome_15_syndrome,"ICD-10: Q99.8\n" +
+                "ORPHA: 3306\n",
+                "Βιβλιογραφία (Σύνδρομο χρωμοσωμικού δείκτη 15)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/marker-chromosome-15-syndrome/\n" +
+                        "2. Altuğ Koç et al. \" Supernumerary marker chromosome 15 in a male with azoospermia and open bite deformity\" Asian J Androl. 2009 Sep; 11(5): 617–622.",
+                marker_chromosome_15_syndrome_img
+
+        )));
+
+        //maroteaux_lamy_syndrome
+
+        List<String> maroteaux_lamy_syndrome_keywords_tmp = Arrays.asList(
+                "Maroteaux Lamy ", "MPS VI", "E76.2", "583", "Αναπνοή", "Υδροκεφαλία", "βαρηκοΐα", "Κώφωση", "λοιμώξεις αυτιού"
+
+        );
+        ArrayList<String> maroteaux_lamy_syndrome_keywords = new ArrayList<>(maroteaux_lamy_syndrome_keywords_tmp);
+
+        ArrayList<Integer> maroteaux_lamy_syndrome_img = new ArrayList<>();
+        maroteaux_lamy_syndrome_img.add(R.drawable.maroteaux_lamy_syndrome_1);
+        maroteaux_lamy_syndrome_img.add(R.drawable.maroteaux_lamy_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Maroteaux Lamy syndrome",maroteaux_lamy_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Maroteaux Lamy (Maroteaux Lamy syndrome)-\n" +
+                        "Mucopolysaccharidosis VI (MPS VI)",
+                R.raw.maroteaux_lamy_syndrome,"ICD-10: E76.2\n" +
+                "ORPHA:583\n",
+                "Βιβλιογραφία (Σύνδρομο Maroteaux Lamy)\n" +
+                        "1. Hansjörg Dilger, Linn Leissner, Lenka Bosanska, Christina Lampe, and Ursula Plöckinger , \" Illness Perception and Clinical Treatment Experiences in Patients with\n" +
+                        "M. Maroteaux-Lamy (Mucopolysaccharidosis Type VI) and a Turkish Migration Background in Germany\" , PLoS One. 2013\n" +
+                        "2. Mehmet Umut Akyol, Tord D. Alden, Hernan Amartino, Jane Ashworth, Kumar Belani, Kenneth I. Berger, Andrea Borgo, Elizabeth Braunlin, Yoshikatsu Eto, Jeffrey I.\n" +
+                        "Gold, Andrea Jester, Simon A. Jones, Cengiz Karsli, William Mackenzie, Diane Ruschel Marinho, Andrew McFadyen, Jim McGill, John J. Mitchell, Joseph\n" +
+                        "Muenzer, Torayuki Okuyama, Paul J. Orchard, Bob Stevens, Sophie Thomas, Robert Walker, Robert Wynn, Roberto Giugliani, Paul Harmatz,Christian\n" +
+                        "Hendriksz, Maurizio Scarpa, MPS Consensus Programme Steering Committee, and MPS Consensus Programme Co-Chairs, \" Recommendations for the\n" +
+                        "management of MPS VI: systematic evidence- and consensus-based guidance\" , Orphanet J Rare Dis. 2019",
+                maroteaux_lamy_syndrome_img
+
+        )));
+
+        //miller_dieker_syndrome
+
+        List<String> miller_dieker_syndrome_keywords_tmp = Arrays.asList(
+
+                "Miller Dieker", "Λυσεγκεφαλία ", "Lissencephaly", "Q04.3", "531",
+                "Εγκεφαλική παράλυση", "υποτονία", "επιληψία", "αυτισμός",
+                "Μικρογναθία", "Καθυστέρηση ομιλίας", "Αναπνοή", "ΔΕΠΥ",
+                "Γνωστικά ελλείμματα", "Σιελόρροια", "Σίτιση ", "δυσφαγία"
+
+        );
+        ArrayList<String> miller_dieker_syndrome_keywords = new ArrayList<>(miller_dieker_syndrome_keywords_tmp);
+
+        ArrayList<Integer> miller_dieker_syndrome_img = new ArrayList<>();
+        miller_dieker_syndrome_img.add(R.drawable.miller_dieker_syndrome1);
+        miller_dieker_syndrome_img.add(R.drawable.miller_dieker_syndrome2);
+        mCardList.add(new MainRecyclerButton("Miller Dieker syndrome",miller_dieker_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Miller Dieker - Λυσεγκεφαλία (Miller Dieker syndrome - Lissencephaly)",
+                R.raw.miller_dieker_syndrome,"ICD-10: Q04.3\n" +
+                "ORPHA:531\n",
+                "Βιβλιογραφία (Σύνδρομο Miller Dieker)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/lissencefali/\n" +
+                        "2. Young Jin Kim et al. \" Miller-Dieker Syndrome with der(17)t(12;17)(q24.33;p13.3)pat Presenting with a Potential Risk of Mis-identification as a de\n" +
+                        "novo Submicroscopic Deletion of 17p13.3\" Korean J Lab Med. 2011 Jan; 31(1): 49–53.\n" +
+                        "3. Linda Mahgoub et al. \" Miller–Dieker Syndrome Associated with Congenital Lobar Emphysema\" AJP Rep. 2014 May; 4(1): 13–16.\n" +
+                        "4. Valeria Capra et al. \" Identification of a rare 17p13.3 duplication including the BHLHA9 and YWHAE genes in a family with developmental delay and\n" +
+                        "behavioural problems\" BMC Med Genet. 2012; 13: 93.",
+                miller_dieker_syndrome_img
+        )));
+
+        //mobius_syndrome
+
+        List<String> mobius_syndrome_keywords_tmp = Arrays.asList(
+                "Möbius ", "moebius", "Q87.0W", "570", "παράλυση ", "κρανιακά νεύρα",
+                "προσωπικό", "απαγωγό", "Υπογλώσσιο ", "Γλωσσοφαρυγγικό", "πνευμονογαστρικό",
+                "Τρίδυμο", "Νοητική υστέρηση ", "έκφραση", "Χειλεοσχιστία", "υπερωιοσχιστία", "Μακρογλωσσία",
+                "βαρηκοΐα" ,"ωτίτιδα" ,"Καθυστέρηση ", "μιλίας", "φώνηση", "κατανόηση", "Αναπνοή", "δυσφαγία",
+                "απομύζηση", "Γαστροστομία"
+
+        );
+        ArrayList<String> mobius_syndrome_keywords = new ArrayList<>(mobius_syndrome_keywords_tmp);
+
+        ArrayList<Integer> mobius_syndrome_img = new ArrayList<>();
+        mobius_syndrome_img.add(R.drawable.mobius_syndrome_1);
+        mobius_syndrome_img.add(R.drawable.mobius_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Möbius syndrome",mobius_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Möbius (Möbius syndrome)",
+                R.raw.mobius_syndrome,"ICD-10: Q87.0W\n" +
+                "ORPHA: 570\n",
+                "Βιβλιογραφία (Σύνδρομο Möbius)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/mobius-syndrome/\n" +
+                        "2. Zelita Caldeira Ferreira Guedes \" Möbius Syndrome: Misoprostol Use and Speech and Language Characteristics\" Int Arch Otorhinolaryngol. 2014 Jul; 18(3):\n" +
+                        "239–243.\n" +
+                        "3. Ann W. Kummer \"Cleft Palate and Cranioofacial Anomalies: Effects on Speech and Resonanace\", Second Edition, Delmar Cengage Learning 2008,5:138-139",
+                mobius_syndrome_img
+
+        )));
+
+        //morquio_syndrome
+
+        List<String> morquio_syndrome_keywords_tmp = Arrays.asList(
+                "Morquio", "MPS IV", "E76.2", "582", "βαρηκοΐα", "λοιμώξεις αυτιού", "κώφωση ",
+                "καθυστέρηση ομιλίας", "φώνηση", "φωνητικές χορδές", "φωνή", "Αναπνοή", "λάρυγγας", "τραχεία", "δυσφαγία"
+
+        );
+        ArrayList<String> morquio_syndrome_keywords = new ArrayList<>(morquio_syndrome_keywords_tmp);
+
+        ArrayList<Integer> morquio_syndrome_img = new ArrayList<>();
+        morquio_syndrome_img.add(R.drawable.morquio_syndrome_1);
+        morquio_syndrome_img.add(R.drawable.morquio_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Morquio syndrome",morquio_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Morquio (Morquio syndrome)-\n" +
+                        "Mucopolysaccharidosis IV (MPS IV)",
+                R.raw.morquio_syndrome,"ICD-10: E76.2\n" +
+                "ORPHA:582\n",
+                "Βιβλιογραφία (Σύνδρομο Morquio)\n" +
+                        "1. Kazuki Sawamoto, José Víctor Álvarez González, Matthew Piechnik, Francisco J. Otero, Maria L. Couce, Yasuyuki Suzuki, and Shunji Tomatsu, \"\n" +
+                        "Mucopolysaccharidosis IVA: Diagnosis, Treatment, and Management\", Int J Mol Sci. 2020\n" +
+                        "2. Kyoko Nagao, Thierry Morlet, Elizabeth Haley, Jennifer Padilla, Julianne Nemith, Robert W. Mason, and Shunji Tomatsu, \" Neurophysiology of Hearing in Patients\n" +
+                        "with Mucopolysaccharidosis type IV\", Mol Genet Metab. 2018\n" +
+                        "3. Krzysztof Szklanny, Ryszard Gubrynowicz, and Anna Tylki-Szymańska, \" Voice alterations in patients with Morquio A syndrome\", J Appl Genet. 2018",
+                morquio_syndrome_img
+
+        )));
+
+        mCardList.add(new MainRecyclerLettering("N"));
+
+        mCardList.add(new MainRecyclerLettering("O"));
+
+        //osteogenesis_imperfecta_brittle_bone_disease
+
+        List<String> osteogenesis_imperfecta_brittle_bone_disease_keywords_tmp = Arrays.asList(
+                "Q78.0", "666", "ατελής οστεογένεση", "κρανιακά νεύρα", "γλωσσοφαρυγγικό", "πνευμονογαστρικό", "παραπληρωματικό",
+                "υπογλώσσιο", "βαρηκοΐα ", "Αναπνευστικά ", "αταξία", "αντανακλαστικό απομύζησης", "Παλινδρόμηση"
+
+
+
+        );
+        ArrayList<String> osteogenesis_imperfecta_brittle_bone_disease_keywords = new ArrayList<>(osteogenesis_imperfecta_brittle_bone_disease_keywords_tmp);
+
+        ArrayList<Integer> osteogenesis_imperfecta_brittle_bone_disease_img = new ArrayList<>();
+        osteogenesis_imperfecta_brittle_bone_disease_img.add(R.drawable.osteogenesis_imperfecta_brittle_bone_disease_1);
+        osteogenesis_imperfecta_brittle_bone_disease_img.add(R.drawable.osteogenesis_imperfecta_brittle_bone_disease_2);
+        mCardList.add(new MainRecyclerButton("Brittle bone disease",osteogenesis_imperfecta_brittle_bone_disease_keywords,new SyndromeData(
+                "Ατελής Οστεογένεση (Osteogenesis Imperfecta-Brittle bone disease)",
+                R.raw.osteogenesis_imperfecta_brittle_bone_disease,"ICD-10: Q78.0\n" +
+                "ORPHA:666\n",
+                "Βιβλιογραφία (Ατελής Οστεογέννεση)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/osteogenesis-imperfecta/\n" +
+                        "2. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.\n" +
+                        "3. Caroline Marr, Alison Seasman,and Nick Bishop, \"Managing the patient with osteogenesis imperfecta: a multidisciplinary approach\", J Multidiscip Healthc.\n" +
+                        "2017\n" +
+                        "4. Joseph P. Pillion, David Vernick, and Jay Shapiro,\" Hearing Loss in Osteogenesis Imperfecta: Characteristics and Treatment Considerations\", Genet Res Int.\n" +
+                        "2011",
+                osteogenesis_imperfecta_brittle_bone_disease_img
+
+        )));
+
+        mCardList.add(new MainRecyclerLettering("P"));
+
+        //pierre_robin_sequence
+
+        List<String> pierre_robin_sequence_keywords_tmp = Arrays.asList(
+                "Pierre Robin", "Q87.0", "718", "υπερωιοσχιστία", "μικρογναθία", "βαρηκοΐα", "αναπνοή", "δυσφαγία", "παλινδρόμηση", "ρινική αναρροή", "απώλεια βάρους"
+        );
+        ArrayList<String> pierre_robin_sequence_keywords = new ArrayList<>(pierre_robin_sequence_keywords_tmp);
+
+        ArrayList<Integer> pierre_robin_sequence_img = new ArrayList<>();
+        pierre_robin_sequence_img.add(R.drawable.pierre_robin_sequence_1);
+        pierre_robin_sequence_img.add(R.drawable.pierre_robin_sequence_2);
+        mCardList.add(new MainRecyclerButton("Pierre Robin Sequence",pierre_robin_sequence_keywords,new SyndromeData(
+                "Ακολουθία Pierre Robin (Pierre Robin Sequence)",
+                R.raw.pierre_robin_sequence,"ICD-10: Q87.0\nORPHA:718\n",
+                "Βιβλιογραφία (Ακολουθία Pierre Robin)\n" +
+                        "1. https://en.wikipedia.org/wiki/Pierre_Robin_sequence#cite_note-Jakobsen2006-6\n" +
+                        "2. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.\n" +
+                        "3. Anne Morice et al., \" Severity of Retrognathia and Glossoptosis Does Not Predict Respiratory and Feeding Disorders in Pierre Robin Sequence\", Front\n" +
+                        "Pediatr., 2018.\n" +
+                        "4. Noopur Gangopadhyay et al., \"Pierre Robin Sequence\", Semin Plast Surg., 2012",
+                pierre_robin_sequence_img
+
+        )));
+
+        //pitt_hopkins_syndrome
+
+        List<String> pitt_hopkins_syndrome_keywords_tmp = Arrays.asList(
+                "Pitt-Hopkins ", "Q87.0", "2896", "Νοητική υστέρηση", "Επιληψία",
+                "Υποτονία", "Αυτισμός ", "Μικροκεφαλία", "Καθυστέρηση ομιλίας", "αναπνοή",
+                "απομύζηση", "δυσφαγία", "Σιελόρροια"
+
+        );
+        ArrayList<String> pitt_hopkins_syndrome_keywords = new ArrayList<>(pitt_hopkins_syndrome_keywords_tmp);
+
+        ArrayList<Integer> pitt_hopkins_syndrome_img = new ArrayList<>();
+        pitt_hopkins_syndrome_img.add(R.drawable.pitt_hopkins_syndrome_1);
+        pitt_hopkins_syndrome_img.add(R.drawable.pitt_hopkins_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Pitt-Hopkins syndrome",pitt_hopkins_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Pitt-Hopkins (Pitt-Hopkins syndrome)",
+                R.raw.pitt_hopkins_syndrome,"ICD-10: Q87.0\n" +
+                "ORPHA: 2896\n",
+                "Βιβλιογραφία (Σύνδρομο Pitt-Hopkins)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/pit-hopkins-syndrome/\n" +
+                        "2. Jorge Arturo Avina Fierroa, and Daniel Alejandro Hernandez Avina \" Pitt-Hopkins syndrome: Mental retardation, psychomotor and developmental delays\n" +
+                        "with facial dysmorphism\" Journal of Pediatric Genetics 3 (2014) 141–145.\n" +
+                        "3. Alice Watkins et al. \" Behavioural and psychological characteristics in Pitt-Hopkins syndrome: a comparison with Angelman and Cornelia de Lange\n" +
+                        "syndromes\" J Neurodev Disord. 2019; 11: 24.",
+                pitt_hopkins_syndrome_img
+
+        )));
+
+        //potocki_lupski_syndrome
+
+        List<String> potocki_lupski_syndrome_keywords_tmp = Arrays.asList(
+                "Potocki-Lupski ", "Q99.8", "1713", "Νοητική υστέρηση ", "Αυτισμός", "ΔΕΠΥ",
+                "Υπερκινητικότητα", "Επιληψία", "υποτονία", "Μικρογναθία", "υπερωιοσχιστία",
+                "μαλακή υπερώα", "Καθυστέρηση ομιλίας", "Μαθησιακές δυσκολίες", "απομύζηση", "Κόπωση",
+                "παλινδρόμηση ", "κατάποση", "υπολείμματα", "Διείσδυση", "δυσφαγία"
+        );
+        ArrayList<String> potocki_lupski_syndrome_keywords = new ArrayList<>(potocki_lupski_syndrome_keywords_tmp);
+
+        ArrayList<Integer> potocki_lupski_syndrome_img = new ArrayList<>();
+        potocki_lupski_syndrome_img.add(R.drawable.potocki_lupski_syndrome_1);
+        potocki_lupski_syndrome_img.add(R.drawable.potocki_lupski_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Potocki-Lupski syndrome",potocki_lupski_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Potocki-Lupski (Potocki-Lupski syndrome)",
+                R.raw.potocki_lupski_syndrome,"ICD-10: Q99.8\n" +
+                "ORPHA: 1713\n",
+                "Βιβλιογραφία (Σύνδρομο Potocki-Lupski)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/potocki-lupski-syndrome/\n" +
+                        "2. Claudia Soler-Alfonso et al. \" Potocki-Lupski Syndrome: A Microduplication Syndrome Associated with Oropharyngeal Dysphagia and Failure to Thrive\" J\n" +
+                        "Pediatr. 2011 Apr; 158(4): 655–659.e2.\n" +
+                        "3. A. Gulhan Ercan-Sencicek et al. \" Searching for Potocki-Lupski syndrome Phenotype: A Patient with Language Impairment and no Autism\" Brain Dev. 2012\n" +
+                        "Sep; 34(8): 700–703.",
+                potocki_lupski_syndrome_img
+
+        )));
+
+        //prader_willi_syndrome
+
+        List<String> prader_willi_syndrome_keywords_tmp = Arrays.asList(
+                "Prader-Willi ", "Q87.1F", "739", "υποτονία ", "Νοητική υστέρηση",
+                "Γνωστικά ελλείμματα", "αυτισμός", "ρινοφάρυγγας", "μαλακή υπερώα",
+                "Καθυστέρηση ομιλίας", "άρθρωση", "Υπερρινικότητα", "Μαθησιακές δυσκολίες",
+                "απομύζηση", "Κόπωση", "Σίτιση ", "υπολείμματα", "δυσφαγία", "εισρόφηση"
+
+        );
+        ArrayList<String> prader_willi_syndrome_keywords = new ArrayList<>(prader_willi_syndrome_keywords_tmp);
+
+        ArrayList<Integer> prader_willi_syndrome_img = new ArrayList<>();
+        prader_willi_syndrome_img.add(R.drawable.prader_willi_syndrome_1);
+        prader_willi_syndrome_img.add(R.drawable.prader_willi_syndrome_2);
+        prader_willi_syndrome_img.add(R.drawable.prader_willi_syndrome_3);
+        mCardList.add(new MainRecyclerButton("Prader-Willi syndrome",prader_willi_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Prader-Willi (Prader-Willi syndrome)",
+                R.raw.prader_willi_syndrome,"ICD-10: Q87.1F\n" +
+                "ORPHA: 739\n",
+                "Βιβλιογραφία (Σύνδρομο Prader-Willi)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/prader-willi-syndrome/\n" +
+                        "2. Kuzma Strenilkov et al. \"A study of voice and non-voice processing in Prader-Willi syndrome\" Orphanet J Rare Dis. 2020; 15: 22.\n" +
+                        "3. Merlin G. Butler et al. \"Prader-Willi Syndrome - Clinical Genetics, Diagnosis and Treatment Approaches: An Update\" Curr Pediatr Rev. 2019 Nov; 15(4):\n" +
+                        "207–244.\n" +
+                        "4. Linda Cooper-Brown et al. \" FEEDING AND SWALLOWING DYSFUNCTION IN GENETIC SYNDROMES\" DEVELOPMENTAL DISABILITIES RESEARCH REVIEWS 14:\n" +
+                        "147 – 157 (2008)",
+                prader_willi_syndrome_img
+
+        )));
+
+        mCardList.add(new MainRecyclerLettering("Q"));
+
+
+        mCardList.add(new MainRecyclerLettering("R"));
+
+        //rett_syndrome
+
+        List<String> rett_syndrome_keywords_tmp = Arrays.asList(
+                "Rett ", "F84.2", "778", "Υποτονία", "Απραξία", "ωτίτιδα",
+                "απουσία ομιλίας", "αναπνοή", "ακουστική επεξεργασία", "παλινδρόμηση",
+                "Στένωση οισοφάγου", "Κόπωση ", "Εισρόφηση", "δυσφαγία"
+
+        );
+        ArrayList<String> rett_syndrome_keywords = new ArrayList<>(rett_syndrome_keywords_tmp);
+
+        ArrayList<Integer> rett_syndrome_img = new ArrayList<>();
+        rett_syndrome_img.add(R.drawable.rett_syndrome_1);
+        rett_syndrome_img.add(R.drawable.rett_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Rett syndrome",rett_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Rett (Rett syndrome)",
+                R.raw.rett_syndrome,"ICD-10: F84.2\n" +
+                "ORPHA: 778\n",
+                "Βιβλιογραφία (Σύνδρομο Rett)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/rett-syndrome/\n" +
+                        "2. Cary Fu et al., \"Consensus guidelines on managing Rett syndrome across the lifespan\", BMJ Paediatr Open. 2020; 4(1): e000717.\n" +
+                        "3. Helen Leonard et al., \" Assessment and management of nutrition and growth in Rett syndrome\" J Pediatr Gastroenterol Nutr. Author manuscript; available\n" +
+                        "in PMC 2014 Oct 1.",
+                rett_syndrome_img
+
+        )));
+
+
+        mCardList.add(new MainRecyclerLettering("S"));
+
+        //spielmeyer_vogt_disease
+
+        List<String> spielmeyer_vogt_disease_keywords_tmp = Arrays.asList(
+                "E75.4", "79264", "Spielmeyer-Vogt", "Batten", "Επιληψία", "Γνωστική έκπτωση ", "Άνοια ", "εγκεφαλική ατροφία",
+                "Υποτονία", "Αταξία ", "Σπαστικότητα ", "τετραπληγία", "Παρκισονισμός ", "Αναπνοή", "Καθυστέρηση ομιλίας", "Τραυλισμός",
+                "ρυθμός", "άρθρωση", "Δυσαρθρία", "ΔΕΠΥ"
+
+        );
+        ArrayList<String> spielmeyer_vogt_disease_keywords = new ArrayList<>(spielmeyer_vogt_disease_keywords_tmp);
+
+        ArrayList<Integer> spielmeyer_vogt_disease_img = new ArrayList<>();
+        spielmeyer_vogt_disease_img.add(R.drawable.spielmeyer_vogt_disease_1);
+        spielmeyer_vogt_disease_img.add(R.drawable.spielmeyer_vogt_disease_2);
+        mCardList.add(new MainRecyclerButton("Spielmeyer-Vogt disease",spielmeyer_vogt_disease_keywords,new SyndromeData(
+                "Ασθένεια Spielmeyer-Vogt / Ασθένεια Batten -\n" +
+                        "(Spielmeyer-Vogt disease / Batten disease)",
+                R.raw.spielmeyer_vogt_disease,"ICD-10: E75.4\n" +
+                "ORPHA: 79264\n",
+                "Βιβλιογραφία (Ασθένεια Spielmeyer-Vogt)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/spielmeyer-vogt-disease/\n" +
+                        "2. Sarah-Bianca Dolisca et al., \"Batten Disease: Clinical Aspects, Molecular Mechanisms, Translational Science, and Future Directions\", J Child Neurol. 2013\n" +
+                        "3. Tyler B. Johnson et al., \" Therapeutic landscape for Batten disease: current treatments and future prospects\", Nat Rev Neurol. 2019",
+                spielmeyer_vogt_disease_img
+
+        )));
+
+        //sanfilippo_syndrome
+
+        List<String> sanfilippo_syndrome_keywords_tmp = Arrays.asList(
+                "Sanfilippo", "MPS III", "E76.2E", "581", "ΔΕΠΥ", "αυτισμός", "Νοητική υστέρηση",
+                "Γνωστική έκπτωση", "Μυϊκή αδυναμία ", "Λοιμώξεις αυτιού ", "Καθυστέρηση ομιλίας ", "άρθρωση", "απραξία", "δυσφαγία"
+
+        );
+        ArrayList<String> sanfilippo_syndrome_keywords = new ArrayList<>(sanfilippo_syndrome_keywords_tmp);
+
+        ArrayList<Integer> sanfilippo_syndrome_img = new ArrayList<>();
+        sanfilippo_syndrome_img.add(R.drawable.sanfilippo_syndrome_1);
+        sanfilippo_syndrome_img.add(R.drawable.sanfilippo_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Sanfilippo syndrome",sanfilippo_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Sanfilippo (Sanfilippo syndrome)-\n" +
+                        "Mucopolysaccharidosis III (MPS III)",
+                R.raw.sanfilippo_syndrome,"ICD-10: E76.2E\n" +
+                "ORPHA: 581\n",
+                "Βιβλιογραφία (Σύνδρομο Sanfilippo)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/sanfilippo-syndrome/\n" +
+                        "2. Tamás Zelei, Kata Csetneki, Zoltán Vokó, and Csaba Siffel, \"Epidemiology of Sanfilippo syndrome: results of a systematic literature review\", Orphanet J Rare Dis.\n" +
+                        "2018\n" +
+                        "3. Frits A Wijburg, Grzegorz Węgrzyn, Barbara K Burton, and Anna Tylki-Szymańska, \" Mucopolysaccharidosis type III (Sanfilippo syndrome) and misdiagnosis of\n" +
+                        "idiopathic developmental delay, attention deficit/hyperactivity disorder or autism spectrum disorder\", Acta Paediatr. 2013\n" +
+                        "4. Marlies J Valstar, Jan Pieter Marchal, Martha Grootenhuis, Vivian Colland, and Frits A Wijburg,\" Cognitive development in patients with Mucopolysaccharidosis\n" +
+                        "type III (Sanfilippo syndrome)\", Orphanet J Rare Dis. 2011\n" +
+                        "5. Xiaohua Li, MM, Rui Xiao, PhD, Baiyu Chen, MM, Guanglu Yang, MD, Xiaomeng Zhang, MM, Zhuo Fu, MM, Junxian Fu, MM, Mengli Zhuang, MM, and Yinglong\n" +
+                        "Huang, MD, PhD, \" A novel mutation of SGSH and clinical features analysis of mucopolysaccharidosis type IIIA\", Medicine (Baltimore). 2018",
+                sanfilippo_syndrome_img
+
+        )));
+
+        //sly_syndrome
+
+        List<String> sly_syndrome_keywords_tmp = Arrays.asList(
+                "Sly ", "MPS VII", "E76.2", "584", "αναπνοή", "Επιληψία", "Υδροκεφαλία", "Μακρογλωσσία",
+                "λοιμώξεις αυτιού", "Καθυστέρηση ομιλίας", "Μαθησιακές δυσκολίες", "ΔΕΠΥ", "Γνωστικά ελλείμματα"
+
+        );
+        ArrayList<String> sly_syndrome_keywords = new ArrayList<>(sly_syndrome_keywords_tmp);
+
+        ArrayList<Integer> sly_syndrome_img = new ArrayList<>();
+        sly_syndrome_img.add(R.drawable.sly_syndrome_1);
+        sly_syndrome_img.add(R.drawable.sly_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Sly syndrome",sly_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Sly (Sly syndrome) - Mucopolysaccharidosis VΙI (MPS VII)",
+                R.raw.sly_syndrome,"ICD-10: E76.2\n" +
+                "ORPHA:584\n",
+                "Βιβλιογραφία (Σύνδρομο Sly)\n" +
+                        "1. Nathalie Guffon, Roseline Froissart, and Alain Fouilhoux , \" A rare late progression form of Sly syndrome mucopolysaccharidosis\" , JIMD Rep. 2019\n" +
+                        "2. Alexandra Morrison, Esmee Oussoren, Tabea Friedel, Jordi Cruz, and Nalan Yilmaz, \" Pathway to diagnosis and burden of illness in mucopolysaccharidosis type VII –\n" +
+                        "a European caregiver survey\", Orphanet J Rare Dis. 2019",
+                sly_syndrome_img
+
+        )));
+
+        //spinal_muscular_atrophy
+
+        List<String> spinal_muscular_atrophy_keywords_tmp = Arrays.asList(
+                "G12.0", "70", "ατροφία νωτιαίου μυελού", "τρόμος", "μυϊκή αδυναμία ", "αναπνοή", "απομύζηση"
+        );
+        ArrayList<String> spinal_muscular_atrophy_keywords = new ArrayList<>(spinal_muscular_atrophy_keywords_tmp);
+
+        ArrayList<Integer> spinal_muscular_atrophy_img = new ArrayList<>();
+        spinal_muscular_atrophy_img.add(R.drawable.spinal_muscular_atrophy_1);
+        spinal_muscular_atrophy_img.add(R.drawable.spinal_muscular_atrophy_2);
+        mCardList.add(new MainRecyclerButton("Spinal muscular atrophy",spinal_muscular_atrophy_keywords,new SyndromeData(
+                "Ατροφία Νωτιαίου μυελού (Spinal muscular atrophy)-(SMA)",
+                R.raw.spinal_muscular_atrophy,"ICD-10: G12.0\nORPHA: 70\n",
+                "Βιβλιογραφία (SMA)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/spinal-muscular-atrophy/\n" +
+                        "2. Andrew P. Tosolini and James N. Sleigh,\" Motor Neuron Gene Therapy: Lessons from Spinal Muscular Atrophy for Amyotrophic Lateral Sclerosis\", Front Mol\n" +
+                        "Neurosci. 2017",
+                spinal_muscular_atrophy_img
+
+        )));
+
+
+        mCardList.add(new MainRecyclerLettering("T"));
+
+        //treacher_collins_syndrome
+
+        List<String> treacher_collins_syndrome_keywords_tmp = Arrays.asList(
+                "Treacher Collins ", "Q75.4", "86", "υποπλασία ",
+                "Υπερωιοσχιστία", "μαλακή υπερώα", "Μικρωτία", "βαρηκοΐα",
+                "άρθρωση", "αντήχηση", "υπερρινικότητα", "υπορινικότητα", "φώνηση",
+                "φωνή", "Δυσπραξία "
+
+        );
+        ArrayList<String> treacher_collins_syndrome_keywords = new ArrayList<>(treacher_collins_syndrome_keywords_tmp);
+
+        ArrayList<Integer> treacher_collins_syndrome_img = new ArrayList<>();
+        treacher_collins_syndrome_img.add(R.drawable.treacher_collins_syndrome_1);
+        treacher_collins_syndrome_img.add(R.drawable.treacher_collins_syndrome_2);
+        mCardList.add(new MainRecyclerButton("Treacher Collins syndrome",treacher_collins_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Treacher Collins (Treacher Collins syndrome)",
+                R.raw.treacher_collins_syndrome,"ICD-10: Q75.4\n" +
+                "ORPHA: 86\n",
+                "Βιβλιογραφία (Σύνδρομο Treacher Collins)\n" +
+                        "1. Pamela Åsten et al., \" Associations between speech features and phenotypic severity in Treacher Collins syndrome\" BMC Med Genet. 2014; 15: 47.\n" +
+                        "2. Karla Terrazas et al., \" Rare syndromes of the head and face: mandibulofacial and acrofacial dysostoses\" Wiley Interdiscip Rev Dev Biol. Author manuscript;\n" +
+                        "available in PMC 2018 May 1.\n" +
+                        "3. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/treacher-collins-syndrome/",
+                treacher_collins_syndrome_img
+
+        )));
+
+        mCardList.add(new MainRecyclerLettering("U"));
+
+        mCardList.add(new MainRecyclerLettering("V"));
+
+        mCardList.add(new MainRecyclerLettering("W"));
+
+        //wilson_disease
+
+        List<String> wilson_disease_keywords_tmp = Arrays.asList(
+                "E83.0B", "905", "Wilson", "έκφραση", "αντανακλαστικά", "δυσαρθρία", "αρθρωτικά λάθη", "επιτονισμός", "αντήχηση",
+                "διαδοχοκίνηση", "σιελόρροια", "επιληψία", "παρεγκεφαλίδα", "ΔΕΠΥ", "μνήμη", "Parkinson ", "Χορεία", "Σπαστικότητα", "Γνωστικά ελλείμματα"
+
+        );
+        ArrayList<String> wilson_disease_keywords = new ArrayList<>(wilson_disease_keywords_tmp);
+
+        ArrayList<Integer> wilson_disease_img = new ArrayList<>();
+        wilson_disease_img.add(R.drawable.wilson_disease_1);
+        wilson_disease_img.add(R.drawable.wilson_disease_2);
+        mCardList.add(new MainRecyclerButton("Wilson Disease",wilson_disease_keywords,new SyndromeData(
+                "Ασθένεια Wilson (Wilson Disease)",
+                R.raw.wilson_disease,"ICD-10: E83.0B\n" +
+                "ORPHA: 905\n",
+                "Βιβλιογραφία (Ασθένεια Wilson)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/wilsons-sjukdom/\n" +
+                        "2. Samuel Shribman et al., \"Clinical presentations of Wilson disease\", Ann Transl Med. 2019",
+                wilson_disease_img
+
+        )));
+
+        mCardList.add(new MainRecyclerLettering("X"));
+        mCardList.add(new MainRecyclerLettering("Y"));
+        mCardList.add(new MainRecyclerLettering("Z"));
 
 
 

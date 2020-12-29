@@ -26,6 +26,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:autoLink="web"
+        android:textColorLink="?attr/colorAccent"
         android:padding="4dp"
         android:id="@+id/about_text_view"
         android:layout_width="match_parent"
@@ -38,6 +40,7 @@
         android:gravity="start" />
 
     <ImageView
+        android:layout_marginTop="32dp"
         android:id="@+id/about_branch_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

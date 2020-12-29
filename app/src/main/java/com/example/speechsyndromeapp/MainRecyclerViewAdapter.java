@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import org.w3c.dom.Text;
 
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -158,11 +159,15 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
                 filteredList.addAll(mCardListFull);
             }else{
                 String filterPattern = constraint.toString().toLowerCase().trim();
+                filterPattern = Normalizer.normalize(filterPattern, Normalizer.Form.NFD);
+                filterPattern = filterPattern.replaceAll("[^\\p{ASCII}]", "");
 
                 for (MainRecyclerItem item : mCardListFull){
                     if(item instanceof MainRecyclerLettering) continue;
                     for (String keyword : item.getKeywords()){
-                        if(keyword.toLowerCase().contains(filterPattern)){
+                        String strippedKeyword = Normalizer.normalize(keyword, Normalizer.Form.NFD);
+                        strippedKeyword = strippedKeyword.replaceAll("[^\\p{ASCII}]", "");
+                        if(strippedKeyword.toLowerCase().trim().contains(filterPattern)){
                             filteredList.add(item);
 
                         }
