@@ -155,18 +155,19 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.V
         protected FilterResults performFiltering(CharSequence constraint) {
             List<MainRecyclerItem> filteredList = new ArrayList<>();
 
-            if(constraint == null || constraint.length() == 0){
+            if(constraint == null || constraint.length() == 0) {
                 filteredList.addAll(mCardListFull);
             }else{
+
                 String filterPattern = constraint.toString().toLowerCase().trim();
                 String filterPatternStripped = Normalizer.normalize(filterPattern, Normalizer.Form.NFD);
-                filterPatternStripped = filterPatternStripped.replaceAll("[^\\p{ASCII}]", "");
+                filterPatternStripped = filterPatternStripped.replaceAll("\\p{InCombiningDiacriticalMarks}", "");
 
                 for (MainRecyclerItem item : mCardListFull){
                     if(item instanceof MainRecyclerLettering) continue;
                     for (String keyword : item.getKeywords()){
                         String strippedKeyword = Normalizer.normalize(keyword.toLowerCase().trim(), Normalizer.Form.NFD);
-                        strippedKeyword = strippedKeyword.replaceAll("[^\\p{ASCII}]", "");
+                        strippedKeyword = strippedKeyword.replaceAll("\\p{InCombiningDiacriticalMarks}", "");
                         if(strippedKeyword.contains(filterPatternStripped) && !filteredList.contains(item)){
                             filteredList.add(item);
 

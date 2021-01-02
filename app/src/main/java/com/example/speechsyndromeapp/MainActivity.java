@@ -3,8 +3,6 @@ package com.example.speechsyndromeapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.ActionMenuView;
-import androidx.appcompat.widget.PopupMenu;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -12,25 +10,18 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
-import java.util.concurrent.RecursiveAction;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final String EXTRA_SYNDROME_DATA = "com.example.speechsyndromeapp.EXTRA_SYNDROME_DATA";
@@ -167,7 +158,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         List<String> aicardi_syndrome_keywords_tmp = Arrays.asList(
                 "Aicardi", "Q04.0", "50", "παρεγκεφαλίδα", "Πλαγιοκεφαλία", "Ασυμμετρία προσώπου",
-                "Χειλεοσχιστία", "Υπερωιοσχιστία", "Νοητική υστέρηση", "Καθυστέρηση ομιλίας", "Σιελόρροια ", "παλινδρόμηση"
+                "Χειλεοσχιστία", "Υπερωιοσχιστία",  "Νοητική υστέρηση", "Καθυστέρηση ομιλίας",  "Σιελόρροια ", "παλινδρόμηση"
 
         );
         ArrayList<String> aicardi_syndrome_keywords = new ArrayList<>(aicardi_syndrome_keywords_tmp);
@@ -192,8 +183,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //angeman_syndrome
 
         List<String> angeman_syndrome_keywords_tmp = Arrays.asList(
-                "Angeman ", "Q93.5", "72", "Νοητική υστέρηση", "Αταξία ", "Επιληψία", "ΔΕΠΥ",
-                "Μικροκεφαλία", "παραγωγή λόγου", "εκφραστικό λεξιλόγιο", "υποτονία", "απομύζηση ", "δυσφαγία"
+                "Angeman ", "Q93.5", "72",  "Νοητική υστέρηση", "Αταξία ", "Επιληψία", "ΔΕΠΥ",
+                "Μικροκεφαλία",  "παραγωγή λόγου",  "εκφραστικό λεξιλόγιο", "υποτονία", "απομύζηση ", "δυσφαγία"
 
         );
         ArrayList<String> angeman_syndrome_keywords = new ArrayList<>(angeman_syndrome_keywords_tmp);
@@ -216,7 +207,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //alstrom_syndrome
 
         List<String> alstrom_syndrome_keywords_tmp = Arrays.asList(
-                "Alstrom ", "E34.8", "64", "βαρηκοΐα", "ωτίτιδα", "Εμβοές", "Καθυστέρηση ομιλία ", "αυτισμός", "ρυθμός ομιλίας", "Γνωστικά ελλείμματα"
+                "Alstrom ", "E34.8", "64", "βαρηκοΐα", "ωτίτιδα", "Εμβοές",  "Καθυστέρηση ομιλία ", "αυτισμός", "ρυθμός ομιλίας", "Γνωστικά ελλείμματα"
 
         );
         ArrayList<String> alstrom_syndrome_keywords = new ArrayList<>(alstrom_syndrome_keywords_tmp);
@@ -290,7 +281,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //aspartylglucosaminuria
 
         List<String> aspartylglucosaminuria_keywords_tmp = Arrays.asList(
-                "E77.1", "93", "AGU", "αναπνοή", "επιληψία", "στοματοκινητικές δυσκολίες", "λοιμώξεις  ", "απώλεια ακοής", "ΔΕΠΥ", "φωνή", "βραχνή ", "έκφραση ", "λεξιλόγιο", "μαθησιακές δυσκολίες"
+                "E77.1", "93", "AGU", "αναπνοή", "επιληψία", "στοματοκινητικές δυσκολίες",  "λοιμώξεις  ", "απώλεια ακοής",
+                "ΔΕΠΥ", "φωνή", "βραχνή ", "έκφραση ", "λεξιλόγιο", "μαθησιακές δυσκολίες",
+                "Ανασυνδυασμένη" , "ανθρώπινη" , "ασπαρτυλγλυκοσαμινιδάση" , "Ανασυνδυασμένη ανθρώπινη ασπαρτυλγλυκοσαμινιδάση"
 
 
         );
@@ -320,7 +313,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //beckwith_wiedemann_syndrome
 
         List<String> beckwith_wiedemann_syndrome_keywords_tmp = Arrays.asList(
-                "Beckwith-Wiedemann ", "Q87.3", "116", "Μακρογλωσσία", "αναπνοή", "άρθρωση", "σιελόρροια", "σίτιση"
+                "Beckwith-Wiedemann ","Beckwith Wiedemann ", "Q87.3", "116", "Μακρογλωσσία", "αναπνοή", "άρθρωση", "σιελόρροια", "σίτιση","Beckwith","Wiedemann "
 
         );
         ArrayList<String> beckwith_wiedemann_syndrome_keywords = new ArrayList<>(beckwith_wiedemann_syndrome_keywords_tmp);
@@ -343,8 +336,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //bloch_sulzberger_syndrome
 
         List<String> incontinentia_pigmenti_bloch_sulzberger_syndrome_keywords_tmp = Arrays.asList(
-                "Q82.3", "464", "ακράτεια χρωστικής", " Bloch-Sulzberger", "εγκεφαλικό ", "βασικά γάγγλια", "ασυμμετρία προσώπου", "υποπλασία μαλακής υπερώας", "χειλεοσχιστία",
-                "υπερωιοσχιστία", "βαρηκοΐα", "μαθησιακές δυσκολίες", "γνωστικά ελλείμματα"
+                "Q82.3", "464", "ακράτεια χρωστικής", " Bloch-Sulzberger", "BeckwithWiedemann ", "Beckwith","Wiedemann ", "εγκεφαλικό ", "βασικά γάγγλια", "ασυμμετρία προσώπου", "υποπλασία μαλακής υπερώας", "χειλεοσχιστία",
+                "υπερωιοσχιστία", "βαρηκοΐα", "μαθησιακές δυσκολίες", "γνωστικά ελλείμματα", " Bloch","Sulzberger"
 
         );
         ArrayList<String> incontinentia_pigmenti_bloch_sulzberger_syndrome_keywords = new ArrayList<>(incontinentia_pigmenti_bloch_sulzberger_syndrome_keywords_tmp);
@@ -369,7 +362,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //branchiootorenal_syndrome
 
         List<String> branchiootorenal_syndrome_keywords_tmp = Arrays.asList(
-                "BOR", "Q87.8", "107", "ασυμμετρία προσώπου", "μικρωτία", "κοντή υπερώα", "υπερωιοσχιστία ", "μικρογναθία", "βαρηκοΐα", "κώφωση", "ωτίτιδα", "προσωπικό κρανιακό νεύρο ", "κρανιακά νεύρα", "φωνητικές χορδές"
+                "BOR", "Branchiootorenal", "Q87.8", "107", "ασυμμετρία προσώπου", "μικρωτία", "κοντή υπερώα", "υπερωιοσχιστία ",
+                "μικρογναθία", "βαρηκοΐα", "κώφωση", "ωτίτιδα", "προσωπικό κρανιακό νεύρο ", "κρανιακά νεύρα", "φωνητικές χορδές"
         );
         ArrayList<String> branchiootorenal_syndrome_keywords = new ArrayList<>(branchiootorenal_syndrome_keywords_tmp);
 
@@ -416,6 +410,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         List<String> cmt_disease_keywords_tmp = Arrays.asList(
                 "CMT", "Charcot Marie Tooth", "G60.0", "μυϊκή αδυναμία ", "αναπνοή", "ασάφεια", "ατροφία φωνητικών χορδών", "εισρόφηση"
+                , "Charcot", "Marie", "Tooth"
         );
         ArrayList<String> cmt_disease_keywords = new ArrayList<>(cmt_disease_keywords_tmp);
 
@@ -464,7 +459,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         List<String> congenital_disorder_of_glycosylation_keywords_tmp = Arrays.asList(
                 "CDG", "E77.8", "137", "Νοητική υστέρηση", "Επιληψία", "Αταξία", "Εγκεφαλική ατροφία", "Μικροκεφαλία",
-                "υποπλασία", "μυϊκός τόνος", "αντανακλαστικά", "Δυσαρθρία", "Σιελόρροια", "παλινδρόμηση"
+                "υποπλασία", "μυϊκός τόνος", "αντανακλαστικά", "Δυσαρθρία", "Σιελόρροια", "παλινδρόμηση",
+                "Congenital Disorder ","Congenital Disorder of Glycosylation"
 
         );
         ArrayList<String> congenital_disorder_of_glycosylation_keywords = new ArrayList<>(congenital_disorder_of_glycosylation_keywords_tmp);
@@ -486,9 +482,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //cornelia_delange_syndrome
 
         List<String> cornelia_delange_syndrome_keywords_tmp = Arrays.asList(
-                "Cornelia de Lange", "Q87.1C", "199", "νοητική υστέρηση ", "αυτισμός",
+                "Cornelia de Lange", "Cornelia","Lange","de Lange", "Q87.1C", "199", "νοητική υστέρηση ", "αυτισμός",
                 "Επιληψία", "Μικροκεφαλία", "Χειλεοσχιστία", "υπερωιοσχιστία", "βαρηκοΐα",
-                "αναπνοή", "έκφραση", "Μυϊκή αδυναμία ", "Γνωστικά ελλείμματα", "φώνηση",
+                "αναπνοή", "έκφραση", "Μυϊκή αδυναμία ",  "Γνωστικά ελλείμματα",  "φώνηση",
                 "φωνή", "Μονότονη", "Βραχνή", "μορφολογία", "σύνταξη", "αλαλία", "δυσφαγία",
                 "παλινδρόμηση", "Σιελόρροια"
 
@@ -515,7 +511,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //cri_du_chat_syndrome
 
         List<String> cri_du_chat_syndrome_keywords_tmp = Arrays.asList(
-                "Cri du Chat ", "Q93.4", "281", "κλάμα ", "Νοητική υστέρηση ",
+                "Cri du Chat ","Cri ","Cri du","Chat ","du Chat ", "Q93.4", "281", "κλάμα ", "Νοητική υστέρηση ",
                 "Υπερτονία", "υποτονία", "ΔΕΠΥ", "Μαθησιακές δυσκολίες",
                 "καθυστέρηση ομιλίας", "ηχολαλία", "έκφραση", "λεξιλόγιο",
                 "άρθρωση", "Υπερρινικότητα ", "διαδοχοκίνηση", "δυσφαγία",
@@ -549,7 +545,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         List<String> crouzon_syndrome_keywords_tmp = Arrays.asList(
                 "Crouzon", "Q75.1", "207", "Κρανιοσυνοστέωση", "βραχυκεφαλία",
                 "Γνωστικά ελλείμματα", "Υποπλασία ", "μαλακή υπερώα", "Χειλεοσχιστία",
-                "υπερωιοσχιστία ", "βαρηκοΐα", "Καθυστέρηση ομιλίας", "αναπνοή", "άρθρωση",
+                "υπερωιοσχιστία ", "βαρηκοΐα", "Καθυστέρηση ομιλίας",  "αναπνοή", "άρθρωση",
                 "Υπερρινικότητα"
 
         );
@@ -578,7 +574,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         List<String> down_syndrome_keywords_tmp = Arrays.asList(
                 "down", "Q90.0  ", "Q90.1  ", "Q90.2  ", "Q90.9", "870",
-                "νοητική υστέρηση", "υποτονία", "βραχυκεφαλία", "μακρογλωσσία", "υπερώα",
+                "νοητική υστέρηση","υποτονία", "βραχυκεφαλία", "μακρογλωσσία", "υπερώα",
                 "μικρωτία", "κώφωση ", "υπογλωττίδα", "υπερώα", "τραυλισμός", "δυσφαγία",
                 "αδυναμία", "κόπωση", "υπολείμματα", "εισρόφηση", "διείσδυση "
 
@@ -641,7 +637,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //fragile_x_syndrome
 
         List<String> fragile_x_syndrome_keywords_tmp = Arrays.asList(
-                "εύθραυστο Χ χρωμόσωμα", "Fragile X ", "Q99.2", "908",
+                "εύθραυστο Χ χρωμόσωμα", "χρωμόσωμα χ", "χρωμόσωμα",  "Fragile X ","Fragile" ,"Q99.2", "908",
                 "Νοητική υστέρηση ", "ΔΕΠΥ", "Αυτισμός ", "Επιληψία",
                 "Υποτονία ", "σπαστικότητα", "Χειλεοσχιστία", "Κώφωση",
                 "λοιμώξεις αυτιού", "ρυθμός", "φωνολογία", "απλοποίηση",
@@ -699,8 +695,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         List<String> glut1_deficiency_syndrome_keywords_tmp = Arrays.asList(
 
-                "G93.4", "71277", "GLUT 1", "Μικροκεφαλία", "Επιληψία", "αστάθεια", "χορεία", "μυϊκή ένταση ", "Δυσαρθρία", "Αταξία", "σπαστικότητα", "Νοητική έκπτωση", "προσωδία", "Παλινδρόμηση "
-
+                "G93.4", "71277", "GLUT 1", "Μικροκεφαλία", "Επιληψία", "αστάθεια", "χορεία", "μυϊκή ένταση ", "Δυσαρθρία",
+                "Αταξία", "σπαστικότητα", "Νοητική έκπτωση", "προσωδία", "Παλινδρόμηση ",
+                "Ανεπάρκεια πρωτεΐνης μεταφορέα γλυκόζης τύπου 1" , "πρωτεΐνη μεταφορέα γλυκόζης τύπου 1"
         );
         ArrayList<String> glut1_deficiency_syndrome_keywords = new ArrayList<>(glut1_deficiency_syndrome_keywords_tmp);
 
@@ -780,7 +777,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         List<String> hunter_syndrome_keywords_tmp = Arrays.asList(
                 "Hunter ", "MPS II", "E76.1", "580", "Υδροκεφαλία", "Γνωστικά ελλείμματα",
-                "Καθυστερημένη νοητική ανάπτυξη", "Μεγάλη γλώσσα", "Απώλεια ακοής", "βαρηκοΐα", "Άρθρωση ", "ρινοφάρυγγας"
+                "Καθυστερημένη νοητική ανάπτυξη", "Μεγάλη γλώσσα", "Απώλεια ακοής", "βαρηκοΐα", "Άρθρωση ", "ρινοφάρυγγας" , "Mucopolysaccharidosis II" , "MPS II"
 
         );
         ArrayList<String> hunter_syndrome_keywords = new ArrayList<>(hunter_syndrome_keywords_tmp);
@@ -801,7 +798,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         List<String> huntington_disease_huntington_chorea_keywords_tmp = Arrays.asList(
                 "Huntington", "G10", "399", "ισορροπία", "αναπνοή", "Γνωστικά ελλείμματα", "έκφραση", "Υπερκινητική δυσαρθρία ", "διαδοχοκίνηση", "Προσωδία ",
-                "Μονοτονία", "Φώνηση", "φωνή", "ρυθμός", "ασάφεια", "άρθρωση", "δυσφαγία", "χορεία"
+                "Μονοτονία", "Φώνηση", "φωνή", "ρυθμός", "ασάφεια", "άρθρωση", "δυσφαγία", "χορεία" , "chorea"
 
 
         );
@@ -831,7 +828,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         List<String> hurler_syndrome_keywords_tmp = Arrays.asList(
                 "Hurler ", "MPS I", "E76.0", "93473", "Γνωστική έκπτωση", "Αναπνοή", "Μακρογλωσσία", "Υδροκεφαλία",
-                "Εγκεφαλική ατροφία", "καθυστέρηση ομιλίας", "ωτίτιδα ", "βαρηκοΐα ", "δυσφαγία", "παλινδρόμηση", "Εισρόφηση"
+                "Εγκεφαλική ατροφία", "καθυστέρηση ομιλίας", "ωτίτιδα ", "βαρηκοΐα ", "δυσφαγία", "παλινδρόμηση", "Εισρόφηση", "Mucopolysaccharidosis I"
         );
         ArrayList<String> hurler_syndrome_keywords = new ArrayList<>(hurler_syndrome_keywords_tmp);
 
@@ -982,6 +979,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         mCardList.add(new MainRecyclerLettering("L"));
 
+        //lesch_nyhan_syndrome
+
+        List<String> lesch_nyhan_syndrome_keywords_tmp = Arrays.asList(
+                "E79.1", "510", "Lesch-Nyhan", "Lesch","Nyhan", "Lesch Nyhan", "δυστονία", "σπαστικότητα", "Αταξία", "Νοητική υστέρηση", "Επιληψία", "Αυτισμός", "αναπνοή", "Καθυστέρηση ομιλίας", "Δυσαρθρία",
+                "ένταση", "φωνή", "τραυλισμός", "δυσφωνία", "Γαστροστομία", "Δυσφαγία", "παλινδρόμηση", "δυσφαγία"
+        );
+        ArrayList<String> lesch_nyhan_syndrome_keywords = new ArrayList<>(lesch_nyhan_syndrome_keywords_tmp);
+
+        ArrayList<Integer> lesch_nyhan_syndrome_img = new ArrayList<>();
+        lesch_nyhan_syndrome_img.add(R.drawable.lesch_nyhan_syndrome_1);
+        lesch_nyhan_syndrome_img.add(R.drawable.lesch_nyhan_syndrome_2);
+        lesch_nyhan_syndrome_img.add(R.drawable.lesch_nyhan_syndrome_3);
+        mCardList.add(new MainRecyclerButton("Lesch-Nyhan syndrome",lesch_nyhan_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Lesch-Nyhan (Lesch-Nyhan syndrome)",
+                R.raw.lesch_nyhan_syndrome,"ICD-10: E79.1\n" +
+                "ORPHA:510\n",
+                "Βιβλιογραφία (Σύνδρομο Lesch-Nyhan)\n" +
+                        "1. Alison Christy et al. \" Severe Respiratory Acidosis in Status Epilepticus as a Possible Etiology of Sudden Death in Lesch–Nyhan Disease: A Case Report and\n" +
+                        "Review of the Literature\" JIMD Rep. 2017; 35: 23–28.\n" +
+                        "2. H. A. Jinnah et al. \" Delineation of the motor disorder of Lesch–Nyhan disease\" Brain. 2006 May; 129(Pt 5): 1201–1217.\n" +
+                        "3. Rosa J Torres and Juan G Puig \" Hypoxanthine-guanine phosophoribosyltransferase (HPRT) deficiency: Lesch-Nyhan syndrome\" Orphanet J Rare Dis. 2007;\n" +
+                        "2: 48.",
+                lesch_nyhan_syndrome_img
+
+        )));
+
         //lchad_deficiency
 
         List<String> lchad_deficiency_keywords_tmp = Arrays.asList(
@@ -1032,7 +1055,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //maroteaux_lamy_syndrome
 
         List<String> maroteaux_lamy_syndrome_keywords_tmp = Arrays.asList(
-                "Maroteaux Lamy ", "MPS VI", "E76.2", "583", "Αναπνοή", "Υδροκεφαλία", "βαρηκοΐα", "Κώφωση", "λοιμώξεις αυτιού"
+                "Maroteaux Lamy ", "MPS VI", "E76.2", "583", "Αναπνοή", "Υδροκεφαλία", "βαρηκοΐα", "Κώφωση", "λοιμώξεις αυτιού" ,"Mucopolysaccharidosis VI" , "MPS VI"
 
         );
         ArrayList<String> maroteaux_lamy_syndrome_keywords = new ArrayList<>(maroteaux_lamy_syndrome_keywords_tmp);
@@ -1118,7 +1141,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         List<String> morquio_syndrome_keywords_tmp = Arrays.asList(
                 "Morquio", "MPS IV", "E76.2", "582", "βαρηκοΐα", "λοιμώξεις αυτιού", "κώφωση ",
-                "καθυστέρηση ομιλίας", "φώνηση", "φωνητικές χορδές", "φωνή", "Αναπνοή", "λάρυγγας", "τραχεία", "δυσφαγία"
+                "καθυστέρηση ομιλίας", "φώνηση", "φωνητικές χορδές", "φωνή", "Αναπνοή", "λάρυγγας", "τραχεία", "δυσφαγία" , "Mucopolysaccharidosis IV"
 
         );
         ArrayList<String> morquio_syndrome_keywords = new ArrayList<>(morquio_syndrome_keywords_tmp);
@@ -1149,7 +1172,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         List<String> osteogenesis_imperfecta_brittle_bone_disease_keywords_tmp = Arrays.asList(
                 "Q78.0", "666", "ατελής οστεογένεση", "κρανιακά νεύρα", "γλωσσοφαρυγγικό", "πνευμονογαστρικό", "παραπληρωματικό",
-                "υπογλώσσιο", "βαρηκοΐα ", "Αναπνευστικά ", "αταξία", "αντανακλαστικό απομύζησης", "Παλινδρόμηση"
+                "υπογλώσσιο", "βαρηκοΐα ", "Αναπνευστικά ", "αταξία", "αντανακλαστικό απομύζησης", "Παλινδρόμηση" , "Osteogenesis Imperfecta" , "Brittle bone disease"
 
 
 
@@ -1176,10 +1199,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         mCardList.add(new MainRecyclerLettering("P"));
 
+        //patau_syndrome
+
+        List<String> patau_syndrome_keywords_tmp = Arrays.asList(
+                "Patau","Τρισωμία 13", "Q91.4", "Q91.5", "Q91.6", "Q91.7","3378", "αναπνοή","Επιληψία","Γνωστικά ελλείμματα", "Νοητική υστέρηση", "Ασυμμετρία προσώπου", "Χειλεοσχιστία",
+                "υπερωιοσχιστία", "Δισχιδής γλώσσα", "Μικρογναθία", "Μικροκεφαλία", "Υψηλή υπερώα", "Βαρηκοΐα", "Καθυστέρηση ομιλίας", "άρθρωση", "φωνολογία", "απομύζηση", "δυσφαγία",
+                "Trisomy 13"
+
+        );
+        ArrayList<String> patau_syndrome_keywords = new ArrayList<>(patau_syndrome_keywords_tmp);
+
+        ArrayList<Integer> patau_syndrome_img = new ArrayList<>();
+        patau_syndrome_img.add(R.drawable.patau_syndrome_1);
+        patau_syndrome_img.add(R.drawable.patau_syndrome_2);
+        patau_syndrome_img.add(R.drawable.patau_syndrome_3);
+        mCardList.add(new MainRecyclerButton("Patau syndrome",patau_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Patau - Τρισωμία 13 (Patau syndrome - Trisomy 13)",
+                R.raw.patau_syndrome,"ICD-10: Q91.4 Q91.5 Q91.6 Q91.7\n" +
+                "ORPHA:3378\n",
+                "Βιβλιογραφία (Σύνδρομο Patau)\n" +
+                        "1. Harry Pachajoa and Luis Enrique Meza Escobar \" Mosaic trisomy 13 and a sacral appendage\" BMJ Case Rep. 2013\n" +
+                        "2. Fulesh Kunwar et al. \" Constitutional Mosaic Trisomy 13 in Two Germ Cell Layers is Different from Patau Syndrome? A Case Report\" J Clin Diagn Res. 2016\n" +
+                        "Mar; 10(3): GD03–GD05.",
+                patau_syndrome_img
+
+        )));
+
         //pierre_robin_sequence
 
         List<String> pierre_robin_sequence_keywords_tmp = Arrays.asList(
                 "Pierre Robin", "Q87.0", "718", "υπερωιοσχιστία", "μικρογναθία", "βαρηκοΐα", "αναπνοή", "δυσφαγία", "παλινδρόμηση", "ρινική αναρροή", "απώλεια βάρους"
+                , "Ακολουθία Pierre Robin"
         );
         ArrayList<String> pierre_robin_sequence_keywords = new ArrayList<>(pierre_robin_sequence_keywords_tmp);
 
@@ -1256,7 +1306,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //prader_willi_syndrome
 
         List<String> prader_willi_syndrome_keywords_tmp = Arrays.asList(
-                "Prader-Willi ", "Q87.1F", "739", "υποτονία ", "Νοητική υστέρηση",
+                "Prader-Willi ", "Prader", "Willi ", "Prader Willi ", "Q87.1F", "739", "υποτονία ", "Νοητική υστέρηση",
                 "Γνωστικά ελλείμματα", "αυτισμός", "ρινοφάρυγγας", "μαλακή υπερώα",
                 "Καθυστέρηση ομιλίας", "άρθρωση", "Υπερρινικότητα", "Μαθησιακές δυσκολίες",
                 "απομύζηση", "Κόπωση", "Σίτιση ", "υπολείμματα", "δυσφαγία", "εισρόφηση"
@@ -1320,7 +1370,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //spielmeyer_vogt_disease
 
         List<String> spielmeyer_vogt_disease_keywords_tmp = Arrays.asList(
-                "E75.4", "79264", "Spielmeyer-Vogt", "Batten", "Επιληψία", "Γνωστική έκπτωση ", "Άνοια ", "εγκεφαλική ατροφία",
+                "E75.4", "79264", "Spielmeyer-Vogt", "Spielmeyer","Vogt", "Spielmeyer Vogt", "Batten", "Επιληψία", "Γνωστική έκπτωση ", "Άνοια ", "εγκεφαλική ατροφία",
                 "Υποτονία", "Αταξία ", "Σπαστικότητα ", "τετραπληγία", "Παρκισονισμός ", "Αναπνοή", "Καθυστέρηση ομιλίας", "Τραυλισμός",
                 "ρυθμός", "άρθρωση", "Δυσαρθρία", "ΔΕΠΥ"
 
@@ -1347,8 +1397,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         List<String> sanfilippo_syndrome_keywords_tmp = Arrays.asList(
                 "Sanfilippo", "MPS III", "E76.2E", "581", "ΔΕΠΥ", "αυτισμός", "Νοητική υστέρηση",
-                "Γνωστική έκπτωση", "Μυϊκή αδυναμία ", "Λοιμώξεις αυτιού ", "Καθυστέρηση ομιλίας ", "άρθρωση", "απραξία", "δυσφαγία"
-
+                "Γνωστική έκπτωση", "Μυϊκή αδυναμία ", "Λοιμώξεις αυτιού ", "Καθυστέρηση ομιλίας ", "άρθρωση", "απραξία", "δυσφαγία",
+                "Mucopolysaccharidosis III"
         );
         ArrayList<String> sanfilippo_syndrome_keywords = new ArrayList<>(sanfilippo_syndrome_keywords_tmp);
 
@@ -1378,7 +1428,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         List<String> sly_syndrome_keywords_tmp = Arrays.asList(
                 "Sly ", "MPS VII", "E76.2", "584", "αναπνοή", "Επιληψία", "Υδροκεφαλία", "Μακρογλωσσία",
-                "λοιμώξεις αυτιού", "Καθυστέρηση ομιλίας", "Μαθησιακές δυσκολίες", "ΔΕΠΥ", "Γνωστικά ελλείμματα"
+                "λοιμώξεις αυτιού", "Καθυστέρηση ομιλίας", "Μαθησιακές δυσκολίες", "ΔΕΠΥ", "Γνωστικά ελλείμματα",
+                "Mucopolysaccharidosis VΙI"
 
         );
         ArrayList<String> sly_syndrome_keywords = new ArrayList<>(sly_syndrome_keywords_tmp);
@@ -1401,7 +1452,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //spinal_muscular_atrophy
 
         List<String> spinal_muscular_atrophy_keywords_tmp = Arrays.asList(
-                "G12.0", "70", "ατροφία νωτιαίου μυελού", "τρόμος", "μυϊκή αδυναμία ", "αναπνοή", "απομύζηση"
+                "G12.0", "70", "ατροφία νωτιαίου μυελού", "τρόμος", "μυϊκή αδυναμία ", "αναπνοή", "απομύζηση",
+                "Spinal muscular atrophy" , "SMA"
         );
         ArrayList<String> spinal_muscular_atrophy_keywords = new ArrayList<>(spinal_muscular_atrophy_keywords_tmp);
 

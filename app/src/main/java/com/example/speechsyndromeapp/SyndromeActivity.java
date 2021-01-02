@@ -2,13 +2,21 @@ package com.example.speechsyndromeapp;
 
 import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.StyleSpan;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -24,6 +32,8 @@ import java.lang.reflect.AccessibleObject;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 public class SyndromeActivity extends AppCompatActivity {
@@ -79,7 +89,27 @@ public class SyndromeActivity extends AppCompatActivity {
             } catch (IOException e){
                 e.printStackTrace();
             }
-            mText.setText(text);
+
+            SpannableString ss = new SpannableString(text);
+            StyleSpan bold = new StyleSpan(Typeface.BOLD);
+            StyleSpan bold1 = new StyleSpan(Typeface.BOLD);
+            StyleSpan bold2 = new StyleSpan(Typeface.BOLD);
+            StyleSpan bold3 = new StyleSpan(Typeface.BOLD);
+            StyleSpan bold4 = new StyleSpan(Typeface.BOLD);
+            StyleSpan bold5 = new StyleSpan(Typeface.BOLD);
+            StyleSpan bold6 = new StyleSpan(Typeface.BOLD);
+
+            ss.setSpan(bold,text.indexOf("Αιτία-Κληρονομικότητα"),text.indexOf("Αιτία-Κληρονομικότητα")+ "Αιτία-Κληρονομικότητα".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            ss.setSpan(bold1,text.indexOf("Επιπολασμός"),text.indexOf("Επιπολασμός")+ "Επιπολασμός".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            ss.setSpan(bold2,text.indexOf("Γενικά χαρακτηριστικά"),text.indexOf("Γενικά χαρακτηριστικά")+ "Γενικά χαρακτηριστικά".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            ss.setSpan(bold3,text.indexOf("Στοματοπροσωπικά ευρήματα/δυσχέρειες"),text.indexOf("Στοματοπροσωπικά ευρήματα/δυσχέρειες")+ "Στοματοπροσωπικά ευρήματα/δυσχέρειες".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            ss.setSpan(bold4,text.indexOf("Επιπτώσεις στην ακοή"),text.indexOf("Επιπτώσεις στην ακοή")+ "Επιπτώσεις στην ακοή".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            ss.setSpan(bold5,text.indexOf("Επιπτώσεις στο λόγο & την ομιλία"),text.indexOf("Επιπτώσεις στο λόγο & την ομιλία")+ "Επιπτώσεις στο λόγο & την ομιλία".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            ss.setSpan(bold6,text.indexOf("Επιπτώσεις στην κατάποση"),text.indexOf("Επιπτώσεις στην κατάποση")+ "Επιπτώσεις στην κατάποση".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            mText.setText(ss);
+
+
+
 
 
 
