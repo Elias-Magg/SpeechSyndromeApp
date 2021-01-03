@@ -3,6 +3,7 @@ package com.example.speechsyndromeapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -23,6 +24,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ *Code written by Manginas Ilias
+ */
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final String EXTRA_SYNDROME_DATA = "com.example.speechsyndromeapp.EXTRA_SYNDROME_DATA";
 
@@ -34,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawer;
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //Disable night mode
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -86,9 +94,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
-            case R.id.Sources:
-                Toast.makeText(this,"Sources",Toast.LENGTH_LONG).show();
-                break;
             case R.id.AboutUs:
                 Intent intent = new Intent(this, AboutActivity.class);
                 startActivity(intent);
@@ -126,6 +131,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
+
+    /**
+     * Method for settign the main activity recycler data
+     */
 
     public void setData(){
 

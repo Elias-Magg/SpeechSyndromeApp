@@ -21,6 +21,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -35,7 +36,10 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
+/**
+ * This activity is where all the info
+ * for each individual syndrome is displayed
+ */
 public class SyndromeActivity extends AppCompatActivity {
     private String text;
     private SyndromeData data;
@@ -49,6 +53,8 @@ public class SyndromeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        //AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //Disable night mode
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.syndrome_activity);
 
@@ -68,16 +74,11 @@ public class SyndromeActivity extends AppCompatActivity {
 
         mTitle.setText(data.getTitle());
         mCode.setText(data.getCode());
-        ArrayList<Integer> images = data.getImages();
 
-        if(images.size()>=1)mImage1.setImageResource(images.get(0));
-            else mImage1.setVisibility(View.GONE);
-        if(images.size()>=2)mImage2.setImageResource(images.get(1));
-            else mImage2.setVisibility(View.GONE);
-        if(images.size()>=3)mImage3.setImageResource(images.get(2));
-            else mImage3.setVisibility(View.GONE);
-        if(images.size()>=4)mImage4.setImageResource(images.get(3));
-            else mImage4.setVisibility(View.GONE);
+        mImage1.setVisibility(View.GONE);
+        mImage2.setVisibility(View.GONE);
+        mImage3.setVisibility(View.GONE);
+        mImage4.setVisibility(View.GONE);
 
         InputStream inputStream = getResources().openRawResource(data.getTextFile());
             try{
