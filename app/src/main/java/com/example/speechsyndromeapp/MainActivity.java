@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
@@ -30,6 +30,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final String EXTRA_SYNDROME_DATA = "com.example.speechsyndromeapp.EXTRA_SYNDROME_DATA";
+    public static final String IP_ADDRESS = "192.168.1.10";
+    public static final int PORT_NUM = 7878;
+
 
 
     private RecyclerView mRecyclerView;
@@ -37,8 +40,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private RecyclerView.LayoutManager mLayouteManager;
     private ArrayList<MainRecyclerItem> mCardList;
     private DrawerLayout drawer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
+
+        startService(new Intent(getBaseContext(), OnClearFromRecentService.class));
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO); //Disable night mode
 
@@ -94,9 +100,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
+            case R.id.Survey:
+                Intent surveyIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.surveymonkey.com/r/FS8QQ9V"));
+                startActivity(surveyIntent);
+                break;
             case R.id.AboutUs:
-                Intent intent = new Intent(this, AboutActivity.class);
-                startActivity(intent);
+                Intent aboutIntent = new Intent(this, AboutActivity.class);
+                startActivity(aboutIntent);
                 break;
             default:
         }
@@ -148,7 +158,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         ArrayList<Integer> achondroplasia_img = new ArrayList<>();
         achondroplasia_img.add(R.drawable.achondroplasia_1);
-        achondroplasia_img.add(R.drawable.achondroplasia_2);
         mCardList.add(new MainRecyclerButton("Achondroplasia",achondroplasia_keywords,new SyndromeData(
                 "Αχονδροπλασία (Achondroplasia)",
                 R.raw.achondroplasia,"ICD-10: Q77.4\n" +
@@ -173,8 +182,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> aicardi_syndrome_keywords = new ArrayList<>(aicardi_syndrome_keywords_tmp);
 
         ArrayList<Integer> aicardi_syndrome_img = new ArrayList<>();
-        aicardi_syndrome_img.add(R.drawable.aicardi_syndrome_1);
-        aicardi_syndrome_img.add(R.drawable.aicardi_syndrome_2);
+        aicardi_syndrome_img.add(R.drawable.aicardi_1);
+        aicardi_syndrome_img.add(R.drawable.aicardi_2);
         mCardList.add(new MainRecyclerButton("Aicardi syndrome",aicardi_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Aicardi (Aicardi syndrome)",
                 R.raw.aicardi_syndrome,"ICD-10: Q04.0\n" +
@@ -189,27 +198,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         )));
 
-        //angeman_syndrome
+        //alport_syndrome
 
-        List<String> angeman_syndrome_keywords_tmp = Arrays.asList(
-                "Angeman ", "Q93.5", "72",  "Νοητική υστέρηση", "Αταξία ", "Επιληψία", "ΔΕΠΥ",
-                "Μικροκεφαλία",  "παραγωγή λόγου",  "εκφραστικό λεξιλόγιο", "υποτονία", "απομύζηση ", "δυσφαγία"
+        List<String> alport_syndrome_keywords_tmp = Arrays.asList(
+                "Alport ", "Q87.8", "63", "κώφωση", "βαρηκοΐα", "Καθυστέρηση ομιλίας",
+                "κατανόηση", "σύνταξη", " πραγματολογία", "Μαθησιακές δυσκολίες", "Γνωστικά προβλήματα",
+                "Χειλεοσχιστία", "Υπερωιοσχιστία ", "αυτισμός"
 
         );
-        ArrayList<String> angeman_syndrome_keywords = new ArrayList<>(angeman_syndrome_keywords_tmp);
+        ArrayList<String> alport_syndrome_keywords = new ArrayList<>(alport_syndrome_keywords_tmp);
 
-        ArrayList<Integer> angeman_syndrome_img = new ArrayList<>();
-        angeman_syndrome_img.add(R.drawable.angeman_syndrome_1);
-        angeman_syndrome_img.add(R.drawable.angeman_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Angeman syndrome",angeman_syndrome_keywords,new SyndromeData(
-                "Σύνδρομο Angelman (Angeman syndrome)",
-                R.raw.angeman_syndrome,"ICD-10: Q93.5\n" +
-                "ORPHA: 72\n",
-                "Βιβλιογραφία (Σύνδρομο Angelman)\n" +
-                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/angelman-syndrome/\n" +
-                        "2. Robert P. Carson et al., \" Preserved expressive language as a phenotypic determinant of Mosaic Angelman Syndrome\", Mol Genet Genomic Med. 2019\n" +
-                        "3. Karine Pelc, Guy Cheron, and Bernard Dan,\" Behavior and neuropsychiatric manifestations in Angelman syndrome\", Neuropsychiatr Dis Treat. 2008",
-                angeman_syndrome_img
+        ArrayList<Integer> alport_syndrome_img = new ArrayList<>();
+        alport_syndrome_img.add(R.drawable.alport_1);
+        mCardList.add(new MainRecyclerButton("Alport syndrome",alport_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Alport (Alport syndrome)",
+                R.raw.alport_syndrome,"ICD-10: Q87.8\n" +
+                "ORPHA:63\n",
+                "Βιβλιογραφία (Σύνδρομο Alport)\n" +
+                        "1. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.\n" +
+                        "2. Ramesh Kaipa and Hannah Tether, \" Speech, language, and hearing function in twins with Alport syndrome: A seven-year retrospective case report\", J Otol. 2017",
+                alport_syndrome_img
 
         )));
 
@@ -222,8 +230,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> alstrom_syndrome_keywords = new ArrayList<>(alstrom_syndrome_keywords_tmp);
 
         ArrayList<Integer> alstrom_syndrome_img = new ArrayList<>();
-        alstrom_syndrome_img.add(R.drawable.alstrom_syndrome_1);
-        alstrom_syndrome_img.add(R.drawable.alstrom_syndrome_2);
+        alstrom_syndrome_img.add(R.drawable.alstrom_1);
         mCardList.add(new MainRecyclerButton("Alstrom syndrome",alstrom_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Alstrom (Alstrom syndrome)",
                 R.raw.alstrom_syndrome,"ICD-10: E34.8\n" +
@@ -236,29 +243,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         )));
 
-        //alport_syndrome
+        //angeman_syndrome
 
-        List<String> alport_syndrome_keywords_tmp = Arrays.asList(
-                "Alport ", "Q87.8", "63", "κώφωση", "βαρηκοΐα", "Καθυστέρηση ομιλίας",
-                "κατανόηση", "σύνταξη", " πραγματολογία", "Μαθησιακές δυσκολίες", "Γνωστικά προβλήματα",
-                "Χειλεοσχιστία", "Υπερωιοσχιστία ", "αυτισμός"
+        List<String> angeman_syndrome_keywords_tmp = Arrays.asList(
+                "Angeman ", "Q93.5", "72",  "Νοητική υστέρηση", "Αταξία ", "Επιληψία", "ΔΕΠΥ",
+                "Μικροκεφαλία",  "παραγωγή λόγου",  "εκφραστικό λεξιλόγιο", "υποτονία", "απομύζηση ", "δυσφαγία"
 
         );
-        ArrayList<String> alport_syndrome_keywords = new ArrayList<>(alport_syndrome_keywords_tmp);
+        ArrayList<String> angeman_syndrome_keywords = new ArrayList<>(angeman_syndrome_keywords_tmp);
 
-        ArrayList<Integer> alport_syndrome_img = new ArrayList<>();
-        alport_syndrome_img.add(R.drawable.alport_syndrome_1);
-        alport_syndrome_img.add(R.drawable.alport_syndrome_2);
-        mCardList.add(new MainRecyclerButton("Alport syndrome",alport_syndrome_keywords,new SyndromeData(
-                "Σύνδρομο Alport (Alport syndrome)",
-                R.raw.alport_syndrome,"ICD-10: Q87.8\n" +
-                "ORPHA:63\n",
-                "Βιβλιογραφία (Σύνδρομο Alport)\n" +
-                        "1. John M. Graham, Glenis K. Scadding, Peter D. Bull, Eitors, Pediatric ENT, 2007.\n" +
-                        "2. Ramesh Kaipa and Hannah Tether, \" Speech, language, and hearing function in twins with Alport syndrome: A seven-year retrospective case report\", J Otol. 2017",
-                alport_syndrome_img
+        ArrayList<Integer> angeman_syndrome_img = new ArrayList<>();
+        angeman_syndrome_img.add(R.drawable.angeman_1);
+        angeman_syndrome_img.add(R.drawable.angeman_2);
+        mCardList.add(new MainRecyclerButton("Angeman syndrome",angeman_syndrome_keywords,new SyndromeData(
+                "Σύνδρομο Angelman (Angeman syndrome)",
+                R.raw.angeman_syndrome,"ICD-10: Q93.5\n" +
+                "ORPHA: 72\n",
+                "Βιβλιογραφία (Σύνδρομο Angelman)\n" +
+                        "1. https://www.mun-h-center.se/en/research-and-facts/rare-diseases/angelman-syndrome/\n" +
+                        "2. Robert P. Carson et al., \" Preserved expressive language as a phenotypic determinant of Mosaic Angelman Syndrome\", Mol Genet Genomic Med. 2019\n" +
+                        "3. Karine Pelc, Guy Cheron, and Bernard Dan,\" Behavior and neuropsychiatric manifestations in Angelman syndrome\", Neuropsychiatr Dis Treat. 2008",
+                angeman_syndrome_img
 
         )));
+
+
+
+
 
         //apert_syndrome
 
@@ -271,9 +282,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> apert_syndrome_keywords = new ArrayList<>(apert_syndrome_keywords_tmp);
 
         ArrayList<Integer> apert_syndrome_img = new ArrayList<>();
-        apert_syndrome_img.add(R.drawable.apert_syndrome_1);
-        apert_syndrome_img.add(R.drawable.apert_syndrome_2);
-        apert_syndrome_img.add(R.drawable.apert_syndrome_3);
+        apert_syndrome_img.add(R.drawable.apert_1);
         mCardList.add(new MainRecyclerButton("Apert syndrome",apert_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Apert (Apert syndrome)",
                 R.raw.apert_syndrome,"ICD-10: Q87.0B\n" +
@@ -299,8 +308,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> aspartylglucosaminuria_keywords = new ArrayList<>(aspartylglucosaminuria_keywords_tmp);
 
         ArrayList<Integer> aspartylglucosaminuria_img = new ArrayList<>();
-        aspartylglucosaminuria_img.add(R.drawable.aspartylglucosaminuria_1);
-        aspartylglucosaminuria_img.add(R.drawable.aspartylglucosaminuria_2);
+        aspartylglucosaminuria_img.add(R.drawable.agu_1);
+        aspartylglucosaminuria_img.add(R.drawable.agu_2);
         mCardList.add(new MainRecyclerButton("Aspartylglucosaminuria",aspartylglucosaminuria_keywords,new SyndromeData(
                 "Ανασυνδυασμένη ανθρώπινη ασπαρτυλγλυκοσαμινιδάση\n" +
                         "(Aspartylglucosaminuria-AGU)",
@@ -328,8 +337,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> beckwith_wiedemann_syndrome_keywords = new ArrayList<>(beckwith_wiedemann_syndrome_keywords_tmp);
 
         ArrayList<Integer> beckwith_wiedemann_syndrome_img = new ArrayList<>();
-        beckwith_wiedemann_syndrome_img.add(R.drawable.beckwith_wiedemann_syndrome_1);
-        beckwith_wiedemann_syndrome_img.add(R.drawable.beckwith_wiedemann_syndrome_2);
+        beckwith_wiedemann_syndrome_img.add(R.drawable.beckwith_1);
+        beckwith_wiedemann_syndrome_img.add(R.drawable.beckwith_2);
         mCardList.add(new MainRecyclerButton("Beckwith-Wiedemann syndrome",beckwith_wiedemann_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Beckwith-Wiedemann (Beckwith-Wiedemann syndrome)",
                 R.raw.beckwith_wiedemann_syndrome,"ICD-10: Q87.3\n" +
@@ -352,8 +361,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> incontinentia_pigmenti_bloch_sulzberger_syndrome_keywords = new ArrayList<>(incontinentia_pigmenti_bloch_sulzberger_syndrome_keywords_tmp);
 
         ArrayList<Integer> incontinentia_pigmenti_bloch_sulzberger_syndrome_img = new ArrayList<>();
-        incontinentia_pigmenti_bloch_sulzberger_syndrome_img.add(R.drawable.incontinentia_pigmenti_bloch_sulzberger_syndrome_1);
-        incontinentia_pigmenti_bloch_sulzberger_syndrome_img.add(R.drawable.incontinentia_pigmenti_bloch_sulzberger_syndrome_2);
+        incontinentia_pigmenti_bloch_sulzberger_syndrome_img.add(R.drawable.blosch_1);
         mCardList.add(new MainRecyclerButton("Bloch-Sulzberger syndrome",incontinentia_pigmenti_bloch_sulzberger_syndrome_keywords,new SyndromeData(
                 "Ακράτεια χρωστικής-Σύνδρομο Bloch-Sulzberger\n" +
                         "(Incontinentia pigmenti-Bloch-Sulzberger Syndrome)",
@@ -377,8 +385,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> branchiootorenal_syndrome_keywords = new ArrayList<>(branchiootorenal_syndrome_keywords_tmp);
 
         ArrayList<Integer> branchiootorenal_syndrome_img = new ArrayList<>();
-        branchiootorenal_syndrome_img.add(R.drawable.branchiootorenal_syndrome_1);
-        branchiootorenal_syndrome_img.add(R.drawable.branchiootorenal_syndrome_2);
+        branchiootorenal_syndrome_img.add(R.drawable.bor_1);
+        branchiootorenal_syndrome_img.add(R.drawable.bor_2);
         mCardList.add(new MainRecyclerButton("Branchiootorenal syndrome",branchiootorenal_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο BOR (Branchiootorenal syndrome)",
                 R.raw.branchiootorenal_syndrome,"ICD-10: Q87.8\nORPHA:107\n",
@@ -402,8 +410,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> carpenter_syndrome_keywords = new ArrayList<>(carpenter_syndrome_keywords_tmp);
 
         ArrayList<Integer> carpenter_syndrome_img = new ArrayList<>();
-        carpenter_syndrome_img.add(R.drawable.carpenter_syndrome_1);
-        carpenter_syndrome_img.add(R.drawable.carpenter_syndrome_2);
+        carpenter_syndrome_img.add(R.drawable.carpenter_1);
+        carpenter_syndrome_img.add(R.drawable.carpenter_2);
         mCardList.add(new MainRecyclerButton("Carpenter syndrome",carpenter_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Carpenter (Carpenter syndrome)",
                 R.raw.carpenter_syndrome,"ICD-10: Q87.0\n" +
@@ -424,8 +432,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> cmt_disease_keywords = new ArrayList<>(cmt_disease_keywords_tmp);
 
         ArrayList<Integer> cmt_disease_img = new ArrayList<>();
-        cmt_disease_img.add(R.drawable.cmt_disease_1);
-        cmt_disease_img.add(R.drawable.cmt_disease_2);
+        cmt_disease_img.add(R.drawable.cmt_1);
         mCardList.add(new MainRecyclerButton("Charcot-Marie-Tooth disease",cmt_disease_keywords,new SyndromeData(
                 "Ασθένεια Charcot-Marie-Tooth (CMT Disease)",
                 R.raw.cmt_disease,"ICD-10: G60.0\n",
@@ -449,8 +456,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> charge_syndrome_keywords = new ArrayList<>(charge_syndrome_keywords_tmp);
 
         ArrayList<Integer> charge_syndrome_img = new ArrayList<>();
-        charge_syndrome_img.add(R.drawable.charge_syndrome_1);
-        charge_syndrome_img.add(R.drawable.charge_syndrome_2);
+        charge_syndrome_img.add(R.drawable.charge_1);
+        charge_syndrome_img.add(R.drawable.charge_2);
         mCardList.add(new MainRecyclerButton("CHARGE syndrome",charge_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο CHARGE (CHARGE syndrome)",
                 R.raw.charge_syndrome,"ICD-10: Q87.8\n" +
@@ -475,8 +482,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> congenital_disorder_of_glycosylation_keywords = new ArrayList<>(congenital_disorder_of_glycosylation_keywords_tmp);
 
         ArrayList<Integer> congenital_disorder_of_glycosylation_img = new ArrayList<>();
-        congenital_disorder_of_glycosylation_img.add(R.drawable.congenital_disorder_of_glycosylation_1);
-        congenital_disorder_of_glycosylation_img.add(R.drawable.congenital_disorder_of_glycosylation_2);
+        congenital_disorder_of_glycosylation_img.add(R.drawable.cdg_1);
         mCardList.add(new MainRecyclerButton("Congenital Disorder of Glycosylation",congenital_disorder_of_glycosylation_keywords,new SyndromeData(
                 "Σύνδρομο CDG (CDG syndrome - Congenital Disorder of Glycosylation)",
                 R.raw.congenital_disorder_of_glycosylation,"ICD-10: E77.8\n" +
@@ -501,9 +507,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> cornelia_delange_syndrome_keywords = new ArrayList<>(cornelia_delange_syndrome_keywords_tmp);
 
         ArrayList<Integer> cornelia_delange_syndrome_img = new ArrayList<>();
-        cornelia_delange_syndrome_img.add(R.drawable.cornelia_delange_syndrome_1);
-        cornelia_delange_syndrome_img.add(R.drawable.cornelia_delange_syndrome_2);
-        cornelia_delange_syndrome_img.add(R.drawable.cornelia_delange_syndrome_3);
+        cornelia_delange_syndrome_img.add(R.drawable.cornelia_1);
+        cornelia_delange_syndrome_img.add(R.drawable.cornelia_2);
         mCardList.add(new MainRecyclerButton("Cornelia de Lange syndrome",cornelia_delange_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Cornelia de Lange (Cornelia de Lange syndrome)",
                 R.raw.cornelia_delange_syndrome,"ICD-10: Q87.1C\n" +
@@ -530,9 +535,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> cri_du_chat_syndrome_keywords = new ArrayList<>(cri_du_chat_syndrome_keywords_tmp);
 
         ArrayList<Integer> cri_du_chat_syndrome_img = new ArrayList<>();
-        cri_du_chat_syndrome_img.add(R.drawable.cri_du_chat_syndrome_1);
-        cri_du_chat_syndrome_img.add(R.drawable.cri_du_chat_syndrome_2);
-        cri_du_chat_syndrome_img.add(R.drawable.cri_du_chat_syndrome_3);
+        cri_du_chat_syndrome_img.add(R.drawable.cri_1);
+        cri_du_chat_syndrome_img.add(R.drawable.cri_2);
         mCardList.add(new MainRecyclerButton("Cri du Chat syndrome",cri_du_chat_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Cri du Chat (Cri du Chat syndrome)",
                 R.raw.cri_du_chat_syndrome,"ICD-10: Q93.4\n" +
@@ -561,9 +565,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> crouzon_syndrome_keywords = new ArrayList<>(crouzon_syndrome_keywords_tmp);
 
         ArrayList<Integer> crouzon_syndrome_img = new ArrayList<>();
-        crouzon_syndrome_img.add(R.drawable.crouzon_syndrome_1);
-        crouzon_syndrome_img.add(R.drawable.crouzon_syndrome_2);
-        crouzon_syndrome_img.add(R.drawable.crouzon_syndrome_3);
+        crouzon_syndrome_img.add(R.drawable.crouzon_1);
+        crouzon_syndrome_img.add(R.drawable.crouzon_2);
         mCardList.add(new MainRecyclerButton("Crouzon syndrome",crouzon_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Crouzon (Crouzon syndrome)",
                 R.raw.crouzon_syndrome,"ICD-10: Q75.1\n" +
@@ -591,8 +594,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> down_syndrome_keywords = new ArrayList<>(down_syndrome_keywords_tmp);
 
         ArrayList<Integer> down_syndrome_img = new ArrayList<>();
-        down_syndrome_img.add(R.drawable.down_syndrome_1);
-        down_syndrome_img.add(R.drawable.down_syndrome_2);
+        down_syndrome_img.add(R.drawable.down_1);
         mCardList.add(new MainRecyclerButton("Down syndrome",down_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Down (Down Syndrome)",
                 R.raw.down_syndrome,"ICD-10: Q90.0 Q90.1 Q90.2 Q90.9\n" +
@@ -624,8 +626,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> edwards_syndrome_trisomy_18_keywords = new ArrayList<>(edwards_syndrome_trisomy_18_keywords_tmp);
 
         ArrayList<Integer> edwards_syndrome_trisomy_18_img = new ArrayList<>();
-        edwards_syndrome_trisomy_18_img.add(R.drawable.edwards_syndrome_trisomy_18_1);
-        edwards_syndrome_trisomy_18_img.add(R.drawable.edwards_syndrome_trisomy_18_2);
+        edwards_syndrome_trisomy_18_img.add(R.drawable.edwards_1);
+        edwards_syndrome_trisomy_18_img.add(R.drawable.edwards_2);
         mCardList.add(new MainRecyclerButton("Edwards syndrome",edwards_syndrome_trisomy_18_keywords,new SyndromeData(
                 "Σύνδρομο Edwards-Τρισωμία 18 (Edwards syndrome-Trisomy 18)",
                 R.raw.edwards_syndrome_trisomy_18,"ICD-10: Q91.0 Q91.1 Q91.2 Q91.3\n" +
@@ -657,8 +659,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> fragile_x_syndrome_keywords = new ArrayList<>(fragile_x_syndrome_keywords_tmp);
 
         ArrayList<Integer> fragile_x_syndrome_img = new ArrayList<>();
-        fragile_x_syndrome_img.add(R.drawable.fragile_x_syndrome_1);
-        fragile_x_syndrome_img.add(R.drawable.fragile_x_syndrome_2);
+        fragile_x_syndrome_img.add(R.drawable.fragile_x_1);
+
         mCardList.add(new MainRecyclerButton("Fragile X syndrome",fragile_x_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο εύθραυστου Χ χρωμοσώματος (Fragile X syndrome)",
                 R.raw.fragile_x_syndrome,"ICD-10: Q99.2\n" +
@@ -687,8 +689,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> gaucher_disease_keywords = new ArrayList<>(gaucher_disease_keywords_tmp);
 
         ArrayList<Integer> gaucher_disease_img = new ArrayList<>();
-        gaucher_disease_img.add(R.drawable.gaucher_disease_1);
-        gaucher_disease_img.add(R.drawable.gaucher_disease_2);
+        gaucher_disease_img.add(R.drawable.gaucher_1);
         mCardList.add(new MainRecyclerButton("Gaucher disease",gaucher_disease_keywords,new SyndromeData(
                 "Ασθένεια Gaucher (Gaucher Disease)",
                 R.raw.gaucher_disease,"CD-10: E75.2A\nORPHA: 355\n",
@@ -739,8 +740,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> goldenhar_syndrome_hemifacial_microsomia_keywords = new ArrayList<>(goldenhar_syndrome_hemifacial_microsomia_keywords_tmp);
 
         ArrayList<Integer> goldenhar_syndrome_hemifacial_microsomia_img = new ArrayList<>();
-        goldenhar_syndrome_hemifacial_microsomia_img.add(R.drawable.goldenhar_syndrome_hemifacial_microsomia_1);
-        goldenhar_syndrome_hemifacial_microsomia_img.add(R.drawable.goldenhar_syndrome_hemifacial_microsomia_2);
+        goldenhar_syndrome_hemifacial_microsomia_img.add(R.drawable.goldenhar_1);
+        goldenhar_syndrome_hemifacial_microsomia_img.add(R.drawable.goldenhar_2);
         mCardList.add(new MainRecyclerButton("Goldenhar syndrome",goldenhar_syndrome_hemifacial_microsomia_keywords,new SyndromeData(
                 "Σύνδρομο Goldenhar-Ημιπροσωπική μικροσωμία (Goldenhar syndrome- hemifacial microsomia)",
                 R.raw.goldenhar_syndrome_hemifacial_microsomia,"ICD-10: Q87.0D\n" +
@@ -767,8 +768,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> holoprosencephaly_keywords = new ArrayList<>(holoprosencephaly_keywords_tmp);
 
         ArrayList<Integer> holoprosencephaly_img = new ArrayList<>();
-        holoprosencephaly_img.add(R.drawable.holoprosencephaly_1);
-        holoprosencephaly_img.add(R.drawable.holoprosencephaly_2);
+        holoprosencephaly_img.add(R.drawable.holoproscencephaly_1);
+        holoprosencephaly_img.add(R.drawable.holoproscencephaly_2);
         mCardList.add(new MainRecyclerButton("Holoprosencephaly",holoprosencephaly_keywords,new SyndromeData(
                 "Ολοπροσεγκεφαλία (Holoprosencephaly)",
                 R.raw.holoprosencephaly,"ICD-10: Q04.2\nORPHA: 2162\n",
@@ -792,8 +793,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> hunter_syndrome_keywords = new ArrayList<>(hunter_syndrome_keywords_tmp);
 
         ArrayList<Integer> hunter_syndrome_img = new ArrayList<>();
-        hunter_syndrome_img.add(R.drawable.hunter_syndrome_1);
-        hunter_syndrome_img.add(R.drawable.hunter_syndrome_2);
+        hunter_syndrome_img.add(R.drawable.hunter_1);
+        hunter_syndrome_img.add(R.drawable.hunter_2);
         mCardList.add(new MainRecyclerButton("Hunter syndrome",hunter_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Hunter (Hunter syndrome) - Mucopolysaccharidosis II (MPS II)",
                 R.raw.hunter_syndrome,"ICD-10: E76.1\n" +
@@ -814,8 +815,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> huntington_disease_huntington_chorea_keywords = new ArrayList<>(huntington_disease_huntington_chorea_keywords_tmp);
 
         ArrayList<Integer> huntington_disease_huntington_chorea_img = new ArrayList<>();
-        huntington_disease_huntington_chorea_img.add(R.drawable.huntington_disease_huntington_chorea_1);
-        huntington_disease_huntington_chorea_img.add(R.drawable.huntington_disease_huntington_chorea_2);
+        huntington_disease_huntington_chorea_img.add(R.drawable.huntington_1);
+        huntington_disease_huntington_chorea_img.add(R.drawable.huntington_2);
         mCardList.add(new MainRecyclerButton("Huntington disease",huntington_disease_huntington_chorea_keywords,new SyndromeData(
                 "Ασθένεια Huntington-Χορεία Huntington\n" +
                         "(Huntington disease-Huntington chorea)",
@@ -842,8 +843,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> hurler_syndrome_keywords = new ArrayList<>(hurler_syndrome_keywords_tmp);
 
         ArrayList<Integer> hurler_syndrome_img = new ArrayList<>();
-        hurler_syndrome_img.add(R.drawable.hurler_syndrome_1);
-        hurler_syndrome_img.add(R.drawable.hurler_syndrome_2);
+        hurler_syndrome_img.add(R.drawable.hurler_1);
+        hurler_syndrome_img.add(R.drawable.hurler_2);
         mCardList.add(new MainRecyclerButton("Hurler syndrome",hurler_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Hurler (Hurler syndrome) - Mucopolysaccharidosis I (MPS I)",
                 R.raw.hurler_syndrome,"ICD-10: E76.0\n" +
@@ -869,8 +870,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> jacobsen_syndrome_keywords = new ArrayList<>(jacobsen_syndrome_keywords_tmp);
 
         ArrayList<Integer> jacobsen_syndrome_img = new ArrayList<>();
-        jacobsen_syndrome_img.add(R.drawable.jacobsen_syndrome_1);
-        jacobsen_syndrome_img.add(R.drawable.jacobsen_syndrome_2);
+        jacobsen_syndrome_img.add(R.drawable.jacobsen_1);
         mCardList.add(new MainRecyclerButton("Jacobsen syndrome",jacobsen_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Jacobsen (Jacobsen syndrome)",
                 R.raw.jacobsen_syndrome,"ICD-10: Q93.5\n" +
@@ -895,8 +895,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> joubert_syndrome_keywords = new ArrayList<>(joubert_syndrome_keywords_tmp);
 
         ArrayList<Integer> joubert_syndrome_img = new ArrayList<>();
-        joubert_syndrome_img.add(R.drawable.joubert_syndrome_1);
-        joubert_syndrome_img.add(R.drawable.joubert_syndrome_2);
+        joubert_syndrome_img.add(R.drawable.jouber_1);
         mCardList.add(new MainRecyclerButton("Joubert syndrome",joubert_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Joubert (Joubert syndrome)",
                 R.raw.joubert_syndrome,"ICD-10: G71.2\n" +
@@ -928,8 +927,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> kabuki_syndrome_keywords = new ArrayList<>(kabuki_syndrome_keywords_tmp);
 
         ArrayList<Integer> kabuki_syndrome_img = new ArrayList<>();
-        kabuki_syndrome_img.add(R.drawable.kabuki_syndrome_1);
-        kabuki_syndrome_img.add(R.drawable.kabuki_syndrome_2);
+        kabuki_syndrome_img.add(R.drawable.kabuki);
         mCardList.add(new MainRecyclerButton("Kabuki syndrome",kabuki_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Kabuki (Kabuki syndrome)",
                 R.raw.kabuki_syndrome,"ICD-10: Q87.8\n" +
@@ -971,8 +969,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> krabbe_disease_keywords = new ArrayList<>(krabbe_disease_keywords_tmp);
 
         ArrayList<Integer> krabbe_disease_img = new ArrayList<>();
-        krabbe_disease_img.add(R.drawable.krabbe_disease_1);
-        krabbe_disease_img.add(R.drawable.krabbe_disease_2);
+        krabbe_disease_img.add(R.drawable.krabbe_1);
+        krabbe_disease_img.add(R.drawable.krabbe_2);
         mCardList.add(new MainRecyclerButton("Krabbe disease",krabbe_disease_keywords,new SyndromeData(
                 "Ασθένεια Krabbe (Krabbe disease)",
                 R.raw.krabbe_disease,"ICD-10: E75.2\n" +
@@ -997,9 +995,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> lesch_nyhan_syndrome_keywords = new ArrayList<>(lesch_nyhan_syndrome_keywords_tmp);
 
         ArrayList<Integer> lesch_nyhan_syndrome_img = new ArrayList<>();
-        lesch_nyhan_syndrome_img.add(R.drawable.lesch_nyhan_syndrome_1);
-        lesch_nyhan_syndrome_img.add(R.drawable.lesch_nyhan_syndrome_2);
-        lesch_nyhan_syndrome_img.add(R.drawable.lesch_nyhan_syndrome_3);
+        lesch_nyhan_syndrome_img.add(R.drawable.lesch_1);
         mCardList.add(new MainRecyclerButton("Lesch-Nyhan syndrome",lesch_nyhan_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Lesch-Nyhan (Lesch-Nyhan syndrome)",
                 R.raw.lesch_nyhan_syndrome,"ICD-10: E79.1\n" +
@@ -1049,7 +1045,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> marker_chromosome_15_syndrome_keywords = new ArrayList<>(marker_chromosome_15_syndrome_keywords_tmp);
 
         ArrayList<Integer> marker_chromosome_15_syndrome_img = new ArrayList<>();
-        marker_chromosome_15_syndrome_img.add(R.drawable.marker_chromosome_15_syndrome_1);
+        marker_chromosome_15_syndrome_img.add(R.drawable.marker_1);
         mCardList.add(new MainRecyclerButton("Marker chromosome 15 syndrome",marker_chromosome_15_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο χρωμοσωμικού δείκτη 15 (Marker chromosome 15 syndrome)",
                 R.raw.marker_chromosome_15_syndrome,"ICD-10: Q99.8\n" +
@@ -1070,8 +1066,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> maroteaux_lamy_syndrome_keywords = new ArrayList<>(maroteaux_lamy_syndrome_keywords_tmp);
 
         ArrayList<Integer> maroteaux_lamy_syndrome_img = new ArrayList<>();
-        maroteaux_lamy_syndrome_img.add(R.drawable.maroteaux_lamy_syndrome_1);
-        maroteaux_lamy_syndrome_img.add(R.drawable.maroteaux_lamy_syndrome_2);
+        maroteaux_lamy_syndrome_img.add(R.drawable.maroteaux_1);
+        maroteaux_lamy_syndrome_img.add(R.drawable.maroteaux_2);
         mCardList.add(new MainRecyclerButton("Maroteaux Lamy syndrome",maroteaux_lamy_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Maroteaux Lamy (Maroteaux Lamy syndrome)-\n" +
                         "Mucopolysaccharidosis VI (MPS VI)",
@@ -1102,8 +1098,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> miller_dieker_syndrome_keywords = new ArrayList<>(miller_dieker_syndrome_keywords_tmp);
 
         ArrayList<Integer> miller_dieker_syndrome_img = new ArrayList<>();
-        miller_dieker_syndrome_img.add(R.drawable.miller_dieker_syndrome1);
-        miller_dieker_syndrome_img.add(R.drawable.miller_dieker_syndrome2);
+        miller_dieker_syndrome_img.add(R.drawable.miller_1);
         mCardList.add(new MainRecyclerButton("Miller Dieker syndrome",miller_dieker_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Miller Dieker - Λυσεγκεφαλία (Miller Dieker syndrome - Lissencephaly)",
                 R.raw.miller_dieker_syndrome,"ICD-10: Q04.3\n" +
@@ -1131,8 +1126,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> mobius_syndrome_keywords = new ArrayList<>(mobius_syndrome_keywords_tmp);
 
         ArrayList<Integer> mobius_syndrome_img = new ArrayList<>();
-        mobius_syndrome_img.add(R.drawable.mobius_syndrome_1);
-        mobius_syndrome_img.add(R.drawable.mobius_syndrome_2);
+        mobius_syndrome_img.add(R.drawable.mobius_1);
+        mobius_syndrome_img.add(R.drawable.mobius_2);
         mCardList.add(new MainRecyclerButton("Möbius syndrome",mobius_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Möbius (Möbius syndrome)",
                 R.raw.mobius_syndrome,"ICD-10: Q87.0W\n" +
@@ -1156,8 +1151,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> morquio_syndrome_keywords = new ArrayList<>(morquio_syndrome_keywords_tmp);
 
         ArrayList<Integer> morquio_syndrome_img = new ArrayList<>();
-        morquio_syndrome_img.add(R.drawable.morquio_syndrome_1);
-        morquio_syndrome_img.add(R.drawable.morquio_syndrome_2);
+        morquio_syndrome_img.add(R.drawable.morquio_1);
+        morquio_syndrome_img.add(R.drawable.morquio_2);
         mCardList.add(new MainRecyclerButton("Morquio syndrome",morquio_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Morquio (Morquio syndrome)-\n" +
                         "Mucopolysaccharidosis IV (MPS IV)",
@@ -1189,8 +1184,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> osteogenesis_imperfecta_brittle_bone_disease_keywords = new ArrayList<>(osteogenesis_imperfecta_brittle_bone_disease_keywords_tmp);
 
         ArrayList<Integer> osteogenesis_imperfecta_brittle_bone_disease_img = new ArrayList<>();
-        osteogenesis_imperfecta_brittle_bone_disease_img.add(R.drawable.osteogenesis_imperfecta_brittle_bone_disease_1);
-        osteogenesis_imperfecta_brittle_bone_disease_img.add(R.drawable.osteogenesis_imperfecta_brittle_bone_disease_2);
+        osteogenesis_imperfecta_brittle_bone_disease_img.add(R.drawable.osteogenesis_1);
+        osteogenesis_imperfecta_brittle_bone_disease_img.add(R.drawable.osteogenesis_2);
         mCardList.add(new MainRecyclerButton("Brittle bone disease",osteogenesis_imperfecta_brittle_bone_disease_keywords,new SyndromeData(
                 "Ατελής Οστεογένεση (Osteogenesis Imperfecta-Brittle bone disease)",
                 R.raw.osteogenesis_imperfecta_brittle_bone_disease,"ICD-10: Q78.0\n" +
@@ -1219,9 +1214,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> patau_syndrome_keywords = new ArrayList<>(patau_syndrome_keywords_tmp);
 
         ArrayList<Integer> patau_syndrome_img = new ArrayList<>();
-        patau_syndrome_img.add(R.drawable.patau_syndrome_1);
-        patau_syndrome_img.add(R.drawable.patau_syndrome_2);
-        patau_syndrome_img.add(R.drawable.patau_syndrome_3);
+        patau_syndrome_img.add(R.drawable.patau_1);
+        patau_syndrome_img.add(R.drawable.patau_2);
+        patau_syndrome_img.add(R.drawable.patau_3);
         mCardList.add(new MainRecyclerButton("Patau syndrome",patau_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Patau - Τρισωμία 13 (Patau syndrome - Trisomy 13)",
                 R.raw.patau_syndrome,"ICD-10: Q91.4 Q91.5 Q91.6 Q91.7\n" +
@@ -1243,8 +1238,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> pierre_robin_sequence_keywords = new ArrayList<>(pierre_robin_sequence_keywords_tmp);
 
         ArrayList<Integer> pierre_robin_sequence_img = new ArrayList<>();
-        pierre_robin_sequence_img.add(R.drawable.pierre_robin_sequence_1);
-        pierre_robin_sequence_img.add(R.drawable.pierre_robin_sequence_2);
+        pierre_robin_sequence_img.add(R.drawable.pierre_robin_1);
+        pierre_robin_sequence_img.add(R.drawable.pierre_robin_2);
         mCardList.add(new MainRecyclerButton("Pierre Robin sequence",pierre_robin_sequence_keywords,new SyndromeData(
                 "Ακολουθία Pierre Robin (Pierre Robin Sequence)",
                 R.raw.pierre_robin_sequence,"ICD-10: Q87.0\nORPHA:718\n",
@@ -1269,8 +1264,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> pitt_hopkins_syndrome_keywords = new ArrayList<>(pitt_hopkins_syndrome_keywords_tmp);
 
         ArrayList<Integer> pitt_hopkins_syndrome_img = new ArrayList<>();
-        pitt_hopkins_syndrome_img.add(R.drawable.pitt_hopkins_syndrome_1);
-        pitt_hopkins_syndrome_img.add(R.drawable.pitt_hopkins_syndrome_2);
+        pitt_hopkins_syndrome_img.add(R.drawable.pitt_1);
+        pitt_hopkins_syndrome_img.add(R.drawable.pitt_2);
         mCardList.add(new MainRecyclerButton("Pitt-Hopkins syndrome",pitt_hopkins_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Pitt-Hopkins (Pitt-Hopkins syndrome)",
                 R.raw.pitt_hopkins_syndrome,"ICD-10: Q87.0\n" +
@@ -1296,8 +1291,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> potocki_lupski_syndrome_keywords = new ArrayList<>(potocki_lupski_syndrome_keywords_tmp);
 
         ArrayList<Integer> potocki_lupski_syndrome_img = new ArrayList<>();
-        potocki_lupski_syndrome_img.add(R.drawable.potocki_lupski_syndrome_1);
-        potocki_lupski_syndrome_img.add(R.drawable.potocki_lupski_syndrome_2);
+        potocki_lupski_syndrome_img.add(R.drawable.potocki_1);
         mCardList.add(new MainRecyclerButton("Potocki-Lupski syndrome",potocki_lupski_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Potocki-Lupski (Potocki-Lupski syndrome)",
                 R.raw.potocki_lupski_syndrome,"ICD-10: Q99.8\n" +
@@ -1324,9 +1318,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> prader_willi_syndrome_keywords = new ArrayList<>(prader_willi_syndrome_keywords_tmp);
 
         ArrayList<Integer> prader_willi_syndrome_img = new ArrayList<>();
-        prader_willi_syndrome_img.add(R.drawable.prader_willi_syndrome_1);
-        prader_willi_syndrome_img.add(R.drawable.prader_willi_syndrome_2);
-        prader_willi_syndrome_img.add(R.drawable.prader_willi_syndrome_3);
+        prader_willi_syndrome_img.add(R.drawable.prader_1);
+        prader_willi_syndrome_img.add(R.drawable.prader_2);
         mCardList.add(new MainRecyclerButton("Prader-Willi syndrome",prader_willi_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Prader-Willi (Prader-Willi syndrome)",
                 R.raw.prader_willi_syndrome,"ICD-10: Q87.1F\n" +
@@ -1358,8 +1351,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> rett_syndrome_keywords = new ArrayList<>(rett_syndrome_keywords_tmp);
 
         ArrayList<Integer> rett_syndrome_img = new ArrayList<>();
-        rett_syndrome_img.add(R.drawable.rett_syndrome_1);
-        rett_syndrome_img.add(R.drawable.rett_syndrome_2);
+        rett_syndrome_img.add(R.drawable.rett_1);
+        rett_syndrome_img.add(R.drawable.rett_2);
         mCardList.add(new MainRecyclerButton("Rett syndrome",rett_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Rett (Rett syndrome)",
                 R.raw.rett_syndrome,"ICD-10: F84.2\n" +
@@ -1387,8 +1380,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> spielmeyer_vogt_disease_keywords = new ArrayList<>(spielmeyer_vogt_disease_keywords_tmp);
 
         ArrayList<Integer> spielmeyer_vogt_disease_img = new ArrayList<>();
-        spielmeyer_vogt_disease_img.add(R.drawable.spielmeyer_vogt_disease_1);
-        spielmeyer_vogt_disease_img.add(R.drawable.spielmeyer_vogt_disease_2);
+        spielmeyer_vogt_disease_img.add(R.drawable.spiegelmeyer_1);
         mCardList.add(new MainRecyclerButton("Spielmeyer-Vogt disease",spielmeyer_vogt_disease_keywords,new SyndromeData(
                 "Ασθένεια Spielmeyer-Vogt / Ασθένεια Batten -\n" +
                         "(Spielmeyer-Vogt disease / Batten disease)",
@@ -1412,8 +1404,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> sanfilippo_syndrome_keywords = new ArrayList<>(sanfilippo_syndrome_keywords_tmp);
 
         ArrayList<Integer> sanfilippo_syndrome_img = new ArrayList<>();
-        sanfilippo_syndrome_img.add(R.drawable.sanfilippo_syndrome_1);
-        sanfilippo_syndrome_img.add(R.drawable.sanfilippo_syndrome_2);
+        sanfilippo_syndrome_img.add(R.drawable.sanfilippo_1);
+        sanfilippo_syndrome_img.add(R.drawable.sanfillipo_2);
         mCardList.add(new MainRecyclerButton("Sanfilippo syndrome",sanfilippo_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Sanfilippo (Sanfilippo syndrome)-\n" +
                         "Mucopolysaccharidosis III (MPS III)",
@@ -1444,8 +1436,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> sly_syndrome_keywords = new ArrayList<>(sly_syndrome_keywords_tmp);
 
         ArrayList<Integer> sly_syndrome_img = new ArrayList<>();
-        sly_syndrome_img.add(R.drawable.sly_syndrome_1);
-        sly_syndrome_img.add(R.drawable.sly_syndrome_2);
+        sly_syndrome_img.add(R.drawable.sly_1);
+        sly_syndrome_img.add(R.drawable.sly_2);
         mCardList.add(new MainRecyclerButton("Sly syndrome",sly_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Sly (Sly syndrome) - Mucopolysaccharidosis VΙI (MPS VII)",
                 R.raw.sly_syndrome,"ICD-10: E76.2\n" +
@@ -1467,8 +1459,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> spinal_muscular_atrophy_keywords = new ArrayList<>(spinal_muscular_atrophy_keywords_tmp);
 
         ArrayList<Integer> spinal_muscular_atrophy_img = new ArrayList<>();
-        spinal_muscular_atrophy_img.add(R.drawable.spinal_muscular_atrophy_1);
-        spinal_muscular_atrophy_img.add(R.drawable.spinal_muscular_atrophy_2);
+        spinal_muscular_atrophy_img.add(R.drawable.sma_1);
         mCardList.add(new MainRecyclerButton("Spinal muscular atrophy",spinal_muscular_atrophy_keywords,new SyndromeData(
                 "Ατροφία Νωτιαίου μυελού (Spinal muscular atrophy)-(SMA)",
                 R.raw.spinal_muscular_atrophy,"ICD-10: G12.0\nORPHA: 70\n",
@@ -1495,8 +1486,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> treacher_collins_syndrome_keywords = new ArrayList<>(treacher_collins_syndrome_keywords_tmp);
 
         ArrayList<Integer> treacher_collins_syndrome_img = new ArrayList<>();
-        treacher_collins_syndrome_img.add(R.drawable.treacher_collins_syndrome_1);
-        treacher_collins_syndrome_img.add(R.drawable.treacher_collins_syndrome_2);
+        treacher_collins_syndrome_img.add(R.drawable.treacher_1);
         mCardList.add(new MainRecyclerButton("Treacher Collins syndrome",treacher_collins_syndrome_keywords,new SyndromeData(
                 "Σύνδρομο Treacher Collins (Treacher Collins syndrome)",
                 R.raw.treacher_collins_syndrome,"ICD-10: Q75.4\n" +
@@ -1526,8 +1516,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ArrayList<String> wilson_disease_keywords = new ArrayList<>(wilson_disease_keywords_tmp);
 
         ArrayList<Integer> wilson_disease_img = new ArrayList<>();
-        wilson_disease_img.add(R.drawable.wilson_disease_1);
-        wilson_disease_img.add(R.drawable.wilson_disease_2);
+        wilson_disease_img.add(R.drawable.willson_1);
         mCardList.add(new MainRecyclerButton("Wilson disease",wilson_disease_keywords,new SyndromeData(
                 "Ασθένεια Wilson (Wilson Disease)",
                 R.raw.wilson_disease,"ICD-10: E83.0B\n" +

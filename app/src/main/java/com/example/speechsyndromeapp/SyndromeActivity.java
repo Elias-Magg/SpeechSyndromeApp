@@ -71,14 +71,20 @@ public class SyndromeActivity extends AppCompatActivity {
 
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 
+        ArrayList<Integer> images = data.getImages();
+
 
         mTitle.setText(data.getTitle());
         mCode.setText(data.getCode());
 
-        mImage1.setVisibility(View.GONE);
-        mImage2.setVisibility(View.GONE);
-        mImage3.setVisibility(View.GONE);
-        mImage4.setVisibility(View.GONE);
+        if(images.size() > 0)mImage1.setImageResource(images.get(0));
+        else mImage1.setVisibility(View.GONE);
+        if(images.size() > 1)mImage2.setImageResource(images.get(1));
+        else mImage2.setVisibility(View.GONE);
+        if(images.size() > 2)mImage3.setImageResource(images.get(2));
+        else mImage3.setVisibility(View.GONE);
+        if(images.size() > 3)mImage4.setImageResource(images.get(3));
+        else mImage4.setVisibility(View.GONE);
 
         InputStream inputStream = getResources().openRawResource(data.getTextFile());
             try{
